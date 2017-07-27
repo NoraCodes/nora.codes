@@ -13,7 +13,7 @@ tags:
 - teleportation
 ---
 
-I've learned quite a lot about VR experiences in the last month and a half, by sampling many and reviewing two, [Quanero](http://silverwingedseraph.net/programming/2017/05/27/quanero-vr-a-review.html) and [Battle Dome](http://silverwingedseraph.net/programming/2017/06/16/battledome-vr-a-review.html). I've tried simple visual demos and complex puzzle games, from AAA developers (_The Lab_ from Valve), mid-size studios (_Raw Data_ from Survios), and indie development teams (_Accounting_ from Crows Crows Crows and Squanchtendo). Each of these experiences was unique and each used the technology slightly differently. 
+I've learned quite a lot about VR experiences in the last month and a half, by sampling many and reviewing two, [Quanero](/post/2017/05/27/quanero-vr-a-review.html) and [Battle Dome](/post/2017/06/16/battledome-vr-a-review.html). I've tried simple visual demos and complex puzzle games, from AAA developers (_The Lab_ from Valve), mid-size studios (_Raw Data_ from Survios), and indie development teams (_Accounting_ from Crows Crows Crows and Squanchtendo). Each of these experiences was unique and each used the technology slightly differently. 
 
 I've also been working through a 3D modelling course (for the free Blender 3D art package) from Udemy, which has been very informative, and not just in technical knowledge. The course also teaches a lean development model which is optimized for small teams with not many resources - perfect for my situation.
 

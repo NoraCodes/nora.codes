@@ -52,7 +52,6 @@ NOTE: All of these links are to gateway.ipfs.io, the publicly available gateway 
   * [Star Trek Horizon](http://ipfs.io/ipfs/QmYGD41np8igDK743qMxKuXcJ7JVdryhNnRgXAypD6HH83) (fan made)
 
 
-Please, submit more IPFS hashes or IPFS related services at leo@silverwingedseraph.net.
 
 
 

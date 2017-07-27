@@ -99,4 +99,4 @@ Open source is not the answer to every problem, but it is the answer to many of 
 
 It costs you nothing but a download and a few clicks to try a piece of open source software, so go ahead. If you have a problem, most products have a method by which you can bring that problem to the developers' attention (called **filing a bug** against the product), so they can fix it.
 
-If you're curious about open source as a concept, and how it can help you or your business, please contact me at leo@silverwingedseraph.net. I'm more than happy to answer any questions you might have.
+If you're curious about open source as a concept, and how it can help you or your business, please contact me at lfstindall@gmail.com. I'm more than happy to answer any questions you might have.

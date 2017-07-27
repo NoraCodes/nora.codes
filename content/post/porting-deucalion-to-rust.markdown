@@ -24,6 +24,3 @@ For example, while Rust doesn't have exceptions (because exception handling requ
 I also like the module system much more than I thought I would at first. While learning when and where to use mod vs use can be a bit of a hassle, the fact that multiple includes create an automatic compiler error is very welcome when compared with C++.
 
 Rust is a great language, and its ecosystem is on its way to becoming as good as that of Python or Ruby. I'm excited for every step along the way.
-
-
-<blockquote>Note: Development on Deucalion stalled because the Rust SFML bindings we were using are broken. However, thanks to my good experiences with Piston which you can read about [here](https://silverwingedseraph.net/piston-a-game-library-in-rust), I'm hopeful that things can get back on track.</blockquote>

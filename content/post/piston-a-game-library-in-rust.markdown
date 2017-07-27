@@ -20,7 +20,7 @@ This tutorial will show you how to build a simple windowed application with a ti
 Note: This tutorial assumes that you have a recent version of Rust [installed](https://doc.rust-lang.org/stable/book/getting-started.html#installing-rust-1), that you know how to [build hello world](https://doc.rust-lang.org/stable/book/getting-started.html#hello-world) in Rust, and that you know about creating projects and installing packages with [Cargo](https://doc.rust-lang.org/stable/book/getting-started.html#hello-cargo), Rust's package manager.
 
 
-![](https://silverwingedseraph.net/wp-content/uploads/2017/03/piston_example-300x240.png)We're going to create a simple windowed application that draws a square of color which bounces around. This will exercise the basic 2D abilities of Piston and set you up for future projects.
+![](/images/piston_example-300x240.png)We're going to create a simple windowed application that draws a square of color which bounces around. This will exercise the basic 2D abilities of Piston and set you up for future projects.
 
 To get started, just `cargo new --bin` with whatever name you like. Our `Cargo.toml` only needs one dependency: `piston_window = "0.64.0"`. All of our code will go in `src/main.rs`. Go ahead and delete the existing `main` function.
 
