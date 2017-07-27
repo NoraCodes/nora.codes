@@ -40,5 +40,5 @@ pygmentsstyle = "friendly"
     url = "/index.xml"
 
 [params]
-    description = "A simple, minimal blog for those who love text."
-    footer = "Open-Source | [Github](https://github.com/goodroot/hugo-classic)"
+    description = "Leo Tindall's personal website"
+    footer = "[GitHub](https://github.com/LeoTindall) | [@Tindall@Cybre.Space](https://cybre.space/@tindall) | [CC-BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/)"
