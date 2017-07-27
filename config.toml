@@ -1,3 +1,44 @@
 baseURL = "http://example.org/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+
+title = "Leo Tindall"
+theme = "hugo-classic"
+
+googleAnalytics = ""
+
+# Allow Hugo to munge, e.g., "Programming Stuff" into "programming-stuff" 
+preserveTaxonomyNames = false
+
+# Highlighting
+pygmentsstyle = "friendly"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  series = "series"
+
+[permalinks]
+    post = "/post/:year/:month/:day/:slug"
+
+[[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+
+[[menu.main]]
+    name = "Categories"
+    url = "/categories/"
+    weight = 2
+
+[[menu.main]]
+    name = "Tags"
+    url = "/tags/"
+    weight = 3
+
+[[menu.feed]]
+    name = "Subscribe"
+    url = "/index.xml"
+
+[params]
+    description = "A simple, minimal blog for those who love text."
+    footer = "Open-Source | [Github](https://github.com/goodroot/hugo-classic)"
