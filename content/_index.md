@@ -26,4 +26,10 @@ title: Home
  to stay away from most corporate/nonfree social media, so GNUSocial (Mastodon)
  or e-mail is your best bet for contacting me.
 
-### Blog Entries
+### About This Site
+
+ This website is powered by [**nginx**](https://nginx.org), the
+ [**Hugo**](https://gohugo.io/) static site generator, and
+ [**LetsEncrypt**](https://letsencrypt.org/).
+
+### Entries
