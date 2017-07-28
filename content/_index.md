@@ -15,14 +15,15 @@ title: Home
  and technical sides of software.
 
  My preferred programming languages are **Rust**, **Go**, **Python 3**, and
- **C#**. I am an advocate of free and open source software (**F/OSS**),
- especially user-friendly applications of digital signing and strong
- cryptography. I'm also a huge advocate of community-created standards of
- behavior and explicit, democratically-designed codes of conduct for online
- communities.
+ **C#**. I am an advocate of free and open source software and explicit,
+ engineered codes of conduct for online communities.
 
  I’m currently a student at Beloit College, studying computer science. I love
  programming, but I’m also into sci-fi, tabletop gaming, literature, socialogy,
  politics, and social justice work.
+
+ You can find my various social media links at the bottom of this page. I tend
+ to stay away from most corporate/nonfree social media, so GNUSocial (Mastodon)
+ or e-mail is your best bet for contacting me.
 
 ### Blog Entries
