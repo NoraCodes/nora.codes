@@ -402,7 +402,7 @@ This is a totally working example of drawing and keyboard input with Piston, spe
     
 {{< /highlight >}}
 
-You can also check out the associated [GitHub repository](https://github.com/leotindall/piston-flying-square); comments about the code or improvements are welcome as issues or PRs there, or comments on this post. You might want to look at my [Rust state machine tutorial](http://localhost:4000/programming/2016/07/06/rust-using-enums-and-match-expressionsstatements.html) or my post about [session types](programming/2017/02/15/session-types.html) in Rust.
+You can also check out the associated [GitHub repository](https://github.com/leotindall/piston-flying-square); comments about the code or improvements are welcome as issues or PRs there, or comments on this post. You might want to look at my [Rust state machine tutorial](/2016/07/06/rust-using-enums-and-match-expressionsstatements.html) or my post about [session types](2017/02/15/session-types.html) in Rust.
 
 Happy hacking!
 
