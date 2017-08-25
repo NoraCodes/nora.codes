@@ -32,4 +32,6 @@ title: Home
  [**Hugo**](https://gohugo.io/) static site generator, and
  [**LetsEncrypt**](https://letsencrypt.org/).
 
+ This server hosts a Tor exit node. Direct complaints to me, not Linode.
+
 ### Entries
