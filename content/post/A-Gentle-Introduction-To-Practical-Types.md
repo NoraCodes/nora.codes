@@ -1,5 +1,5 @@
 ---
-date: 2017-08-01
+date: 2017-09-29
 title: A Gentle Introduction to Practical Types
 slug: a-gentle-introduction-to-practical-types
 categories:
