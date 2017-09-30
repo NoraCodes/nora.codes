@@ -24,7 +24,8 @@ title: Home
 
  You can find my various social media links at the bottom of this page. I tend
  to stay away from most corporate/nonfree social media, so GNUSocial (Mastodon)
- or e-mail is your best bet for contacting me.
+ or e-mail is your best bet for contacting me. If you would like to hire me,
+ please take the time to observe my [rates](hire/).
 
 ### About This Site
 
