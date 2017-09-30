@@ -19,7 +19,7 @@ In a logical sense, it tells us _what we can do with a value_. For example, when
 
 In programming, most languages have many built in types, and not just numbers; strings (of characters; that is, text) and more exotic things like pointers are all types of values that can be found in most programs, and the types of those values essentially tell us what we can do with them.
 
-Types also tell us _how to represent data_. For instance, in Python, a variable of type `int` is not "any integer"; it is any integer between -2^63 and 2^63 - 1, because it is represented in memory as 64 bits, the first of which is the sign (negative or positive) and the rest of which are the absolute value of the number.
+Types also tell us _how to represent data_. For instance, a variable of type `int` is not "any integer"; it is any integer between -2^31 and 2^31 - 1, because it is represented in memory as 32 bits, the first of which is the sign (negative or positive) and the rest of which are the absolute value of the number.
 
 But before we can really talk about integers, decimal numbers, or text, we need to understand a little more about types themselves.
 
@@ -196,3 +196,5 @@ Interestingly, this causes the Rust compiler (which sadly must exist in the real
 It's been a long journey. We've gone from nothing, through finite lists of possible values, to combinations of those lists and, finally, types with infinitely many possible values. Go forth and apply this knowledge!
 
 To help you in actually understanding how to use the type system of Rust specifically, I suggest the excellent [Rust Book](https://doc.rust-lang.org/book/second-edition) and [this talk on the type system](https://www.youtube.com/watch?v=wxPehGkoNOw&index=6&list=PL85XCvVPmGQhUSX_QBkxb4g1-o56cCqI9) from RustConf 2017. Traits and lifetimes are the next topics I'd look into in order to develop a better understanding of how Rust leverages the type system to make guarantees about your programs. Most of these ideas are applicable to other languages, like TypeScript, Java, and of course OCaml-like and Haskell-like languages.
+
+NOTE: The examples here will not compile on their own; I have elided `use` statements and other such language-specific constructs to make a point. Refer to the Rust Book for information on how to actually use the types.
