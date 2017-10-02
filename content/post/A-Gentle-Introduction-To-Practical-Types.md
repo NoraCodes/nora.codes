@@ -13,9 +13,9 @@ tags:
 
 ## Types
 
-Programmers talk a lot about types, but what is a "type", anyway? It is, in essence, _the set of all possible values_ for, well, some _type_ of value.
+Programmers talk a lot about types, but what is a "type", anyway? It is, in essence, _the set of all possible values_ for some variable. Defining such a set gives us some information about _what we can do_ with the value of that variable, in general.
 
-In a logical sense, it tells us _what we can do with a value_. For example, when speaking about numbers, we might say, "let x be any integer" or "let y be any real number not equal to zero". These statements tell us what we can do with these values; we know that we can add, subtract, or multiply x and y. We cannot necessarily divide by x (because x might be equal to zero), though we can divide by y. 
+For example, when speaking about numbers, we might say, "let x be any integer" or "let y be any real number not equal to zero". These statements tell us what we can do with these values; we know that we can add, subtract, or multiply x and y. We cannot necessarily divide by x (because x might be equal to zero), though we can divide by y. 
 
 In programming, most languages have many built in types, and not just numbers; strings (of characters; that is, text) and more exotic things like pointers are all types of values that can be found in most programs, and the types of those values essentially tell us what we can do with them.
 
@@ -24,7 +24,7 @@ Types also tell us _how to represent data_. For instance, a variable of type `in
 But before we can really talk about integers, decimal numbers, or text, we need to understand a little more about types themselves.
 
 ## The Naming of Things
-The first type I'm going to make is something that mathematicians call a Σ type or sum type. What it really is is a list of options; an _enumeration_ of possible values, or, in many programming languages, an `enum`. Each option has its own type, and the enumeration of thes options creates a new type. 
+The first type I'm going to make is something that mathematicians call a Σ type or sum type. What it really is is a list of options; an _enumeration_ of possible values, or, in many programming languages, an `enum`. Each option has its own type, and the enumeration of these options creates a new type. 
 
 Here's a type that may be familiar to you: a Boolean value. It can be either True, or False. Nothing else. Here's how we would write that down in a programming language (Rust, in this case):
 
@@ -65,7 +65,7 @@ enum PositiveBoundedInteger {
 }
 {{< /highlight >}}
 
-Of course, nobody would ever actually write out all the integers from 0 to 18446744073709551616, but we _could_ define the type that way. We could also begin to write functions like addition, subtraction, and multiplication.
+Of course, ([almost](https://en.wikipedia.org/wiki/Roman_Opa%C5%82ka)) nobody would ever actually write out all the integers from 0 to 18446744073709551616, but we _could_ define the type that way. We could also begin to write functions like addition, subtraction, and multiplication.
 
 ## Doing More with Enumerations
 
@@ -117,7 +117,7 @@ struct Pets {
 }
 {{< /highlight >}}
 
-This definition means, "Create a new structured type. It's name is Pets, and it consists of one value of type BoundedPositiveInteger, called dogs, followed by another value of type BoundedPositiveInteger, called cats." We call it a structured type because we define it not by a list of possible values but by the structure of any possible value; in this case, two arbitrary BoundedPositiveIntegers. 
+This definition means, "Create a new structured type. Its name is Pets, and it consists of one value of type BoundedPositiveInteger, called dogs, followed by another value of type BoundedPositiveInteger, called cats." We call it a structured type because we define it not by a list of possible values but by the structure of any possible value; in this case, two arbitrary BoundedPositiveIntegers. 
 
 We could denote the state of owning no pets as:
 
@@ -154,6 +154,10 @@ This would have as many values as BoundedPositiveInteger (2^64) times as many va
 
 ## More Exotic Types
 
+So far, we've talked about types with sizes between 1 (Boolean) and 2^65 (BoundedInteger). Most _useful_ types will have sizes like this; however, there are uses for types with both infinite and zero size.
+
+### Infinitely Large Types
+
 We can use the combination of sum types and product types in another way: to define lists. Let's say we wanted a list of numbers; perhaps winning lottery numbers. For this, we need two types:
 
 {{< highlight rust >}}
@@ -189,11 +193,67 @@ IntegerListNode {
 
 We do run into a bit of a problem, though, when looking at the size of this type. Clearly, the IntegerListNode type has as many possible values as a BoundedInteger times as many possible values as an IntegerListLink. We know that the BoundedInteger type has 2^65 values, but how many does IntegerListLink have? Well, it's the sum of 1 (for NoNextNode) plus... however many possible values IntegerListNode has! This list type is a type with infinitely many possible values, because the nesting of nodes and links can go on for arbitrarily long.
 
-Interestingly, this causes the Rust compiler (which sadly must exist in the real world) to reject this type as invalid, because it cannot generate a representation that would fit into a computer's memory. See [the Rust Book](https://doc.rust-lang.org/book/second-edition/ch15-01-box.html) for more info.
+> **Sidebar: Representing Infinite Types in Real Computers**
+
+> The property just described actually causes the Rust compiler (which sadly must exist in the real world) to reject this type as invalid, because it cannot generate a representation that would fit into a computer's memory. Because each node contains all subsequent nodes, and because one of the things that makes Rust programs fast is that values are, by default, allocated all at once, the compiler would have to ask the computer to allocate the _maximum number of nodes that could ever exist_. Since we didn't introduce any limit to the number of nodes, that would require an infinite amount of memory. This is where _indirection_ via pointers comes in; see [the Rust Book](https://doc.rust-lang.org/book/second-edition/ch15-01-box.html) for more info. 
+>
+> Any programming language that puts values on the stack by default will have this problem; for instance, C and Rust will require explicit indirection, while e.g. Python and Java do it for you, at a bit of a speed cost.
+> 
+> The correct types look like this. Note the added `Box<...>` in the first variant of IntegerListLink; if you are unfamiliar with Rust, it is sufficient to know that this annotation tells the compiler to allocate some memory for the next IntegerListNode and store only the address of that memory inside the IntegerListLink.
+> {{< highlight rust >}}
+struct IntegerListNode {
+    value: BoundedInteger,
+    link: IntegerListLink,
+}
+
+enum IntegerListLink {
+    HasNextNode(Box<IntegerListNode>),
+    NoNextNode,
+}
+{{< /highlight >}}
+> It's important to remember that while the current Rust _implementation_ doesn't like this type, there's no reason that Rust as a _language_ can't handle it. It's a very useful type, and a good logical description of how linked lists work, even though we have to add some incantations to get them to work in the real world. 
+
+### Zero Sized or Single Value Types
+
+One thing that's interesting to note is that we have a bit of a discrepency between two kinds of enumeration type options. Some of them have other types associated with them, and some don't. Recall our type MovementInstruction:
+
+{{< highlight rust >}}
+enum MovementInstruction {
+    Go(StreetDirection),
+    NoGo,
+}
+{{< /highlight >}}
+
+This is actually a simplification of the "real" types here. NoGo technically "contains" a value of what we call the "unit type", which we denote () or ○. Values of this type can only have one value; the unit value, also denoted () or ○. So, we can re-write this type:
+
+{{< highlight rust >}}
+enum MovementInstruction {
+    Go(StreetDirection),
+    NoGo(()),
+}
+{{< /highlight >}}
+
+We can see that this has a size of 0: there is only one possible value, so whenever a value with this type appears, we know what the value is. We also can't do anything at all with the unit value, meaning that we can't do anything with variables of the unit type.
+
+However, the unit type _can_ be useful for conveying information to the compiler, or to help the compiler figure out when the programmer has made a mistake. For instance, in Rust, we say that things which return nothing (for instance, `if something { end_the_world(); }`) actually return the unit value. This gives us errors like this:
+
+{{< highlight rust >}}
+error[E0308]: mismatched types
+ --> test.rs:2:24
+  |
+2 |   fn something() -> bool {
+  |  ________________________^
+3 | |     println!("This doens't return anything!");
+4 | | }
+  | |_^ expected bool, found ()
+  |
+  = note: expected type `bool`
+             found type `()`
+{{< /highlight >}}
 
 ## Recap & Further Reading
 
-It's been a long journey. We've gone from nothing, through finite lists of possible values, to combinations of those lists and, finally, types with infinitely many possible values. Go forth and apply this knowledge!
+It's been a long journey. We've gone from nothing, through finite lists of possible values (enumerations/sum types), to combinations of those lists (structured types/product types) and, finally, types with only one possible value and those with infinitely many possible values. Go forth and apply this knowledge!
 
 To help you in actually understanding how to use the type system of Rust specifically, I suggest the excellent [Rust Book](https://doc.rust-lang.org/book/second-edition) and [this talk on the type system](https://www.youtube.com/watch?v=wxPehGkoNOw&index=6&list=PL85XCvVPmGQhUSX_QBkxb4g1-o56cCqI9) from RustConf 2017. Traits and lifetimes are the next topics I'd look into in order to develop a better understanding of how Rust leverages the type system to make guarantees about your programs. Most of these ideas are applicable to other languages, like TypeScript, Java, and of course OCaml-like and Haskell-like languages.
 
