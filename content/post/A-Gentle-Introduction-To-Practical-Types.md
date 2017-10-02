@@ -154,7 +154,7 @@ This would have as many values as BoundedPositiveInteger (2^64) times as many va
 
 ## More Exotic Types
 
-So far, we've talked about types with sizes between 1 (Boolean) and 2^65 (BoundedInteger). Most _useful_ types will have sizes like this; however, there are uses for types with both infinite and zero size.
+So far, we've talked about types with sets of values with cardinality between 2 (Boolean) and 2^65 (BoundedInteger). Most _useful_ types will have sizes like this; however, there are uses for types with both infinite cardinality and only one possible value.
 
 ### Infinitely Large Types
 
