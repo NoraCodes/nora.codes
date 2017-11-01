@@ -27,6 +27,10 @@ title: Home
  or e-mail is your best bet for contacting me. If you would like to hire me,
  please take the time to observe my [rates](hire/).
 
+  I contribute to the open source wifi mapping software [WIGLE](https://wigle.net).
+ 
+ ![My WIGLE stats](https://wigle.net/bi/KCRtNG+m94qF8ViOkvn_3g.png)
+
 ### About This Site
 
  This website is powered by [**nginx**](https://nginx.org), the
