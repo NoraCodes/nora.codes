@@ -38,5 +38,6 @@ title: Home
  [**LetsEncrypt**](https://letsencrypt.org/).
 
  This server hosts a Tor exit node. Direct complaints to me, not Linode.
+ This server transmits Clacks for Natalie Nguyen. ![GNU Natalie Nguyen](/images/tipsytentacle.gif)
 
 ### Entries
