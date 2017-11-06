@@ -2,12 +2,12 @@
 <html lang="{{ .Site.LanguageCode }}">
 
 <head>
-  {{ template "_internal/google_analytics_async.html" . }}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ .Title }} | {{ .Site.Title }}</title>
   <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}" />
   <link rel="stylesheet" href="{{ "/css/fonts.css" | relURL }}" /> {{ partial "head_custom.html" . }}
+  {{ template "_internal/google_analytics_async.html" . }}
 </head>
 
 <body>
