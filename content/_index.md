@@ -16,7 +16,8 @@ title: Home
 
  My preferred programming languages are **Rust**, **Go**, **Python 3**, and
  **C#**. I am an advocate of free and open source software and explicit,
- engineered codes of conduct for online communities.
+ engineered codes of conduct for online communities. You can check out my 
+ projects [here](projects/).
 
  I’m currently a student at Beloit College, studying computer science. I love
  programming, but I’m also into sci-fi, tabletop gaming, literature, socialogy,
