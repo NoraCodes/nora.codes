@@ -18,7 +18,7 @@ One big draw of Firefox is that it's not a data collection tool for Google, and 
 
 ### Ad Blockers
 
-First off, there are a lot of great browser extensions (using the standard WebExtension platform) which can improve your experience. The most important on the modern web is an ad-blocker of some kind. I personally use [AdNauseum](https://addons.mozilla.org/en-US/firefox/addon/adnauseam/), which attempts to not only block ads but actually pretends to click on them, throwing off tracking and costing advertisers money. There are many other options available; I used to use [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/); it's an excellent piece of software which simply blocks ads, with a very low memory and CPU overhead.
+First off, there are a lot of great browser extensions (using the standard WebExtension platform) which can improve your experience. The most important on the modern web is an ad-blocker of some kind. I personally use [AdNauseam](https://addons.mozilla.org/en-US/firefox/addon/adnauseam/), which attempts to not only block ads but actually pretends to click on them, throwing off tracking and costing advertisers money. There are many other options available; I used to use [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/); it's an excellent piece of software which simply blocks ads, with a very low memory and CPU overhead.
 
 ### CDN Caching
 
