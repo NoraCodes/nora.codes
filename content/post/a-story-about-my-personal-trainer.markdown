@@ -14,7 +14,6 @@ tags:
 - windows
 ---
 
-OK, I'm going to tell you a story.
 This is a story about a woman who runs her own small business as a personal trainer. She uses Microsoft Publisher to create her at-home training programmes and Excel for keeping track of payments, et cetera. She has a Win XP computer from 2004.
 
 I upgraded said computer to Windows 7 at XP EOL and replaced her ancient GPU so that she could use two monitors. I also got her to use LibreOffice Calc instead of MS Excel, but she loves her Publisher, so we decided it wasn't worth switching to Linux. This has been working just fine for several years, and there was no reason to believe she'd have to spend a cent on the thing for years to come. Until last week.

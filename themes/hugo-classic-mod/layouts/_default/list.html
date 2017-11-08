@@ -27,10 +27,11 @@
   </div>
   <div>
       <ul class="postsList">
-        {{ range (.Paginator 20).Pages }}
+        {{ range (.Paginator 5).Pages }}
         <li>
           <a href="{{ .URL }}">{{ .Title }}</a>
           <span class="postDate">posted {{ .Date.Format "January 02, 2006" }}</span>
+          <blockquote class="postIntro">{{ .Summary }}</p>
         </li>
         {{ end }} {{ template "_internal/pagination.html" . }}
       </ul>

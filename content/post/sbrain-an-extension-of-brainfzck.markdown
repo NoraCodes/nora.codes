@@ -13,13 +13,12 @@ tags:
 - virtual machine
 ---
 
-## What is SBrain?
-  **SBrain**, or *Semantic Brain*, is a language based on Urban Müller's famous language **Brainf*ck** with only 8 symbols (3 bit instructions). SBrain's additions increase the number of symbols to 32 (6 bit instructions), including bit-shifting and arithmetic, and add a stack and a register. 
+**SBrain**, or *Semantic Brain*, is a language based on Urban Müller's famous language **Brainf*ck** with only 8 symbols (3 bit instructions). SBrain's additions increase the number of symbols to 32 (6 bit instructions), including bit-shifting and arithmetic, and add a stack and a register. 
 
-  Having these additional facilities allows SBrain to be far more expressive while retaining its attractiveness as a genetic medium for evolutionary algorithms. I've been interested in genetic programming for a long time. After my less-than-stellar results from a Python implementation of a Brainf\*ck (which you can see [here](https://github.com/leotindall/evolve_bf), though the code is truly awful), I decided to try a new tack. I designed SBrain over about two years and implemented an interpreter in Rust, which you can find [here](https://github.com/leotindall/sbrain).
+Having these additional facilities allows SBrain to be far more expressive while retaining its attractiveness as a genetic medium for evolutionary algorithms. I've been interested in genetic programming for a long time. After my less-than-stellar results from a Python implementation of a Brainf\*ck (which you can see [here](https://github.com/leotindall/evolve_bf), though the code is truly awful), I decided to try a new tack. I designed SBrain over about two years and implemented an interpreter in Rust, which you can find [here](https://github.com/leotindall/sbrain).
 
-  SBrain is a strict superset of its parent language. It does have some important differences other than its additional instructions, most notably that unbalanced jump
-  (`[` and `]`) instructions are valid. For instance, the program `.+]` will print ascending numbers forever (as opposed to the strictly legal `[.+]` required in BF.)
+SBrain is a strict superset of its parent language. It does have some important differences other than its additional instructions, most notably that unbalanced jump
+(`[` and `]`) instructions are valid. For instance, the program `.+]` will print ascending numbers forever (as opposed to the strictly legal `[.+]` required in BF.)
 
 ## Evolving Computer Programs
 

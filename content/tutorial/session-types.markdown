@@ -12,16 +12,11 @@ tags:
 - types
 ---
 
-### What are session types?
-
-
-Session types are, essentially, a technique for using a rich type system like that of Rust or OCaml to express semantic meaning and prevent the representation of certain kinds of illegal states, especially with respect to causality.
-
+Session types are a technique for using a rich type system, like that of Rust or OCaml, to prevent the representation of certain kinds of illegal states. Here, I'll illustrate them with a (somewhat contrived) example.
 
 ### What is the use-case?
 
-
-Let's take the somewhat contrived example of a system representing packaging and shipping boxes. I want to create a Package datastructure, pack data into it, close it (preventing adding data), address it, and then ship it. It makes no sense to send an un-addressed Package, or to insert data into a closed one.
+Let's take the example of a system representing packaging and shipping boxes. I want to create a Package datastructure, pack data into it, close it (preventing adding data), address it, and then ship it. It makes no sense to send an un-addressed Package, or to insert data into a closed one.
 
 We could represent this like this:
 

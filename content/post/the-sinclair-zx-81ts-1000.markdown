@@ -13,10 +13,7 @@ tags:
 
 ![ts_1000_in_styrofoam](/images/ts_1000_in_styrofoam-169x300.jpg) 
 
-About a month before writing this (around March 4, 2016), I watched the excellent Micro Men, about Sir Clive Sinclair, Sinclair Research, Acorn Computers, and the fight for the British low-end computer home computer market in the early 1980s. This, Dave Jones's EEVBlog videos about the Sinclair ZX Spectrum and Sinclair C-5 electric car, and a healthy (unhealthy?) dose of procrastination lead me to spend a few hours browsing eBay - and then I saw something. "Timex Sinclair 1000 Retro Home Computer, New In Box". I checked the price - $29.99 plus shipping.
-No way, I thought. No way there was an unopened box with the hottest item of the 1982 Christmas season that's been sitting on someone's shelf for 35 years on eBay for twenty bucks. But, there it was, photos and all. The seller had a 99% reputation and was selling several other vintage computer for quite a lot more, so I went for it. It has been one of the most interesting purchases of my life.
-
-<!-- more -->
+I recently watched the excellent film Micro Men, about Sir Clive Sinclair, Sinclair Research, Acorn Computers, and the fight for the British low-end computer home computer market in the early 1980s. This, along with a healthy (unhealthy?) dose of procrastination, lead me to spend a few hours browsing eBay, looking for old PCs. "Timex Sinclair 1000 Retro Home Computer, New In Box". I checked the price - $29.99 plus shipping. It has been one of the most interesting purchases of my life.
 
 The Timex Sinclair 1000 was originally the ZX81, designed by Rick Dickenson for Sir Clive Sinclair's Sinclair Research, and built by Timex (yes, the watch company) in Scotland. It sold extremely well in Britain. In America, however, the Sinclair brand was mostly unknown, so the computer was released there as the Timex Sinclair 1000. It also recieved some modifications and upgrades, most notably a _whole extra kilobyte_ of RAM. (I make fun of it now, but at the time it was a big deal.)
 Over its three-year run, the ZX81 sold 1.5 million units under that name and an unknown number in America as the TS1000. In addition, several unauthorized clones were created in the Soviet Union in 1982 and sold well there until at least 1986.

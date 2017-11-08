@@ -146,6 +146,9 @@ ul.pagination {
 .postDate {
   color: #888888;
 }
+.postIntro {
+  color: #cccccc;
+}
 
 table {
   margin: auto;

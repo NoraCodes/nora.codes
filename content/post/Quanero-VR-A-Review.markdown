@@ -12,7 +12,9 @@ tags:
 - htc vive
 ---
 
-_Quanero VR_, available from “Laserboys3000” on Steam for nothing, is the best of the many VR experiences I’ve encountered so far. This isn’t because it’s particularly beautiful (it’s graphics are competent, much more so than those I’m able to create, but not on a AAA level) nor because it’s gameplay is particularly well designed (in fact, it has almost no “gameplay”). Quanero is amazing because it’s the first truly “player-motivated” VR experience I’ve seen.
+_Quanero VR_, available from “Laserboys3000” on Steam for nothing, is the best of the many VR experiences I’ve encountered so far. 
+
+This isn’t because it’s particularly beautiful (it’s graphics are competent, much more so than those I’m able to create, but not on a AAA level) nor because it’s gameplay is particularly well designed (in fact, it has almost no “gameplay”). Quanero is amazing because it’s the first truly “player-motivated” VR experience I’ve seen.
  
 VR provides the ability to create almost perfectly immersive virtual worlds, and Quanero demonstrates how to use that immersion to tap into intrinsic motivations of players - in this case, mostly curiosity and a little bit of completionism. Quanero presents a tiny virtual world - just a terrace and small bar - with the hints of a large, cyberpunky, Blade Runner-esque world around it. 
  
