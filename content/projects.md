@@ -15,6 +15,7 @@ I write a lot of software. Not all of it is production quality, but I like to ma
 
 ### Web Applications
 
+* [Open Energy Dashboard](https://openenergydashboard.github.io) - a web application that ingests, stores, and allows users to analyze data from smart energy meters.
 * [RFortune](https://github.com/leotindall/rfortune) - a web application written in Rust which displays random quotes to the user. A proof of concept for Rocket web apps.
 * [Silvr](https://github.com/LeoTindall/silvr) - a SQLite-based blogging application, written in Python with Flask.
 
