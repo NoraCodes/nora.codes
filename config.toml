@@ -2,7 +2,7 @@ baseURL = "https://leotindall.com/"
 languageCode = "en-us"
 
 title = "Leo Tindall"
-theme = "hugo-classic"
+theme = "hugo-classic-mod"
 
 googleAnalytics = "UA-109273435-1"
 
