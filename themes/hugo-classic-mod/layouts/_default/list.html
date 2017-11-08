@@ -1,26 +1,41 @@
 {{ partial "header.html" . }}
 <div class="page-container">
-{{if not .IsHome }}
-<h1>{{ .Title }}</h1>
-{{ end }}
+  {{if not .IsHome }}
+  <div class="article-meta">
+    <h1>
+      <span class="title">{{ .Title }}</span>
+    </h1>
+  </div>
+  {{ end }}
 
-<div class="prelist">
-  <img src="/images/profile-small.jpg" class="headshot" alt="My face, with my hair pulled back, against a plain background." />
-  <div class="list-blurb">
+  <!-- Home page content -->
+
+  {{if .IsHome }}
+  <div class="prelist">
+    <img src="/images/profile-small.jpg" class="headshot" alt="My face, with my hair pulled back, against a plain background."
+    />
+    <div class="list-blurb">
+      {{ .Content }}
+    </div>
+  </div>
+  {{ end }}
+
+  <!-- Paginated list of posts -->
+  {{ if not .IsHome }}
+  <div>
     {{ .Content }}
   </div>
-</div>
+  <div>
+      <ul class="postsList">
+        {{ range (.Paginator 20).Pages }}
+        <li>
+          <a href="{{ .URL }}">{{ .Title }}</a>
+          <span class="postDate">posted {{ .Date.Format "January 02, 2006" }}</span>
+        </li>
+        {{ end }} {{ template "_internal/pagination.html" . }}
+      </ul>
+  </div>
 
-<div>
-  <h2 style="padding-left:5%;">Entries</h3>
-<ul>
-  {{ range (where .Data.Pages "Section" "!=" "") }}
-  <li>
-    <span class="date">{{ .Date.Format "2006/01/02" }}</span>
-    <a href="{{ .URL }}">{{ .Title }}</a>
-  </li>
-  {{ end }}
-</ul>
-</div>
+{{ end }}
 </div>
 {{ partial "footer.html" . }}

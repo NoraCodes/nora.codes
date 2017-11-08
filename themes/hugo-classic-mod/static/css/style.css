@@ -94,22 +94,27 @@ header .current a {
 /* Code Boxes */
 pre {
   border: 1px solid #ddd;
-  box-shadow: 5px 5px 5px #eee;
-  background: #f8f8f8;
+  margin: 12px;
+  background: #444444;
   padding: 1em;
   overflow-x: auto;
   border-radius: 3px;
 }
-code { background: #444444; padding: 2px; border-radius: 2px; }
+code { 
+  background: #444444;
+  padding: 2px; 
+  border-radius: 2px; }
 pre code { background: none; }
 
 /* Images, tables, misc. */
 img, iframe, video { max-width: 100%; }
 main { hyphens: auto; }
 blockquote {
-  background: #f9f9f9;
+  background: #444444;
   border-left: 5px solid #ccc;
   padding: 3px 1em 3px;
+  border-radius: 2px;
+  margin: 12px;
 }
 
 /* Front page headshot */
@@ -130,11 +135,23 @@ img.headshot {
   border-radius:3px;
 }
 
+/* pagination */
+.pagination li {
+  display: inline;
+  list-style: none;
+}
+ul.pagination {
+  padding: none;
+}
+.postDate {
+  color: #888888;
+}
+
 table {
   margin: auto;
   border-top: 1px solid #666;
   border-bottom: 1px solid #666;
 }
-table thead th { border-bottom: 1px solid #ddd; }
+table thead th { border-bottom: 1px solid #444444; }
 th, td { padding: 5px; }
-tr:nth-child(even) { background: #eee }
+tr:nth-child(even) { background: #444444 }

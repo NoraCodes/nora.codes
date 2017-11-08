@@ -12,7 +12,7 @@ googleAnalytics = "UA-109273435-1"
 preserveTaxonomyNames = false
 
 # Highlighting
-pygmentsstyle = "monokai"
+pygmentsstyle = "fruity"
 
 [taxonomies]
   tag = "tags"
@@ -20,16 +20,17 @@ pygmentsstyle = "monokai"
   series = "series"
 
 [permalinks]
-    post = "/post/:year/:month/:day/:slug"
+    post = "/post/:slug"
+    tutorial = "/tutorial/:slug"
 
 [[menu.main]]
-    name = "Home"
-    url = "/"
+    name = "Blog"
+    url = "/post/"
     weight = 1
 
 [[menu.main]]
-    name = "Categories"
-    url = "/categories/"
+    name = "Tutorials"
+    url = "/tutorial/"
     weight = 2
 
 [[menu.main]]
