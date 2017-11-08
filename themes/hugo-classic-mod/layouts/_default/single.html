@@ -1,4 +1,5 @@
 {{ partial "header.html" . }}
+<div class="page-container">
 <div class="article-meta">
 <h1><span class="title">{{ .Title }}</span></h1>
 {{ with .Params.author }}<h2 class="author">{{ . }}</h2>{{ end }}
@@ -19,5 +20,6 @@
 <main>
 {{ .Content }}
 </main>
+</div>
 
 {{ partial "footer.html" . }}

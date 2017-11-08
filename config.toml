@@ -12,7 +12,7 @@ googleAnalytics = "UA-109273435-1"
 preserveTaxonomyNames = false
 
 # Highlighting
-pygmentsstyle = "friendly"
+pygmentsstyle = "monokai"
 
 [taxonomies]
   tag = "tags"
@@ -33,8 +33,8 @@ pygmentsstyle = "friendly"
     weight = 2
 
 [[menu.main]]
-    name = "Tags"
-    url = "/tags/"
+    name = "Projects"
+    url = "/projects/"
     weight = 3
 
 [[menu.feed]]
@@ -43,4 +43,4 @@ pygmentsstyle = "friendly"
 
 [params]
     description = "Leo Tindall's personal website"
-    footer = "[GitHub](https://github.com/LeoTindall) | [@Tindall@Cybre.Space](https://cybre.space/@tindall) | [CC-BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/)"
+    footer = "[GitHub](https://github.com/LeoTindall) | [@Tindall@Cybre.Space](https://cybre.space/@tindall) | [CC-BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/) | ![GNU Natalie Nguyen](/images/tipsytentacle.gif)"

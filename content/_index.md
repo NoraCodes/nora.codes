@@ -2,43 +2,12 @@
 title: Home
 ---
 
+# (λleo.code)
 
-[<img src="/images/profile-small.jpg" style="max-width:15%;min-width:40px;float:right;" alt="My face, with my hair pulled back, against a plain background." />](https://leotindall.com/)
+ I'm **Leo Tindall**, a systems and web programmer from San Diego.
 
-## The Personal Site of Leo Tindall
+ My preferred programming languages are **Rust**, **Go**, **Python 3**, and **JavaScript**/**TypeScript**. You can check out my [projects](projects/) to see what I've worked on in the past.
 
-### Systems. Software. Silliness.
+ I’m currently a student at Beloit College, studying computer science. I love programming, but I’m also into sci-fi, tabletop gaming, literature, socialogy, politics, and social justice work.
 
- This is the personal blog and web hub of **Leo F.S. Tindall**, a digital native
- hailing from {North Carolina, Texas, California}. I'm a software developer
- who aspires to a theorietical and practical understanding of both the human
- and technical sides of software.
-
- My preferred programming languages are **Rust**, **Go**, **Python 3**, and
- **C#**. I am an advocate of free and open source software and explicit,
- engineered codes of conduct for online communities. You can check out my 
- projects [here](projects/).
-
- I’m currently a student at Beloit College, studying computer science. I love
- programming, but I’m also into sci-fi, tabletop gaming, literature, socialogy,
- politics, and social justice work.
-
- You can find my various social media links at the bottom of this page. I tend
- to stay away from most corporate/nonfree social media, so GNUSocial (Mastodon)
- or e-mail is your best bet for contacting me. If you would like to hire me,
- please take the time to observe my [rates](hire/).
-
-  I contribute to the open source wifi mapping software [WIGLE](https://wigle.net).
- 
- ![My WIGLE stats](https://wigle.net/bi/KCRtNG+m94qF8ViOkvn_3g.png)
-
-### About This Site
-
- This website is powered by [**nginx**](https://nginx.org), the
- [**Hugo**](https://gohugo.io/) static site generator, and
- [**LetsEncrypt**](https://letsencrypt.org/).
-
- This server hosts a Tor exit node. Direct complaints to me, not Linode.
- This server transmits Clacks for Natalie Nguyen. ![GNU Natalie Nguyen](/images/tipsytentacle.gif)
-
-### Entries
+ You can find my various social media links at the bottom of this page. GNUSocial (Mastodon) or email is your best bet for contacting me.

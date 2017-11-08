@@ -1,11 +1,18 @@
 {{ partial "header.html" . }}
-
+<div class="page-container">
 {{if not .IsHome }}
 <h1>{{ .Title }}</h1>
 {{ end }}
 
-{{ .Content }}
+<div class="prelist">
+  <img src="/images/profile-small.jpg" class="headshot" alt="My face, with my hair pulled back, against a plain background." />
+  <div class="list-blurb">
+    {{ .Content }}
+  </div>
+</div>
 
+<div>
+  <h2 style="padding-left:5%;">Entries</h3>
 <ul>
   {{ range (where .Data.Pages "Section" "!=" "") }}
   <li>
@@ -14,5 +21,6 @@
   </li>
   {{ end }}
 </ul>
-
+</div>
+</div>
 {{ partial "footer.html" . }}

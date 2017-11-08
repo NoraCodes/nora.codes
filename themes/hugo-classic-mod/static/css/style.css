@@ -3,6 +3,14 @@ body {
   margin: auto;
   padding: .2em;
   line-height: 1.5em;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.page-container {
+  margin: 10px;
+  padding: 10px;
+  background-color: #333333;
 }
 
 /* Table of Contents, if wanted
@@ -24,8 +32,8 @@ output:
 .menu li { display: inline-block; }
 .article-meta, .menu a {
   text-decoration: none;
-  background: #D2D6EF;
-  color: #FFF;
+  background: #555555;
+  color: #ffffff;
   padding: 5px;
   border-radius: 5px;
 }
@@ -43,7 +51,7 @@ footer a { text-decoration: none; }
 }
 
 a {
-  color: #613DC1;
+  color: rgb(158, 123, 255);
   text-decoration: none;
 }
 
@@ -59,7 +67,8 @@ header {
     font-family: "Lucida Console" , "Liberation Mono";
     font-size: .875rem;
     background: #613DC1;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #333333;
+    border-radius: 3px;
 }
 
 header ul,
@@ -73,13 +82,13 @@ header nav {
 }
 
 header a {
-    color: #fff;
+    color: #ffffff;
     line-height: 1.75rem;
     padding: 0 0.5rem
 }
 header a:hover,
 header .current a {
-    color: #fff
+    color: #ffffff
 }
 
 /* Code Boxes */
@@ -89,8 +98,9 @@ pre {
   background: #f8f8f8;
   padding: 1em;
   overflow-x: auto;
+  border-radius: 3px;
 }
-code { background: #f9f9f9; }
+code { background: #444444; padding: 2px; border-radius: 2px; }
 pre code { background: none; }
 
 /* Images, tables, misc. */
@@ -100,6 +110,24 @@ blockquote {
   background: #f9f9f9;
   border-left: 5px solid #ccc;
   padding: 3px 1em 3px;
+}
+
+/* Front page headshot */
+img.headshot {
+  max-width:15%;
+  min-width:40px;
+  display: inline-block;
+  vertical-align: top;
+  margin:30px;
+  border-radius:3px;
+}
+
+/* front page blurb */
+.list-blurb {
+  width: calc(75% - 40px);
+  display: inline-block;
+  margin:5px;
+  border-radius:3px;
 }
 
 table {
