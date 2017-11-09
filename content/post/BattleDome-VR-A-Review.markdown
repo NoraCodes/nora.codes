@@ -1,6 +1,5 @@
 ---
 date: 2017-06-16
-layout: post
 title: BattleDome VR, a Review
 slug: battledome-vr-a-review
 categories:

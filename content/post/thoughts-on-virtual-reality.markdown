@@ -1,6 +1,5 @@
 ---
 date: 2017-05-26
-layout: post
 title: Thoughts on Virtual Reality
 slug: thoughts-on-virtual-reality
 categories:
