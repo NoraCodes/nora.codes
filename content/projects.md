@@ -36,6 +36,10 @@ I write a lot of software. Not all of it is production quality, but I like to ma
 * [PyParens](https://github.com/LeoTindall/pyparens) - a toy Lisp language that executes in a Python context, with full interoperation.
 * [GenevaBot](https://github.com/LeoTindall/genevabot) - a Python script that builds a statistical replica of a given Tumblr blog.
 
+### Embedded Applications
+
+*[esp8266_scan](https://gist.github.com/LeoTindall/c328e47e47cafc0be353feec020175af) - a wireless scanner code for the ESP8266 chip, which produces either JSON or human-readable output.
+
 ### Games
 
 * [RaptorDown](https://github.com/LeoTindall/RaptorDown) - a rogue-like game I built in 24 hours for CodeDay San Diego.
