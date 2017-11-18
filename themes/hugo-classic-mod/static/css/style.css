@@ -26,6 +26,7 @@ output:
 #TableOfContents, #TOC {
   border: 1px solid #eee;
   border-radius: 5px;
+  margin: 5px;
 }
 
 /* Header and Footer */

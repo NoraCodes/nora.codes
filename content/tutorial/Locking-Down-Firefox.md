@@ -18,11 +18,11 @@ One big draw of Firefox is that it's not a data collection tool for Google, and 
 
 ### Ad Blockers
 
-First off, there are a lot of great browser extensions (using the standard WebExtension platform) which can improve your experience. The most important on the modern web is an ad-blocker of some kind. I personally use [AdNauseam](https://addons.mozilla.org/en-US/firefox/addon/adnauseam/), which attempts to not only block ads but actually pretends to click on them, throwing off tracking and costing advertisers money. There are many other options available; I used to use [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/); it's an excellent piece of software which simply blocks ads, with a very low memory and CPU overhead.
+First off, there are a lot of great browser extensions (using the standard WebExtension platform) which can improve your experience. The most important on the modern web is an ad-blocker of some kind. I personally use [AdNauseam](https://addons.mozilla.org/en-US/firefox/addon/adnauseam/), which attempts to not only block ads but actually pretends to click on them, throwing off tracking and costing advertisers money. There are many other options available; I used to use the software that AdNauseam is based on, which is called [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/); it's an excellent piece of software which simply blocks ads, with a very low memory and CPU overhead.
 
 ### CDN Caching
 
-Many websites use pieces of JavaScript and CSS code imported from CDNs (Content Delivery Networks) elsewhere on the web. Unfortunately, this allows the publishers of those libraries to track anyone who visits multiple websites that use them. It's also kind of slow. [DecentralEyes](https://decentraleyes.org/) saves these shared pieces of code to your computer the first time you encounter them, then intercepts requests for them and uses your saved copy. This both prevents the CDN operators from tracking you and speeds up your browsing experience.
+Many websites use pieces of JavaScript and CSS code imported from CDNs (Content Delivery Networks) elsewhere on the web. Unfortunately, this allows the publishers of those libraries to track anyone who visits multiple websites that use them. It's also kind of slow. [Decentraleyes](https://decentraleyes.org/) saves many of these shared pieces of code to your computer, then intercepts requests for them and uses your saved copy. This both prevents the CDN operators from tracking you and speeds up your browsing experience.
 
 ### Adaptive Tracker Blocking
 
@@ -34,7 +34,7 @@ There are a lot of pieces of information that a website can use to track you, ev
 
 ### HTTPS Everywhere
 
-HTTPS is the basic underlying encryption technology for the web. While properly-configured websites generally upgrade HTTP requests to HTTPS when possible, you can install the [HTTPS Everywhere](https://www.eff.org/https-everywhere) extension (again by the great folks at the EFF) to make sure your browser checks for HTTPS at every website you visit, and upgrades to it if possible. This not only improves your tracking protection, but also makes you effectively immune to the [SSLStrip](https://github.com/moxie0/sslstrip) attack.
+HTTPS is the basic underlying encryption technology for the web. While properly-configured websites generally upgrade HTTP requests to HTTPS when possible, you can install the [HTTPS Everywhere](https://www.eff.org/https-everywhere) extension (again by the great folks at the EFF) to make sure your browser check if HTTPS is known to be available and uses to it if possible. This not only improves your tracking protection, but also makes your computer significantly more resistant to the [SSLStrip](https://github.com/moxie0/sslstrip) attack.
 
 ## Config Settings
 
@@ -84,3 +84,5 @@ Search for the setting `privacy.firstparty.isolate` and go ahead and set it to `
 
 Congratulations! Your browser is now pretty dang difficult to track. If you have suggestions for more hardening methods, please contact me.
 I'd like to give a shoutout to @david_ross@mastodon.social and @gemlog@mastodon.sdf.org for some suggestions I used here.
+
+> Note: This post has been edited to correct errors in the spelling and description of operation of Decentraleyes and HTTPSEverywhere.

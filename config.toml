@@ -4,8 +4,6 @@ languageCode = "en-us"
 title = "Leo Tindall"
 theme = "hugo-classic-mod"
 
-googleAnalytics = "UA-109273435-1"
-
 # dateFormat = "date -u +'%Y-%m-%d %R:%S%:z'"
 
 # Allow Hugo to munge, e.g., "Programming Stuff" into "programming-stuff" 
