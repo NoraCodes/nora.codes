@@ -12,7 +12,6 @@ tags:
 - cracking
 - reverse engineering
 toc: true
-draft: true
 ---
 
 This document presents an introduction to x86\_64 binary reverse engineering, the process of determining the operation of a compiled computer program without access to its source code, through a series of CrackMe programs. 
@@ -528,11 +527,129 @@ If you made it this far, good job! Reverse engineering is difficult, but this is
 
 > **Exercise**: There is a file called `crackme02e.c` which can be solved using this same technique. Compile and attempt to solve it, to cement your skills.
 
+## crackme03.c
+
+The next crackme is slightly more difficult. In `crackme02`, we were able to manually inspect each branch, building up the flow of execution mentally. This technique breaks down as programs become more complex.
+
+### The Radare Binary Analysis Tool
+
+Fortunately, the reverse engineering community is rife with smart people, and there are excellent tools to automate a great deal of this analysis. Some of them, like Ida Pro, cost as much as $5000, but my personal favorite is Radare2 (**Ra**ndom **da**ta **re**covery), which is entirely free and open source.
+
+Running `crackme03.64`, we can see that it (basically) works about the same way as the other two. It needs exactly one argument, and when we provide it with one, it helpfully tells us that it's wrong.
+
+This time, rather than `objdump`ing the file, we're going to open it with `radare2` (or `r2`): `r2 ./crackme03.64`. You'll see a prompt. Type "?", and you'll get a help listing. Radare is an immensely powerful tool, but for this challenge we won't need most of its functionality. I've removed many entries, paring it down to the bare necessities.
+
+{{< highlight text >}}
+[0x000005e0]> ?
+Usage: [.][times][cmd][~grep][@[@iter]addr!size][|>pipe] ; ...
+Append '?' to any char command to get detailed help
+Prefix with number to repeat command N times (f.ex: 3x)
+| a[?]                    Analysis commands
+| p[?] [len]              Print current block with format and length
+| s[?] [addr]             Seek to address (also for '0x', '0x1' == 's 0x1')
+| V                       Enter visual mode (V! = panels, VV = fcngraph, VVV = callgraph)
+{{< /highlight >}}
+
+The important thing to note is that Radare is **self-documenting**. If you ever want to know what you can do with a command, simply type a ? after it. For instance, we want to `a`nalyze the current program:
+
+{{< highlight text >}}
+[0x000005e0]> a?
+|Usage: a[abdefFghoprxstc] [...]
+| ab [hexpairs]    analyze bytes
+| aa[?]            analyze all (fcns + bbs) (aa0 to avoid sub renaming)
+| ac[?] [cycles]   analyze which op could be executed in [cycles]
+| ad[?]            analyze data trampoline (wip)
+| ad [from] [to]   analyze data pointers to (from-to)
+| ae[?] [expr]     analyze opcode eval expression (see ao)
+| af[?]            analyze Functions
+| aF               same as above, but using anal.depth=1
+| ag[?] [options]  output Graphviz code
+| ah[?]            analysis hints (force opcode size, ...)
+| ai [addr]        address information (show perms, stack, heap, ...)
+| ao[?] [len]      analyze Opcodes (or emulate it)
+| aO               Analyze N instructions in M bytes
+| ar[?]            like 'dr' but for the esil vm. (registers)
+| ap               find prelude for current offset
+| ax[?]            manage refs/xrefs (see also afx?)
+| as[?] [num]      analyze syscall using dbg.reg
+| at[?] [.]        analyze execution traces
+Examples:
+ f ts @ `S*~text:0[3]`; f t @ section..text
+ f ds @ `S*~data:0[3]`; f d @ section..data
+ .ad t t+ts @ d:ds
+{{< /highlight >}}
+
+> **Try It Yourself:** I suggest traversing the help for a while. Google every term you don't understand. There is a lot of cool functionality that I won't touch on here, but which might inspire you to try something.
+
+### Using Radare for Analysis
+
+It turns out that the command we want it `aaa`: `a`nalyze using `a`ll techniques on `a`ll functions. This gives us a little output, including:
+
+{{< highlight text >}}
+[x] Constructing a function name for fcn.* and sym.func.* functions
+{{< /highlight >}}
+
+This means that Radare has a list of functions available to us. We can view it with `afl`: `a`nalyze `f`unctions, displaying a `l`ist.
+
+{{< highlight text >}}
+[0x000005e0]> afl
+0x00000590    3 23           sym._init
+0x000005c0    1 8            sub.__cxa_finalize_200_5c0
+0x000005c8    1 8            sub.__cxa_finalize_224_5c8
+0x000005d0    1 16           sub.__cxa_finalize_248_5d0
+0x000005e0    1 43           entry0
+0x00000610    4 50   -> 44   sym.deregister_tm_clones
+0x00000650    4 66   -> 57   sym.register_tm_clones
+0x000006a0    5 50           sym.__do_global_dtors_aux
+0x000006e0    4 48   -> 42   sym.frame_dummy
+0x00000710    7 58           sym.check_pw
+0x0000074a    7 203          sym.main
+0x00000820    4 101          sym.__libc_csu_init
+0x00000890    1 2            sym.__libc_csu_fini
+0x00000894    1 9            sym._fini
+{{< /highlight >}}
+
+We only care about `main` and `check_pw`.
+
+> **Try It Yourself:** Figure out why I can immediately discard the other functions for initial analysis. Search engines are your friend.
+
+Radare can disassemble just a single function for us with `pdf@sym.main`: `p`rint `d`isassembly of a `f`unction `@` (at) the `sym`bol table's entry called `main`. Radare also supports tab completion in many contexts. For instance, if you type `pdf@sym.` and hit the tab key, you'll get a list of all the functions in the symbol table.
+
+Anyway, the first thing to notice is that Radare does syntax highlighting, adds a lot of comments, and even names some variables for us. It does some analysis to determine the types of variables, too; in this case, we have 9 local stack variables. Radare names them `local_2h`, `local_3h`, et cetera based on their offsets from the stack pointer.
+
+### Automatic Flow Analysis
+
+The beginning of our program is pretty familiar. Starting at 0x74a:
+
+{{< highlight asm >}}
+push rbx
+sub rsp, 0x10
+cmp edi, 2
+jne 0x7cc
+{{< /highlight >}}
+
+We have the function prologue allocating 16 bytes of memory for our local variables and an `if` statement. Recall that the DI register holds the first argument, and since this is `main`, that argument is `argc`. So, `if (argc != 2) jump somewhere`.
+
+In Radare, look to the left of the `jne` instruction. You'll see an arrow coming out of that instruction and running down to 0x7cc, where we see:
+
+{{< highlight asm >}}
+lea rdi, qword str.Need_exactly_one_argument. ; 0x8a4 ; str.Need_exactly_one_argument. ; "Need exactly one argument." @ 0x8a4
+call sub.__cxa_finalize_200_5c0
+{{< /highlight >}}
+
+Remember how annoying it was to search for string literals in our binary? Radare does it for us, giving us the address, a convenient alias, and the value of the string literal. 
+
+This is a little different from our previous binary; rather than loading that string, calling `printf`, and returning a value, this code calls `sub.__cxa_finalize_200_5c0`. What the heck is that?
+
+Turns out, this binary has a slightly different structure than the previous ones. (Thanks `gcc`.) 
+
+> **NOTE:** This section is incomplete. I will update it soon!
+
 # Appendix
 
 ## The Makefile
 
-The Makefile used is fairly straightforward, but it does have a few quirks. Prime among them is the use of `objcopy` on the compiled executables. I use it to strip out the `FILE` symbol, which would otherwise be used by Radare to display source code listings alongside the disassembly, completely defeating the purpouse of the exercise. 
+The Makefile used is fairly straightforward, but it does have a few quirks. Prime among them is the use of `objcopy` on the compiled executables. I use it to strip out the `FILE` symbol, which would otherwise be used by Radare to display source code listings alongside the disassembly, completely defeating the purpouse of the exercise.
 
 ## Exercises
 
