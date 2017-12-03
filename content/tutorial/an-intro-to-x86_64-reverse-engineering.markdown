@@ -36,7 +36,9 @@ You can find the CrackMes discussed here on [GitHub](https://github.com/leotinda
 
 These CrackMes only work on Unix systems, and I wrote this tutorial using Linux. You need the essentials of a development environment installed - a C compiler (`gcc`), object inspection utilities (`objdump`, `objcopy`, `xxd`), et cetera. This tutorial will also show you how to use the program [Radare2](http://radare.org/r/pics.html), an advanced open-source reverse engineering toolkit. On Debian-derived systems, the following command should get you set up:
 
-`sudo apt install build-essential gcc xxd binutils radare2`
+`sudo apt install build-essential gcc xxd binutils`
+
+You can install Radare2 from [here](https://github.com/radare/radare2).
 
 On other systems, install the equivalent packages from your package manager.
 
@@ -581,29 +583,27 @@ Examples:
 
 > **Try It Yourself:** I suggest traversing the help for a while. Google every term you don't understand. There is a lot of cool functionality that I won't touch on here, but which might inspire you to try something.
 
-### Using Radare for Analysis
+### Automatic Analysis
 
-It turns out that the command we want it `aaa`: `a`nalyze using `a`ll techniques on `a`ll functions. This gives us a little output, including:
-
-{{< highlight text >}}
-[x] Constructing a function name for fcn.* and sym.func.* functions
-{{< /highlight >}}
+It turns out that the command we want it `aaaa`: `a`nalyze using `a`ll functions using `a`ll normal and `a`ll experimental techniques.
 
 This means that Radare has a list of functions available to us. We can view it with `afl`: `a`nalyze `f`unctions, displaying a `l`ist.
 
 {{< highlight text >}}
 [0x000005e0]> afl
+0x00000000    3 73   -> 75   fcn.rsp
+0x00000049    1 219          fcn.00000049
 0x00000590    3 23           sym._init
-0x000005c0    1 8            sub.__cxa_finalize_200_5c0
-0x000005c8    1 8            sub.__cxa_finalize_224_5c8
-0x000005d0    1 16           sub.__cxa_finalize_248_5d0
+0x000005c0    1 8            sym.imp.puts
+0x000005c8    1 8            sym.imp.__printf_chk
+0x000005d0    1 16           sym.imp.__cxa_finalize
 0x000005e0    1 43           entry0
 0x00000610    4 50   -> 44   sym.deregister_tm_clones
 0x00000650    4 66   -> 57   sym.register_tm_clones
 0x000006a0    5 50           sym.__do_global_dtors_aux
-0x000006e0    4 48   -> 42   sym.frame_dummy
+0x000006e0    4 48   -> 42   entry1.init
 0x00000710    7 58           sym.check_pw
-0x0000074a    7 203          sym.main
+0x0000074a    7 203          main
 0x00000820    4 101          sym.__libc_csu_init
 0x00000890    1 2            sym.__libc_csu_fini
 0x00000894    1 9            sym._fini
@@ -613,11 +613,9 @@ We only care about `main` and `check_pw`.
 
 > **Try It Yourself:** Figure out why I can immediately discard the other functions for initial analysis. Search engines are your friend.
 
-Radare can disassemble just a single function for us with `pdf@sym.main`: `p`rint `d`isassembly of a `f`unction `@` (at) the `sym`bol table's entry called `main`. Radare also supports tab completion in many contexts. For instance, if you type `pdf@sym.` and hit the tab key, you'll get a list of all the functions in the symbol table.
+Radare can disassemble just a single function for us with `pdf@main`: `p`rint `d`isassembly of a `f`unction `@` (at) the symbol called `main`. Radare also supports tab completion in many contexts. For instance, if you type `pdf@sym.` and hit the tab key, you'll get a list of all the functions in the symbol table.
 
 Anyway, the first thing to notice is that Radare does syntax highlighting, adds a lot of comments, and even names some variables for us. It does some analysis to determine the types of variables, too; in this case, we have 9 local stack variables. Radare names them `local_2h`, `local_3h`, et cetera based on their offsets from the stack pointer.
-
-### Automatic Flow Analysis
 
 The beginning of our program is pretty familiar. Starting at 0x74a:
 
@@ -633,17 +631,76 @@ We have the function prologue allocating 16 bytes of memory for our local variab
 In Radare, look to the left of the `jne` instruction. You'll see an arrow coming out of that instruction and running down to 0x7cc, where we see:
 
 {{< highlight asm >}}
-lea rdi, qword str.Need_exactly_one_argument. ; 0x8a4 ; str.Need_exactly_one_argument. ; "Need exactly one argument." @ 0x8a4
-call sub.__cxa_finalize_200_5c0
+lea rdi, str.Need_exactly_one_argument. ; 0x8a4 ; "Need exactly one argument." ; const char * s
+call sym.imp.puts           ; int puts(const char *s)
+mov eax, 0xffffffff         ; -1
+jmp 0x7c6
 {{< /highlight >}}
 
 Remember how annoying it was to search for string literals in our binary? Radare does it for us, giving us the address, a convenient alias, and the value of the string literal. 
+It also analyzes the functions being called, which is very convenient. Here, we can see without much effort that the binary is printing the string "Need exactly one argument.".
 
-This is a little different from our previous binary; rather than loading that string, calling `printf`, and returning a value, this code calls `sub.__cxa_finalize_200_5c0`. What the heck is that?
+It then loads `eax` with -1 and jumps to 0x7c6. We can follow the arrow (or just scroll to the address) to see where that is, but there's a more interesting way.
 
-Turns out, this binary has a slightly different structure than the previous ones. (Thanks `gcc`.) 
+### Visual Flow Analysis
 
-> **NOTE:** This section is incomplete. I will update it soon!
+Radare provides a feature known as "visual mode". To use it, we need to move Radare's internal cursor to the function we want to analyze with the `s`eek command: `s main`. You'll notice that the prompt changes from `[0x000005e0]>` to `[0x0000074a]>`, indicating that the current location has moved to the first instruction in the `main` function. Then, type `VV` (`V`isual mode 2). You should see ASCII-art boxes with different parts of the program.
+
+Every time a jump instruction appears, the block ends and lines come out, pointing to other blocks. For instance, in the top block (the beginning of the function), the `jne` instruction which checks for the argument number causes a red line to come out to the left and a green one to the right. 
+
+On the right, you should see a block that looks a bit like this:
+
+{{< highlight text >}}
+.---------------------------------------------.                                
+|  0x7cc ;[ga]                                |                                
+|      ; const char * s                       |                                
+|      ; 0x8a4                                |                                
+|      ; "Need exactly one argument."         |                                
+| lea rdi, str.Need_exactly_one_argument.     |                                
+| call sym.imp.puts;[gh]                      |                                
+|    ; -1                                     |                                
+| mov eax, 0xffffffff                         |                                
+| jmp 0x7c6;[gg]                              |                                
+`---------------------------------------------'
+{{< /highlight >}}
+
+That's the block we just analyzed. Use the arrow keys to follow the blue (unconditional) line down to see what happens after this block. You'll see, at the bottom of the graph, a block at 0x7c6 that is unconditionally jumped to from a number of places in the program:
+
+{{< highlight asm >}}
+add rsp, 0x10                                                      
+pop rbx                                                 
+ret
+{{< /highlight >}}
+
+This simply frees stack space and returns. So this program behaves like the others we've looked at: if there aren't the right number of arguments, it prints a string and exits with an error code (remember, `eax` was loaded with -1).
+
+> **Try It Yourself:** Look at the rest of the program in the control flow graph. Try to find the block that prints the failure message. There are two checks that can lead there; can you figure out what they do? 
+>
+> Recall that `test eax, eax` followed by `je` means "jump if `eax` is zero", and that the x86 instruction set is well documented; if you don't know what an instruction does, look it up!
+
+### The Human Touch
+
+If we progress down the red branch from the first block, where execution flows if the `jne` isn't taken (that is, if there are exactly 2 strings passed to the binary), you'll see these instructions at 0x754:
+
+<pre><code>
+mov dword [local_9h], 0x426d416c ; [0x426d416c:4]=-1
+mov word [local_dh], 0x4164 ; [0x4164:2]=0xffff
+mov byte [local_fh], 0
+mov word [local_6h], 0
+mov byte [local_8h], 0
+mov byte [local_2h], 2
+mov byte [local_3h], 3
+mov byte [local_4h], 2
+mov byte [local_5h], 3
+mov byte [local_6h], 5
+mov rbx, qword [rsi + 8]    ; [0x8:8]=0
+mov eax, 0
+mov rcx, 0xffffffffffffffff
+mov rdi, rbx
+repne scasb al, byte [rdi]
+cmp rcx, 0xfffffffffffffff8
+je 0x7df
+</code></pre>
 
 # Appendix
 

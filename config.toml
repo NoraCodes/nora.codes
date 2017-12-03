@@ -10,7 +10,9 @@ theme = "hugo-classic-mod"
 preserveTaxonomyNames = false
 
 # Highlighting
-pygmentsstyle = "fruity"
+pygmentsStyle = "fruity"
+pygmentsUseClassic = false
+pygmentsCodefences = true
 
 [taxonomies]
   tag = "tags"

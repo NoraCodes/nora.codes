@@ -99,13 +99,13 @@ pre {
   border: 1px solid #ddd;
   margin: 12px;
   background: #444444;
-  padding: 1em;
+  padding: 1px;
   overflow-x: auto;
   border-radius: 3px;
 }
 code { 
   background: #444444;
-  padding: 2px; 
+  padding: 0px; 
   border-radius: 2px; }
 pre code { background: none; }
 
