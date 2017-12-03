@@ -48,16 +48,16 @@ On other systems, install the equivalent packages from your package manager.
 
 `crackme01.64` is a relatively simple program. When you run it, you'll see this output:
 
-{{< highlight text >}}
+<pre><code>
 $ ./crackme01.64
 Need exactly one argument.
-{{< /highlight >}}
+</code></pre>
 
 Provide some random argument. I used `lmao`:
-{{< highlight text >}}
+<pre><code>
 $ ./crackme01.64 lmao
 No, lmao is not correct.
-{{< /highlight >}}
+</code></pre>
 
 This is as expected. We don't know the password. The first thing to try, when faced with a problem such as this, is to think about what the program is doing. The simplest way to check a string is to simply compare it against another string, stored in the binary. The binary may appear opaque to us, but in fact it is not. It is a file full of data like any other; it's just structured in a special way.
 
@@ -65,7 +65,7 @@ This is as expected. We don't know the password. The first thing to try, when fa
 
 If we simply `cat` it, we get gibberish. Luckily, there is a standard Unix tool called `strings` which will try to extract all the valid pieces of text (printable characters followed by the null character) in a given file.
 
-{{< highlight text >}}
+<pre><code>
 $ strings ./crackme01.64
 /lib/ld-linux.so.2
 WXZd
@@ -95,7 +95,7 @@ GLIBC_2.3.4
 .debug_str
 .debug_loc
 
-{{< /highlight >}}
+</code></pre>
 
 This is a _lot_ of output. We can learn some useful things from it, but for now, we're looking for a password. 
 
@@ -105,7 +105,7 @@ This is a _lot_ of output. We can learn some useful things from it, but for now,
 
 In this case, it is enough to simply scroll through the listing. Eventually, you'll see these lines:
 
-{{< highlight text >}}
+<pre><code>
 ...
 [^_]
 Need exactly one argument.
@@ -114,16 +114,16 @@ No, %s is not correct.
 Yes, %s is correct!
 ;*2$"
 ...
-{{< /highlight >}}
+</code></pre>
 
 You can see two strings we already know about: `Need exactly one argument.` and `No, %s is not correct.`. Note that `%s` is the control sequence that tells C's `printf` function to print a string, presumably the one we entered at the command line. 
 
 Between these known strings is something rather suspicious looking. Let's try it:
 
-{{< highlight text >}}
+<pre><code>
 $ ./crackme01.64 password1
 Yes, password1 is correct!
-{{< /highlight >}}
+</code></pre>
 
 Success! You'd be surprised how much useful knowledge can come from a simple invocation of `strings` on a binary.
 
@@ -144,7 +144,7 @@ In this case, if we run `objdump -d crackme02.64 -Mintel | less`, we will get an
 
 The first line tells us what we're looking at: `crackme02.64:     file format elf64-x86-64`. It's a 64-bit ELF executable file, on the Intel x86_64 (that is, AMD64) CPU architecture. Following this line are a number of sections that look like this:
 
-{{< highlight text >}}
+<pre><code>
 Disassembly of section .init:
 
 0000000000000590 <_init>:
@@ -156,11 +156,11 @@ Disassembly of section .init:
  5a2:   48 83 c4 08             add    rsp,0x8
  5a6:   c3                      ret 
  ...
-{{< /highlight >}}
+</code></pre>
 
 Most of these are inserted by the linker immediately after compilation, and so aren't associated with the the algorithm for checking the code. We can skip everything but the `.text` section. It begins like this:
 
-{{< highlight text >}}
+<pre><code>
 Disassembly of section .text:
 
 00000000000005e0 <_start>:
@@ -172,11 +172,11 @@ Disassembly of section .text:
  5ed:   50                      push   rax
  5ee:   54                      push   rsp
  ...
-{{< /highlight >}}
+</code></pre>
 
 Again, this is a stub function inserted by the linker. We don't care about anything until the `main` function, so keep on scrolling until you see it.
 
-{{< highlight text >}}
+<pre><code>
 0000000000000710 <main>:
  710:   48 83 ec 08             sub    rsp,0x8
  714:   83 ff 02                cmp    edi,0x2
@@ -185,7 +185,7 @@ Again, this is a stub function inserted by the linker. We don't care about anyth
  71d:   0f b6 02                movzx  eax,BYTE PTR [rdx]
  720:   84 c0                   test   al,al
  ...
-{{< /highlight >}}
+</code></pre>
 
 On the far left column, the addresses of each location are listed (in base 16). Just to the right are the raw machine code bytes, represented as hex pairs (pairs of base 16 digits). Finally, `objdump` generates and displays the equivalent assembly to the far right.
 
@@ -193,10 +193,10 @@ Let's start picking apart this program. First, we see `sub rsp,0x8`. This is mov
 
 Moving on, there's a pretty standard jump-if condition:
 
-{{< highlight asm >}}
+<pre><code class="x86asm">
 cmp    edi,0x2
 jne    781
-{{< /highlight >}}
+</code></pre>
 
 If you don't know what these instructions do, you can look them up; in this case, we're comparing (`cmp`) the `edi` register to the hex number 2, and then jumping if it's not equal (`jne`).
 
@@ -206,18 +206,18 @@ So the question is, what's in that register? This a Linux x86_64 executable, so 
 
 So that compare-and-jump is checking if there are exactly two arguments to the program. (Note: the first argument is the name of the program, so it's really checking if there's _one_ user-supplied argument.) If not, it jumps to another part of the main program, at 781:
 
-{{< highlight asm >}}
+<pre><code class="x86asm">
 lea    rdi,[rip+0xbc]
 call   5c0 <.plt.got>
 mov    eax,0xffffffff
 jmp    77c <main+0x6c>
-{{< /highlight >}}
+</code></pre>
 
 Here, we're loading the address (`lea`) of a value into `rdi` (if you remember, this is the first argument to a function) and then calling a function at address 5c0. Looking at the disassembly of that line, we see:
 
-{{< highlight text >}}
+<pre><code>
 5c0:   ff 25 02 0a 20 00       jmp    QWORD PTR [rip+0x200a02]        # 200fc8 <puts@GLIBC_2.2.5>
-{{< /highlight >}}
+</code></pre>
 
 `objdump` has helpfully annotated this instruction, telling us that it is jumping into the `libc` function `puts`. If you look up that function, you'll see that it takes a single argument: a pointer to a string, which is then printed to the console. So this block prints a string. But what string?
 
@@ -228,13 +228,13 @@ So whatever we're printing is 0xbc bytes ahead of this instruction. We can do th
 We can use another standard Unix binary tool to view the raw data from a specific offset: `xxd`. In this case, let's issue 
 `xxd -s 0x844 -l 0x40 crackme02.64`. `-s` is "seek" or "skip"; it makes the hexdump start at the offset we're interested in. `-l` is "length"; it makes the hexdump only 0x40 characters long, rather than the whole rest of the file. We see:
 
-{{< highlight text >}}
+<pre><code>
 $ xxd -s 0x844 -l 0x40 crackme02.64
 00000844: 4e65 6564 2065 7861 6374 6c79 206f 6e65  Need exactly one
 00000854: 2061 7267 756d 656e 742e 004e 6f2c 2025   argument..No, %
 00000864: 7320 6973 206e 6f74 2063 6f72 7265 6374  s is not correct
 00000874: 2e0a 0070 6173 7377 6f72 6431 0059 6573  ...password1.Yes
-{{< /highlight >}}
+</code></pre>
 
 So, now we know. This block prints a string reading "Need exactly one argument.", as you'd expect from looking at the program's behavior when too many or too few arguments are specified. 
 
@@ -242,16 +242,16 @@ So, now we know. This block prints a string reading "Need exactly one argument."
 
 The most important part of this block is the unconditional jump at the end, which goes to address 77c:
 
-{{< highlight asm >}}
+<pre><code class="x86asm">
 add    rsp,0x8
 ret 
-{{< /highlight >}}
+</code></pre>
 
 This block removes the local variables from the stack and returns. So, that's it. If there aren't exactly 2 strings provided to the binary - its own name and one command line argument - it will quit.
 
 We can start to write this program out in C code:
 
-{{< highlight c >}}
+<pre><code class="c">
 int main(int argc, char** argv){
     if (argc != 2) {
         puts("Need exactly one argument.");
@@ -260,16 +260,16 @@ int main(int argc, char** argv){
 
     // Magic happens here
 }
-{{< /highlight >}}
+</code></pre>
 
 To find out just _what_ magic happens in that lower part of the program, we need to look at the program's flow. Assuming the `argc` check succeeds ( the jump at 0x717 isn't taken), program execution proceeds into this block:
 
-{{< highlight asm >}}
+<pre><code class="x86asm">
 mov    rdx,QWORD PTR [rsi+0x8]
 movzx  eax,BYTE PTR [rdx]
 test   al,al
 je     761 <main+0x51>
-{{< /highlight >}}
+</code></pre>
 
 That first instruction moves the quadword (64-bit value) at the address `[rsi+0x8]` into `rdx`. What's in `rsi`, the full 64-bit Source Index register? Turns out, that's the _second_ argument in the Linux x86_64 calling convention. So in C, this is the value `argv + 8` or, because `argv` is of type `char**`, `argv[1]`.
 
@@ -277,15 +277,15 @@ The next instruction moves and extends with zeroes (`movzx`) a single byte from 
 
 `test al,al` is equivalent to `cmp al, 0`. `al` is the lower 8 bytes of the Accumulator register. Essentially, this block is equivalent to the C code:
 
-{{< highlight c >}}
+<pre><code class="c">
 if (argv[1][0] == 0) {
     // do something
 }
-{{< /highlight >}}
+</code></pre>
 
 So, what's at address 0x761? It's the following block:
 
-{{< highlight asm >}}
+<pre><code class="x86asm">
 lea    rsi,[rip+0x119]        # 881 <_IO_stdin_used+0x41>
 mov    edi,0x1
 mov    eax,0x0
@@ -293,7 +293,7 @@ call   5c8 <.plt.got+0x8>
 mov    eax,0x0
 add    rsp,0x8
 ret    
-{{< /highlight >}}
+</code></pre>
 
 One of the most important skills for a reverse engineer is noticing patterns, and you should be seeing one right away. Here, the program `lea`s a relative offset from the instruction pointer into `rsi` and then calls a function.
 
@@ -306,7 +306,7 @@ Additionally, we can see that, after the function call (at 0x77c; this is a usef
 
 So, our C code looks like this:
 
-{{< highlight c >}}
+<pre><code class="c">
 int main(int argc, char** argv){
     if (argc != 2) {
         puts("Need exactly one argument.");
@@ -319,20 +319,20 @@ int main(int argc, char** argv){
 
     // Magic happens here
 }
-{{< /highlight >}}
+</code></pre>
 
 At first glance, we would appear to be done! However, it's impossible (from the command line) to inject a command line argument whose first byte is zero; it would simply be an empty string, and the shell would not add it to the count of arguments, even if you could type it in. Let's move on.
 
 If that check fails, the code goes to this block (at 0x724):
 
-{{< highlight c >}}
+<pre><code class="x86asm">
 cmp    al,0x6f
 jne    794 <main+0x84>
-{{< /highlight >}}
+</code></pre>
 
 Recall that, since we're working from the assumption of that jump to success not being taken, `al` has `argv[1][0]` in it still. Here, we're checking if it's not equal to 0x6f (111 in decimal; 'o' in ASCII). If so, we jump to address 0x794. 
 
-{{< highlight asm >}}
+<pre><code class="x86asm">
 lea    rsi,[rip+0xc4]        # 85f <_IO_stdin_used+0x1f>
 mov    edi,0x1
 mov    eax,0x0
@@ -340,13 +340,13 @@ call   5c8 <.plt.got+0x8>
 mov    eax,0x1
 jmp    77c <main+0x6c>
 
-{{< /highlight >}}
+</code></pre>
 
 This is another print-and-return block; that unconditional jump (`jmp`) at the end jumps to 0x77c, where the program removes its stack space for local variables and returns. 
 
 Rather than printing the success message, this block prints "No, %s is not correct." formatted with the command line argument, and then returns a failure code (1). **We now know, for sure, that the correct message starts with the letter 'o'**, because without it, there's an automatic fail condition.
 
-{{< highlight c >}}
+<pre><code class="c">
 int main(int argc, char** argv){
     if (argc != 2) {
         puts("Need exactly one argument.");
@@ -365,11 +365,11 @@ int main(int argc, char** argv){
 
     // Magic happens here
 }
-{{< /highlight >}}
+</code></pre>
 
 Assuming that jump is _not_ taken, we go on to this code, at 0x728:
 
-{{< highlight asm >}}
+<pre><code class="x86asm">
 mov    esi,0x1
 mov    eax,0x61
 mov    ecx,0x1
@@ -377,7 +377,7 @@ lea    rdi,[rip+0x139]        # 877 <_IO_stdin_used+0x37>
 movzx  ecx,BYTE PTR [rdx+rcx*1]
 test   cl,cl
 je     761 <main+0x51>
-{{< /highlight >}}
+</code></pre>
 
 Here, we load up some registers with constants, and then load a pointer into `rdi`. That pointer is to the string "password1". But we know this isn't the right password. So what's going on?
 
@@ -387,7 +387,7 @@ Again, the most important skill for reverse engineering is recognizing patterns.
 
 So, if there's a zero at `argv[1][1]`, we jump to 0x761. Where is that? It's the block we just reversed above; it prints the success string and exits with the return code of 0. Our pseudocode looks like this:
 
-{{< highlight c >}}
+<pre><code class="c">
 int main(int argc, char** argv){
     if (argc != 2) {
         puts("Need exactly one argument.");
@@ -406,24 +406,24 @@ int main(int argc, char** argv){
 
     // Magic happens here
 }
-{{< /highlight >}}
+</code></pre>
 
 
 What happens if it's not zero, though? The program progresses down to 0x746.
 
-{{< highlight asm >}}
+<pre><code class="x86asm">
 movsx  eax,al
 sub    eax,0x1
 movsx  ecx,cl
 cmp    eax,ecx
 jne    794 <main+0x84>
-{{< /highlight >}}
+</code></pre>
 
 Here, we zero out all but the lowest 8 bytes of `eax`, then subtract one from it. Then we zero out all but the last 8 bytes of `ecx` and compare `eax` to `ecx`. If they're not equal, we jump to 0x794. Where is that? It's another block we've already reversed; it prints the failure string and exits with the return code of 1.
 
 What is this actually doing? From above, `eax` contains a single byte; 0x61 (decimal 97, or 'a' in ASCII). It has one subtracted from it, so it's 0x60 (decimal 96, '\`' in ASCII). So we know that the first two characters of the key are 'o\`'. Our pseudocode looks like this:
 
-{{< highlight c >}}
+<pre><code class="c">
 int main(int argc, char** argv){
     if (argc != 2) {
         puts("Need exactly one argument.");
@@ -442,17 +442,17 @@ int main(int argc, char** argv){
 
     // Magic happens here
 }
-{{< /highlight >}}
+</code></pre>
 
 If they are equal, we move on to 0x753:
 
-{{< highlight asm >}}
+<pre><code class="x86asm">
 add    esi,0x1
 movsxd rcx,esi
 movzx  eax,BYTE PTR [rdi+rcx*1]
 test   al,al
 jne    73e <main+0x2e>
-{{< /highlight >}}
+</code></pre>
 
 First off, the program increments `esi`. (`esi` was set to 1 in the previous block.) It then moves that value into the lower 32 bits of `rcx`.
 
@@ -460,11 +460,11 @@ Then, the program loads a single byte from `rdi + rcx`. `rdi` is `argv[1]`, and 
 
 The program then checks if that value is zero; if not, it jumps to 0x73e. Where is that?
 
-{{< highlight asm >}}
+<pre><code class="x86asm">
 movzx  ecx,BYTE PTR [rdx+rcx*1]
 test   cl,cl
 je     761 <main+0x51>
-{{< /highlight >}}
+</code></pre>
 
 We've seen this before. It's just the check from a few sections above. It loads a byte from `argv[1][ecx]` and checks if it's zero; if so it jumps to success, and if not it moves down to the code we just reversed. This is another pattern you should recognize in the future: **a loop**.
 
@@ -472,7 +472,7 @@ Now that we've identified the whole loop, let's look at all of its instructions,
 
 Recall that, a few blocks ago, `rdi` was loaded with the address of the string `password1`, but this wasn't the right password. Here we can see why; bytes are being loaded from that string and having one added to them before they're compared with the actual input.
 
-{{< highlight asm >}}
+<pre><code class="x86asm">
 movzx  ecx,BYTE PTR [rdx+rcx*1] ; load a byte from argv[1]
 test   cl,cl                    ; check if that byte is zero
 je     761 <main+0x51>          ; if so, jump to success
@@ -486,13 +486,13 @@ movsxd rcx,esi                  ; place that index in CX
 movzx  eax,BYTE PTR [rdi+rcx*1] ; load the next byte from the comparison string
 test   al,al                    ; Check that that byte isn't zero
 jne    73e <main+0x2e>          ; If it's not zero, loop
-{{< /highlight >}}
+</code></pre>
 
 It's important to note that, while we as humans would write this like the following C code, the compiler actually moved the second part of the loop check to the _end_ of the loop, and loads the next byte for the comparison string there.
 
 > **Try It Yourself:** The following C code should be all you need to determine the correct code. Try it!
 
-{{< highlight c >}}
+<pre><code class="c">
 int main(int argc, char** argv){
     if (argc != 2) {
         puts("Need exactly one argument.");
@@ -514,14 +514,14 @@ int main(int argc, char** argv){
     printf("Yes, %s is correct.", argv[1]);
     return 0;
 }
-{{< /highlight >}}
+</code></pre>
 
 This is really all we need. Simply adding one to each letter of `password1` in ASCII gives us "o\`rrvnqc0". Let's try it:
 
-{{< highlight text >}}
+<pre><code>
 $ ./crackme02.64 o\`rrvnqc0
 Yes, o`rrvnqc0 is correct!
-{{< /highlight >}}
+</code></pre>
 
 The sharp-eyed among you might have noticed that this binary has a problem, however; it will actually accept _any_ of these characters. o, o\`, o\`r, o\`rr, et cetera all work! Clearly not a very good method to use for your product key.
 
@@ -533,7 +533,7 @@ If you made it this far, good job! Reverse engineering is difficult, but this is
 
 The next crackme is slightly more difficult. In `crackme02`, we were able to manually inspect each branch, building up the flow of execution mentally. This technique breaks down as programs become more complex.
 
-### The Radare Binary Analysis Tool
+### The Radare Analysis Tool
 
 Fortunately, the reverse engineering community is rife with smart people, and there are excellent tools to automate a great deal of this analysis. Some of them, like Ida Pro, cost as much as $5000, but my personal favorite is Radare2 (**Ra**ndom **da**ta **re**covery), which is entirely free and open source.
 
@@ -541,7 +541,7 @@ Running `crackme03.64`, we can see that it (basically) works about the same way 
 
 This time, rather than `objdump`ing the file, we're going to open it with `radare2` (or `r2`): `r2 ./crackme03.64`. You'll see a prompt. Type "?", and you'll get a help listing. Radare is an immensely powerful tool, but for this challenge we won't need most of its functionality. I've removed many entries, paring it down to the bare necessities.
 
-{{< highlight text >}}
+<pre><code>
 [0x000005e0]> ?
 Usage: [.][times][cmd][~grep][@[@iter]addr!size][|>pipe] ; ...
 Append '?' to any char command to get detailed help
@@ -550,11 +550,11 @@ Prefix with number to repeat command N times (f.ex: 3x)
 | p[?] [len]              Print current block with format and length
 | s[?] [addr]             Seek to address (also for '0x', '0x1' == 's 0x1')
 | V                       Enter visual mode (V! = panels, VV = fcngraph, VVV = callgraph)
-{{< /highlight >}}
+</code></pre>
 
 The important thing to note is that Radare is **self-documenting**. If you ever want to know what you can do with a command, simply type a ? after it. For instance, we want to `a`nalyze the current program:
 
-{{< highlight text >}}
+<pre><code>
 [0x000005e0]> a?
 |Usage: a[abdefFghoprxstc] [...]
 | ab [hexpairs]    analyze bytes
@@ -579,7 +579,7 @@ Examples:
  f ts @ `S*~text:0[3]`; f t @ section..text
  f ds @ `S*~data:0[3]`; f d @ section..data
  .ad t t+ts @ d:ds
-{{< /highlight >}}
+</code></pre>
 
 > **Try It Yourself:** I suggest traversing the help for a while. Google every term you don't understand. There is a lot of cool functionality that I won't touch on here, but which might inspire you to try something.
 
@@ -589,7 +589,7 @@ It turns out that the command we want it `aaaa`: `a`nalyze using `a`ll functions
 
 This means that Radare has a list of functions available to us. We can view it with `afl`: `a`nalyze `f`unctions, displaying a `l`ist.
 
-{{< highlight text >}}
+<pre><code>
 [0x000005e0]> afl
 0x00000000    3 73   -> 75   fcn.rsp
 0x00000049    1 219          fcn.00000049
@@ -607,7 +607,7 @@ This means that Radare has a list of functions available to us. We can view it w
 0x00000820    4 101          sym.__libc_csu_init
 0x00000890    1 2            sym.__libc_csu_fini
 0x00000894    1 9            sym._fini
-{{< /highlight >}}
+</code></pre>
 
 We only care about `main` and `check_pw`.
 
@@ -619,23 +619,23 @@ Anyway, the first thing to notice is that Radare does syntax highlighting, adds 
 
 The beginning of our program is pretty familiar. Starting at 0x74a:
 
-{{< highlight asm >}}
+<pre><code class="x86asm">
 push rbx
 sub rsp, 0x10
 cmp edi, 2
 jne 0x7cc
-{{< /highlight >}}
+</code></pre>
 
 We have the function prologue allocating 16 bytes of memory for our local variables and an `if` statement. Recall that the DI register holds the first argument, and since this is `main`, that argument is `argc`. So, `if (argc != 2) jump somewhere`.
 
 In Radare, look to the left of the `jne` instruction. You'll see an arrow coming out of that instruction and running down to 0x7cc, where we see:
 
-{{< highlight asm >}}
+<pre><code class="x86asm">
 lea rdi, str.Need_exactly_one_argument. ; 0x8a4 ; "Need exactly one argument." ; const char * s
 call sym.imp.puts           ; int puts(const char *s)
 mov eax, 0xffffffff         ; -1
 jmp 0x7c6
-{{< /highlight >}}
+</code></pre>
 
 Remember how annoying it was to search for string literals in our binary? Radare does it for us, giving us the address, a convenient alias, and the value of the string literal. 
 It also analyzes the functions being called, which is very convenient. Here, we can see without much effort that the binary is printing the string "Need exactly one argument.".
@@ -650,7 +650,7 @@ Every time a jump instruction appears, the block ends and lines come out, pointi
 
 On the right, you should see a block that looks a bit like this:
 
-{{< highlight text >}}
+<pre><code>
 .---------------------------------------------.                                
 |  0x7cc ;[ga]                                |                                
 |      ; const char * s                       |                                
@@ -662,15 +662,15 @@ On the right, you should see a block that looks a bit like this:
 | mov eax, 0xffffffff                         |                                
 | jmp 0x7c6;[gg]                              |                                
 `---------------------------------------------'
-{{< /highlight >}}
+</code></pre>
 
 That's the block we just analyzed. Use the arrow keys to follow the blue (unconditional) line down to see what happens after this block. You'll see, at the bottom of the graph, a block at 0x7c6 that is unconditionally jumped to from a number of places in the program:
 
-{{< highlight asm >}}
+<pre><code class="x86asm">
 add rsp, 0x10                                                      
 pop rbx                                                 
 ret
-{{< /highlight >}}
+</code></pre>
 
 This simply frees stack space and returns. So this program behaves like the others we've looked at: if there aren't the right number of arguments, it prints a string and exits with an error code (remember, `eax` was loaded with -1).
 
@@ -682,7 +682,7 @@ This simply frees stack space and returns. So this program behaves like the othe
 
 If we progress down the red branch from the first block, where execution flows if the `jne` isn't taken (that is, if there are exactly 2 strings passed to the binary), you'll see these instructions at 0x754:
 
-<pre><code>
+<pre><code class="x86asm">
 mov dword [local_9h], 0x426d416c ; [0x426d416c:4]=-1
 mov word [local_dh], 0x4164 ; [0x4164:2]=0xffff
 mov byte [local_fh], 0

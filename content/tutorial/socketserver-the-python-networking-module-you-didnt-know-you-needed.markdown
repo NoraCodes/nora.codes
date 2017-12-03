@@ -22,7 +22,7 @@ I occasionally spend time randomly surfing the Python standard library docs; the
 
 This is something of an understatement. To demonstrate this, here is a simple CaaS (capitalization as a service) server written with `socketserver` and one with `socket`:
 
-{{< highlight python >}}
+<pre><code class="python3">
     import socket
     
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
@@ -34,12 +34,12 @@ This is something of an understatement. To demonstrate this, here is a simple Ca
                 data = conn.recv(1024)
                 if not data: break
                 conn.sendall(data.upper())
-{{< /highlight >}}
+</code></pre>
 
 
 And here is the same functionality with `socketserver`:
 
-{{< highlight python >}}
+<pre><code class="python3">
     import socketserver
     
     class CaaSHandler(socketserver.StreamRequestHandler):
@@ -50,19 +50,19 @@ And here is the same functionality with `socketserver`:
     if __name__ == "__main__":
         server = socketserver.TCPServer(('', 50007), CaaSHandler)
         server.serve_forever()
-{{< /highlight >}}
+</code></pre>
 
 Both of these take connections synchronously and sequentially, capitalize the data they recieve, and return it. The main difference is that the `socketserver` version can accept as much data as there is memory, while the `socket` version can accept only a limited amount (1024 bytes in this example).
 
 This is because `socketserver`'s `StreamRequestHandler` provides the file-like objects `rfile` and `wfile` which expose all the normal luxuries of Python 3 files, like `readline` and `read`. The parent class of the handler you write will deal with setting the buffer size, looping until a newline or EOF is encountered, and dealing with client-first and server-first protocols. We could just as easily add a welcome message/prompt to the program; just make the `CaaSHandler` class look like this:
 
-{{< highlight python >}}
+<pre><code class="python3">
     class CaaSHandler(socketserver.StreamRequestHandler):
         def handle(self):
             self.wfile.write(b"Enter some data to be capitalized:\n")
             data = self.rfile.readline()
             self.wfile.write(data.upper())
-{{< /highlight >}}
+</code></pre>
 
 without any changes to the client's behavior. Adding that functionality in the `socket` version is somewhat nontrivial; how, for instance, one would handle both clients that expect to send data first and clients that expect to receive it first is less than obvious.
 

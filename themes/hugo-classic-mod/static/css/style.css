@@ -29,6 +29,7 @@ output:
   margin: 15px;
   float: left;
   min-width: 40%;
+  padding-right: 10px;
 }
 
 /* Header and Footer */

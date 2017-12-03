@@ -24,7 +24,7 @@ SBrain is a strict superset of its parent language. It does have some important 
 
   Once I finished an initial implementation, I decided to try and get evolution working. I ended up with a program whose output looks a bit like this:
 
-  {{< highlight text >}}
+<pre><code>
 
 Generation     1 Cost  3075: aS|.p!.S
 Generation     5 Cost  3074: aS|.^!p!.S
@@ -42,7 +42,7 @@ a&&m|+.^!p.+.+.d.S
 Ran for 128 cycles and did not halt
 [] -> a&&m|+.^!p.+.+.d.S -> [1, 2, 3, 4, 5]
 
-  {{< /highlight >}}
+</code></pre>
 
   This particular run was looking for the output [1,2,3,4,5] given no input.
   Built with `--release`, it took about 3 seconds (2.93, to be precise). The algorithm is fully parallelized using [Rayon](https://crates.io/crates/rayon) 
