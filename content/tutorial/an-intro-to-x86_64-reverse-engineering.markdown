@@ -200,7 +200,7 @@ jne    781
 
 If you don't know what these instructions do, you can look them up; in this case, we're comparing (`cmp`) the `edi` register to the hex number 2, and then jumping if it's not equal (`jne`).
 
-So the question is, what's in that register? This a Linux x86_64 executable, so we can look up the calling convention. It turns out that `edi` is the lower 32 bits of the Destination Index register, which is where the first argument to a function goes. If you recall how the `main` function is written in C, its signature is: `int main(int argc, char** argv)`. So this is the register holding the first argument: `argc`, the number of arguments to the program. 
+So the question is, what's in that register? This a Linux x86_64 executable, so we can look up the calling convention ([Wikipedia](https://en.wikipedia.org/wiki/X86_calling_conventions#System_V_AMD64_ABI) is your friend). It turns out that `edi` is the lower 32 bits of the Destination Index register, which is where the first argument to a function goes. If you recall how the `main` function is written in C, its signature is: `int main(int argc, char** argv)`. So this is the register holding the first argument: `argc`, the number of arguments to the program. 
 
 ### Finding String Literals
 
@@ -678,8 +678,6 @@ This simply frees stack space and returns. So this program behaves like the othe
 >
 > Recall that `test eax, eax` followed by `je` means "jump if `eax` is zero", and that the x86 instruction set is well documented; if you don't know what an instruction does, look it up!
 
-### The Human Touch
-
 If we progress down the red branch from the first block, where execution flows if the `jne` isn't taken (that is, if there are exactly 2 strings passed to the binary), you'll see these instructions at 0x754:
 
 <pre><code class="x86asm">
@@ -701,6 +699,136 @@ repne scasb al, byte [rdi]
 cmp rcx, 0xfffffffffffffff8
 je 0x7df
 </code></pre>
+
+Mostly all this block does is load a bunch of values into memory. Here, rather than showing the actual addresses, Radare has named each local variable based on its stack offset. Scrolling up to the initial block, we can see that `local_2h` through `local_fh` are all of type `int` (or, at least, that's what Radare thinks) and they're each one byte in size.
+
+After loading those values into local variables, it loads something in memory at the address `rsi + 8` into `rbx`. If we recall the SystemV x86_64 calling convention, `rsi` is the second argument: `argv`. So `rsi + 8` is `argv[1]`. It then loads up `eax` with 0, `rcx` with `0xffffffffffffffff` , and `rdi` with `rbx`, the value just loaded from `argv[1]`.
+
+Then it runs `repne scasb`. This is a weird but fast quirk of x86: it has a _native instruction_ for string length determination. `repne` means `rep`eat while `n`ot `e`qual, and `scasb` means `s`tring `c`ompare `a`nd `s`ubtract, `b`yte variant - see the reference [here](http://www.felixcloutier.com/x86/SCAS:SCASB:SCASW:SCASD.html) for more info. 
+
+So, this instruction compares bytes to the value of `al` (which is zero here), starting at the memory address in `rdi` and counting up, while subtracting from `rcx` (remember, C is the counter register). In essence, this instruction is measuring the length of a string. Isn't x86 a fun time?
+
+Anyway, once the `repne scasb` operation is done, `rcx` will hold 0xffffffffffffffff minus the length of the string, and we can see that the next instruction compares it to 0xfffffffffffffff8. Therefore, if the string is 0xffffffffffffffff - 0xfffffffffffffff8 = 7 bytes long (note that this includes the terminating character), the jump is taken; otherwise it is not.
+
+If the jump isn't taken, the code proceeds to a block at 0x7a8, where the failure string is printed. Therefore, we can immediately determine that any correct passcode will be precisely six bytes (plus the null terminator).
+
+### Functions
+
+What is more interesting is the block that is executed when the jump _is_ taken.
+
+<pre><code class="x86asm">
+lea rdx, [local_2h]
+lea rsi, [local_9h]
+mov rdi, rbx
+call sym.check_pw
+test eax, eax
+je 0x7a8
+</code></pre>
+
+The binary loads the addresses of some local variables, loads `argv[1]` again (`rbx`, remember?), and then `call`s a function: `sym.check_pw`. Of course, the actual binary just has the offset of the function, but Radare was smart enough to look up that offset in the symbol table and put the name in for us. `check_pw` sounds pretty promising, as cunction names go, and we can verify that by continuing: after the call, the program jumps to failure if the function returned zero, and continues on to success if it did not (recall that `test eax, eax` followed by `je` jumps if `eax` is zero).
+
+So what exactly does this function do? First, recall that the SystemV x86_64 calling convention says that `rdi`, `rsi`, and `rdx` (the three registers loaded prior to the call) are the first three arguments to the function. So in C, the call looks like this:
+
+<pre><code class="c">
+int result = check_pw(argv[1], &local_9h, &local_2h);
+if (result == 0) {
+    // fail
+} else {
+    // succeed
+}
+</code></pre>
+
+The question, then, is what, exactly, does `check_pw` do? To find that out, we need to exit visual mode (`q` followed by `q`) and `s`eek to it (`s sym.check_pw`), then look at the flow diagram (`VV`).
+
+It is immediately clear that this function contains a loop. Unlike the main function, which continues consistently downward no matter which jumps you take, in `check_pw` a block near the bottom has a `jne` that jumps up to the top. Looking a little more closely, we can see that there are three opportunities to return. One of them (at 0x73e) returns 0 (failure) and the other two (at 0x744 and 0x748) return 1 (success).
+
+This kind of high-level analysis is only possible with a flow diagram, and is one of the major advantages of using a tool like Radare. When I was getting started  with reverse engineering, I drew out flow diagrams by hand, simply because I was unaware that free tools existed. Don't do that; it's a waste of time.
+
+The function starts off by loading `r8d`, a 64-bit general purpouse register, with the value 0. It then jumps to the following block (at 0x716):
+
+<pre><code class="x86asm">
+movsxd rax, r8d
+movzx ecx, byte [rdx + rax]
+add cl, byte [rsi + rax]
+cmp cl, byte [rdi + rax]
+jne 0x73e;[gb]
+</code></pre>
+
+This block sets `rax` to `r8d` (which we know is zero), then loads a single byte from its third argument, indexed by `eax`. Going back to our arg list, this argument is `&local_2h`, so it's loading `(&local_2h)[0]`. 
+
+It then adds a byte loaded from the second argument indexed by `eax` (`(&local_9h)[0]`), and compares it to a byte loaded from its first argument indexed by `eax` (`argv[1][0]`). Remember that this is a loop, so eax will change. In other words:
+
+<pre><code class="c">
+while (/* something?? */) {
+    char temp  = arg3[eax] + arg2[eax];
+    if (temp != arg1[eax]) {
+        return 0; // failure
+    }
+}
+</code></pre>
+
+If the jump isn't taken, this code is run (at 0x725):
+
+<pre><code class="x86asm">
+add r8d, 1 
+movsxd rax, r8d
+cmp byte [rsi + rax], 0
+je 0x744;[gd] 
+</code></pre>
+
+This increments the loop counter, then checks if the second argument indexed by the loop counter is zero. If so, it jumps to code (at 0x744) that returns success. Otherwise, it continues looping. Our updated C code looks like this:
+
+<pre><code class="c">
+while (arg2[eax] != 0) {
+    char temp  = arg3[eax] + arg2[eax];
+    if (temp != arg1[eax]) {
+        return 0; // failure
+    }
+
+    eax++;
+}
+
+return 1;
+</code></pre>
+
+At this point, it's pretty easy to see what `check_pw` is doing: it's comparing two strings, but it's modifying each byte of one of the strings.
+
+Looking at the arguments passed in `main`, we can see that the program is adding `(&local_2h)[eax]` to `(&local_9h)[eax]`. I suggest going back to the main function (exit visual mode; `pdf@main`) to look at what each of those values will be.
+
+Both of these are just locations on the stack. We also know that `check_pw` will only be run on a string with 6 characters in it, so we only need to look at 6 values. Here are the values after `local_2h` (you can see them being set in `main`): 2, 3, 2, 3, 5. That's only 5 values. What's going on?
+
+If we look again, the stack variables are set starting at offset 0x754:
+
+<pre><code class="x86asm">
+mov dword [local_9h], 0x426d416c ; [0x426d416c:4]=-1
+mov word [local_dh], 0x4164 ; [0x4164:2]=0xffff
+mov byte [local_fh], 0
+mov word [local_6h], 0
+mov byte [local_8h], 0
+mov byte [local_2h], 2
+mov byte [local_3h], 3
+mov byte [local_4h], 2
+mov byte [local_5h], 3
+mov byte [local_6h], 5
+</code></pre>
+
+Prior to the values being set in order from `local_2h` to `local_6h`, by moving byte-sized values into them, `local_6h` (that is, `rsp+0x6`) is loaded with a word-sized 0 (this is Intel-syntax, so a word is 16 bits; see [this](https://en.wikipedia.org/wiki/Word_(computer_architecture)#Size_families) historical note) value. That means that **both `rsp+0x6` and `rsp+0x7`** are set to zero.
+
+Note that Radare didn't even realize that these values were in an array, let alone tell us what it was initialized to, despite it being entirely static. This is the part of reverse engineering that requires a human brain; the computer knows what's there, but it can't know what it's being used for.
+
+Anyway, our table of values starting at `local_2h` is `[2, 3, 2, 3, 5, 0]`. These aren't printable ASCII characters, so presumably the hard-coded password is stored at the other input value: `local_9h`. 
+
+The `mov` instruction above is sized for a double word (`dword`); a 32-bit value. It's followed by a word-sized value, then a byte-sized zero. That works out to 4+2 = 6 bytes, plus a null terminator, so it's a good bet that these three locations together form a string. Indeed, if we write out the values with byte seperation, it makes sense: `42 6d 41 6c 41 64 00` is a well-formed null-terminated string, with values in the printable ASCII range.
+
+All that's left is to add the offsets to them, giving us `44 70 43 6e 44 64 00`. Translating these to ASCII, we get: `DpCnDd`.
+
+Sure enough, putting this into the binary gives us... the failure message. What happened?
+
+> **Try It Yourself:** Why didn't this work? It's something pretty fundamental about how x86 processors organize data.
+
+What's happening here is that x86 processors are little-Endian. That means that bytes are read from the right to the left, not the other way around, in multi-byte values. This is easily corrected by just flipping the order of `local_9h` and `local_dh`. `42 6d 41 6c` becomes `6c 41 6d 42` and `41 64` becomes `64 41`, making our whole string `6c 41 6d 42 64 41 00` and our correct string `6e 44 6f 45 69 41 00` or `nDoEiA`.
+
+Congratulations on making it through this part of the tutorial. You've now got all the tools you need for static reverse engineering! Don't forget to solve the exercises to cement your skills.
 
 # Appendix
 
