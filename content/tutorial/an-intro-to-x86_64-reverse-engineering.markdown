@@ -44,6 +44,8 @@ On other systems, install the equivalent packages from your package manager.
 
 # The Solutions
 
+> **Note:** In later solutions, I discuss file offsets. These may be different for you, but I never use them without discussing where I got them, so if you're confused, just search for the offset using Ctrl+F or Find In Page and you should see how I got them quite easily.
+
 ## crackme01.c
 
 `crackme01.64` is a relatively simple program. When you run it, you'll see this output:
@@ -829,6 +831,28 @@ Sure enough, putting this into the binary gives us... the failure message. What 
 What's happening here is that x86 processors are little-Endian. That means that bytes are read from the right to the left, not the other way around, in multi-byte values. This is easily corrected by just flipping the order of `local_9h` and `local_dh`. `42 6d 41 6c` becomes `6c 41 6d 42` and `41 64` becomes `64 41`, making our whole string `6c 41 6d 42 64 41 00` and our correct string `6e 44 6f 45 69 41 00` or `nDoEiA`.
 
 Congratulations on making it through this part of the tutorial. You've now got all the tools you need for static reverse engineering! Don't forget to solve the exercises to cement your skills.
+
+## crackme04.c
+
+Now that you've seen all the tools and techniques you need to reverse engineer these crackmes, I'm only going to highlight the most important sections of each crackme. With crackme04, you can use the same basic process as before: open it up in Radare, run analysis, and seek to the main function. The flow graph should lead you right to a loop at the heart of the code, which looks like this:
+
+<pre><code class="x86asm">
+movsx eax, al
+add esi, eax
+add ecx, 1
+movsxd rax, ecx
+movzx eax, byte [rdx + rax]
+test al, al
+jne 0x72e;[ge]  
+</code></pre>
+
+That jump is either back to the top if `al` (a single byte from the input string) isn't zero, or to a block that just compares `ecx` with 0x10 and exits with failure if it's not equal, and to another check if it is. That check jumps to failure if `esi` isn't 0x6e2, and success if it is.
+
+So what are `ecx` and `esi`? It's easy to see that `ecx` is just a counter; at each loop iteration, it gets incremented, and is used to index the input string. So, after the loop is done, it's equal to the number of non-zero bytes in the string.
+
+`esi` is only modified in one line in the loop: it's the sum of the numerical values of the characters in the string. It's later compared to 0x632. So we need a 16-character string with the sum 0x6e2 (1762). 
+
+My method is to simply divide and then add in the remainder. 1913 over 16 is 110 remainder 2, so we just use character 110 ('n') followed by a single 112 ('p'): `nnnnnnnnnnnnnnnp`. 
 
 # Appendix
 
