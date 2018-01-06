@@ -527,7 +527,7 @@ $ ./crackme02.64 o\`rrvnqc0
 Yes, o`rrvnqc0 is correct!
 </code></pre>
 
-The sharp-eyed among you might have noticed that this binary has a problem, however; it will actually accept _any_ of these characters. o, o\`, o\`r, o\`rr, et cetera all work! Clearly not a very good method to use for your product key.
+The sharp-eyed among you might have noticed that this binary has a problem, however; it will actually accept _any_ of these characters. o, o\`, o\`r, o\`rr, et cetera all work! Clearly not a very good method to use for your product key. Also, as pointed out by [an astute GitHub commenter](https://github.com/LeoTindall/crackmes/issues/2), an empty password (`./crackme02.64 ""`) will be accepted.
 
 If you made it this far, good job! Reverse engineering is difficult, but this is the core of it, and it only gets easier from here.
 
