@@ -868,4 +868,4 @@ The files named `crackme01e.c`, `crackme02e.c`, et cetera are modified versions 
 
 ## Media
 
-Saturday, Jan. 6, 2017: This tutorial was featured on Hackaday, which briefly brought down my server. Hi to all of you who make it here from there. Please consider checking out my other tutorials and, if you want more content like this to be created, contributing to my [Patreon](https://leotindall.com).
+Saturday, Jan. 6, 2018: This tutorial was featured on Hackaday, which briefly brought down my server. Hi to all of you who make it here from there. Please consider checking out my other tutorials and, if you want more content like this to be created, contributing to my [Patreon](https://leotindall.com).
