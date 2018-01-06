@@ -275,9 +275,9 @@ je     761 <main+0x51>
 
 That first instruction moves the quadword (64-bit value) at the address `[rsi+0x8]` into `rdx`. What's in `rsi`, the full 64-bit Source Index register? Turns out, that's the _second_ argument in the Linux x86_64 calling convention. So in C, this is the value `argv + 8` or, because `argv` is of type `char**`, `argv[1]`.
 
-The next instruction moves and extends with zeroes (`movzx`) a single byte from the memory address stored in `rdx`; in other words, `*argv[1]`, or `argv[1][0]`. The Accumulator register now has all zeroes except for the last 8 bytes, which contain the first byte of `argv[1]`, the the command line argument to the program.
+The next instruction moves and extends with zeroes (`movzx`) a single byte from the memory address stored in `rdx`; in other words, `*argv[1]`, or `argv[1][0]`. The Accumulator register now has all zeroes except for the last 8 bits, which contain the first byte of `argv[1]`, the the command line argument to the program.
 
-`test al,al` is equivalent to `cmp al, 0`. `al` is the lower 8 bytes of the Accumulator register. Essentially, this block is equivalent to the C code:
+`test al,al` is equivalent to `cmp al, 0`. `al` is the lower 8 bits of the Accumulator register. Essentially, this block is equivalent to the C code:
 
 <pre><code class="c">
 if (argv[1][0] == 0) {
@@ -421,7 +421,7 @@ cmp    eax,ecx
 jne    794 <main+0x84>
 </code></pre>
 
-Here, we zero out all but the lowest 8 bytes of `eax`, then subtract one from it. Then we zero out all but the last 8 bytes of `ecx` and compare `eax` to `ecx`. If they're not equal, we jump to 0x794. Where is that? It's another block we've already reversed; it prints the failure string and exits with the return code of 1.
+Here, we zero out all but the lowest 8 bits of `eax`, then subtract one from it. Then we zero out all but the last 8 bits of `ecx` and compare `eax` to `ecx`. If they're not equal, we jump to 0x794. Where is that? It's another block we've already reversed; it prints the failure string and exits with the return code of 1.
 
 What is this actually doing? From above, `eax` contains a single byte; 0x61 (decimal 97, or 'a' in ASCII). It has one subtracted from it, so it's 0x60 (decimal 96, '\`' in ASCII). So we know that the first two characters of the key are 'o\`'. Our pseudocode looks like this:
 
