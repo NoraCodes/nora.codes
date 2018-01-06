@@ -20,6 +20,8 @@ There are a lot of excellent tutorials out there, but they mostly focus on the 3
 
 A CrackMe is an executable file which takes (typically) a single argument, does some check on it, and returns a message informing the user if it's correct or not.  The challenge is to determine the correct argument _without_ looking at the source code. Here, I present some CrackMe programs which I wrote, and demonstrate how to arrive at their solutions. 
 
+If you enjoy this tutorial, please consider contributing to my [Patreon](https://www.patreon.com/leotindall) so I can make more like it.
+
 # Prerequisites 
 
 ## Knowledge
@@ -863,3 +865,7 @@ The Makefile used is fairly straightforward, but it does have a few quirks. Prim
 ## Exercises
 
 The files named `crackme01e.c`, `crackme02e.c`, et cetera are modified versions of their non-suffixed counterparts. They are intended as exercises, and can be solved with exactly the same techniques as are shown in the respective sections of this tutorial. You will have a much better experience if you solve them before moving on.
+
+## Media
+
+Saturday, Jan. 6, 2017: This tutorial was featured on Hackaday, which briefly brought down my server. Hi to all of you who make it here from there. Please consider checking out my other tutorials and, if you want more content like this to be created, contributing to my [Patreon](https://leotindall.com).
