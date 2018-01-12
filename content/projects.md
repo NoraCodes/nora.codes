@@ -6,6 +6,7 @@ I write a lot of software. Not all of it is production quality, but I like to ma
 
 ### Reusable Code Libraries
 
+* [libui-rs](https://github.com/LeoTindall/libui-rs) - a Rust interface providing cross platform access to native UI frameworks.
 * [helicase](https://github.com/LeoTindall/helicase) - read and write strings of DNA bases, and convert them to framed strands or polypeptides.
 * [sbrain](https://github.com/LeoTindall/sbrain) - a 25-symbol programming language specification and VM implementation, in Rust.
 * [MLeM](https://github.com/LeoTindall/mlem) - the Machine Learning Machine, a virtual machine designed as an ML target.
@@ -38,7 +39,7 @@ I write a lot of software. Not all of it is production quality, but I like to ma
 
 ### Embedded Applications
 
-*[esp8266_scan](https://gist.github.com/LeoTindall/c328e47e47cafc0be353feec020175af) - a wireless scanner code for the ESP8266 chip, which produces either JSON or human-readable output.
+* [esp8266_scan](https://gist.github.com/LeoTindall/c328e47e47cafc0be353feec020175af) - a wireless scanner code for the ESP8266 chip, which produces either JSON or human-readable output.
 
 ### Games
 
