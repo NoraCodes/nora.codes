@@ -492,7 +492,9 @@ test   al,al                    ; Check that that byte isn't zero
 jne    73e <main+0x2e>          ; If it's not zero, loop
 </code></pre>
 
-It's important to note that, while we as humans would write this like the following C code, the compiler actually moved the second part of the loop check to the _end_ of the loop, and loads the next byte for the comparison string there.
+While we as humans would write this like the following C code, the compiler actually moved the second part of the loop check to the _end_ of the loop, and loads the next byte for the comparison string there.
+
+Note: This code was incorrect in the original version of this tutorial. Thanks to [empwill](https://github.com/empwill/) for correcting it. I note this so that readers will be aware that even experienced reverse engineers make mistakes, and that such mistakes are both expected and recoverable!
 
 > **Try It Yourself:** The following C code should be all you need to determine the correct code. Try it!
 
@@ -507,8 +509,8 @@ int main(int argc, char** argv){
     // This is the value used to index the argv[1]
     int i = 0;
 
-    while (argv[1][i] != 0 && (comparison[i] + 1) != 0) {
-        if (argv[1][i] != comparison[i]) {
+    while (argv[1][i] != 0 && (comparison[i]) != 0) {
+        if (argv[1][i] != comparison[i] + 1) {
             printf("No, %s is not correct.", argv[1]);
             return 1;
         }
