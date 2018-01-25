@@ -510,7 +510,7 @@ int main(int argc, char** argv){
     int i = 0;
 
     while (argv[1][i] != 0 && (comparison[i]) != 0) {
-        if (argv[1][i] != comparison[i] + 1) {
+        if (argv[1][i] != comparison[i] - 1) {
             printf("No, %s is not correct.", argv[1]);
             return 1;
         }
@@ -522,7 +522,7 @@ int main(int argc, char** argv){
 }
 </code></pre>
 
-This is really all we need. Simply adding one to each letter of `password1` in ASCII gives us "o\`rrvnqc0". Let's try it:
+This is really all we need. Simply subtracting one from each letter of `password1` in ASCII gives us "o\`rrvnqc0". Let's try it:
 
 <pre><code>
 $ ./crackme02.64 o\`rrvnqc0
