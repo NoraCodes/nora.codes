@@ -2,7 +2,7 @@
 title: Home
 ---
 
-# (λleo.code)
+# λleo.code
 
  I'm **Leo Tindall**, a systems and web programmer from San Diego.
 
@@ -11,3 +11,5 @@ title: Home
  I’m currently a student at Beloit College, studying computer science. I love programming, but I’m also into sci-fi, tabletop gaming, literature, socialogy, politics, and social justice work.
 
  You can find my various social media links at the bottom of this page. GNUSocial (Mastodon) or email is your best bet for contacting me.
+
+ I host some web services, like Etherpad and a Git VCS server along with project management tools. If you become a Patreon donor, you'll gain access to these services.
