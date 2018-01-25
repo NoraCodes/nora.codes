@@ -27,6 +27,7 @@ I write a lot of software. Not all of it is production quality, but I like to ma
 
 ### Security & Administration Tools
 
+* [harf](https://github.com/OpenEnergyDashboard/harf) - the HTTP Watchdog. `harf` barks when your services go down.
 * [RLoris](https://github.com/LeoTindall/rloris) - a concurrent and parallel implementation of RSnake's SlowLoris application level DoS attack on many web servers (like Apache).
 * [PyPlotPing](https://github.com/LeoTindall/FlameTools) - a Python application to plot data from the `ping` command, for finding network faults.
 
