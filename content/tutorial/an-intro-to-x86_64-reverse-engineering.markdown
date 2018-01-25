@@ -325,7 +325,14 @@ int main(int argc, char** argv){
 }
 </code></pre>
 
-At first glance, we would appear to be done! However, it's impossible (from the command line) to inject a command line argument whose first byte is zero; it would simply be an empty string, and the shell would not add it to the count of arguments, even if you could type it in. Let's move on.
+All we have to to is provide a string whose first byte is 0; that is, the empty string: 
+
+<code><pre>
+$ ./crackme02.64 ""
+Yes,  is correct!
+</code></pre>
+
+In a certain sense, we're done, but it is instructive to look at the remainder of the code. Let's move on.
 
 If that check fails, the code goes to this block (at 0x724):
 
