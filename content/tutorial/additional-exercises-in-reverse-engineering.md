@@ -55,7 +55,7 @@ mov esi, 4
 call sym.check_with_mod
 </code></pre>
 
-Here, RBX is `argv[1]`, so this is really `check_with_mod(argv[1], 5, 4)`. The third argument, here a 4, appears consistent across calls, while the second argument changes. So what does `check_with_mod` do?
+Here, RBX is `argv[1]`, so this is really `check_with_mod(argv[1] + 8, 5, 4)`. The third argument, here a 4, appears consistent across calls, while the second argument changes. So what does `check_with_mod` do?
 
 As usual, `s sym.check_with_mod` followed by `pdf` will give us the answer. It's actually a very simple function, just 20 instructions. At its heart is a loop which adds up the values of some bytes in the input string (argument 1), dictated by the 3rd argument. In our case this will always be 4 bytes.
 
