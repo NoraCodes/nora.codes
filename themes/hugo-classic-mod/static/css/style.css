@@ -107,7 +107,8 @@ pre {
 code { 
   background: #444444;
   padding: 0px; 
-  border-radius: 2px; }
+  border-radius: 2px; 
+}
 pre code { background: none; }
 
 /* Images, tables, misc. */

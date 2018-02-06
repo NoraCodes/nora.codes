@@ -1,4 +1,4 @@
-baseURL = "https://leotindall.com/"
+# baseURL = "https://leotindall.com/"
 languageCode = "en-us"
 
 title = "Leo Tindall"
@@ -6,7 +6,7 @@ theme = "hugo-classic-mod"
 
 # dateFormat = "date -u +'%Y-%m-%d %R:%S%:z'"
 
-# Allow Hugo to munge, e.g., "Programming Stuff" into "programming-stuff" 
+# Allow Hugo to munge, e.g., "Programming Stuff" into "programming-stuff"
 preserveTaxonomyNames = false
 
 # Highlighting

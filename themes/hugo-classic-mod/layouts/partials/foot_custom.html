@@ -1,3 +1,8 @@
 <!-- Automagically centers images. -->
 <!--<script async src="//yihui.name/js/center-img.js"></script> -->
 <a href="https://www.patreon.com/bePatron?u=5453104"> <img src="/images/become_a_patron_button.png" alt="Become a Patron!"></a>
+<script>
+    // This script fixes the extra line at the top of the code blocks.
+    const code = document.querySelectorAll("code");
+    [...code].forEach(el => el.textContent = el.textContent.replace(/^\n/,''));
+</script>

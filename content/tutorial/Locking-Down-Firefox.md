@@ -28,9 +28,9 @@ Many websites use pieces of JavaScript and CSS code imported from CDNs (Content 
 
 The [Electronic Frontier Foundation](https://eff.org) publishes and maintains a great piece of software called [Privacy Badger](https://www.eff.org/privacybadger). This browser extension learns which domains appear over and over again on different websites, and uses some logic to determine whether or not they might be tracking you. It then gives you the option to allow, block, or block cookies from these domains. Combined with DecentralEyes, this is unlikely to break your browsing experience, but because it adaptively learns from your browsing behavior, it's very effective at preventing certain kinds of tracking.
 
-### Fingerprint Resistance 
+### Fingerprint Resistance
 
-There are a lot of pieces of information that a website can use to track you, even without explicitly dropping a cookie or other tracking data onto your computer. This is called browser fingerprinting; you can learn more at the EFF's [Panopticlick](https://firstpartysimulator.net/) project. Firefox has a built-in tracking resistance mode, which I'll cover later, but it's very aggressive and breaks some websites. For me, this wasn't good enough, so I built [an extension](https://leotindall.com/randomua/) that changes your User-Agent string, a major part of the browser's fingerprint, on every single request. This makes it very hard to correlate your behavior.
+There are a lot of pieces of information that a website can use to track you, even without explicitly dropping a cookie or other tracking data onto your computer. This is called browser fingerprinting; you can learn more at the EFF's [Panopticlick](https://firstpartysimulator.net/) project. Firefox has a built-in tracking resistance mode, which I'll cover later, but it's very aggressive and breaks some websites. For me, this wasn't good enough, so I built [an extension](randomua/) that changes your User-Agent string, a major part of the browser's fingerprint, on every single request. This makes it very hard to correlate your behavior.
 
 ### HTTPS Everywhere
 
