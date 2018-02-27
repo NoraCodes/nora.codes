@@ -51,7 +51,7 @@ enum StreetDirection {
 
 We can use these two types to apply some type theory to a conversation. Let's say Alice is giving Bob directions. Bob might ask, "Which way do I go at Laurel Street?" He is requesting a value of type StreetDirection; it would make no sense if Alice were to say "Blue" or "False".
 
-We can extend this construct to create very useful types like and unsigned integer (the always-positive variant of the bounded `int` discussed above). It can hold values from 0 to 2^64 - 1. Were we to define it using this syntax, it would look something like this:
+We can extend this construct to create very useful types like an unsigned integer (the always-positive variant of the bounded `int` discussed above). It can hold values from 0 to 2^64 - 1. Were we to define it using this syntax, it would look something like this:
 
 <pre><code class="rs">
 enum PositiveBoundedInteger {
@@ -205,12 +205,11 @@ struct IntegerListNode {
     value: BoundedInteger,
     link: IntegerListLink,
 }
-
 enum IntegerListLink {
-    HasNextNode(Box<IntegerListNode>),
+    HasNextNode(Box&lt;IntegerListNode&gt;),
     NoNextNode,
 }
-</code></pre>
+></code></pre>
 > It's important to remember that while the current Rust _implementation_ doesn't like this type, there's no reason that Rust as a _language_ can't handle it. It's a very useful type, and a good logical description of how linked lists work, even though we have to add some incantations to get them to work in the real world. 
 
 ### Zero Sized or Single Value Types
