@@ -1,7 +1,6 @@
 ---
 title: "A Methodology for Fontconfig Editing"
 date: 2018-03-07T11:16:38-06:00
-draft: true
 ---
 
 One of the hardest parts about building beautiful Linux systems is fonts. Fonts on Linux are generally handled with [fontconfig](https://www.freedesktop.org/wiki/Software/fontconfig/). Unfortunately, fontconfig has no real GUI editors or usable interactive configuration tools, so users are expected to manually edit XML configuration files.
