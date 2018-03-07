@@ -50,3 +50,5 @@ I really enjoy working this way, and I think I'm going to keep it up, at least f
 
 Ultimately, a combination of the two is likely to be most efficient; if I ever figure out the perfect workflow, I'll make sure to write it up.
 
+> NOTE: After publishing this article, I was made aware that the term "ricing" comes from the racing community, where it was originally coined as a pejorative racist term referring to over-modded Japanese motorcycles. Yikes. While it seems dishonest to remove/rename this article, I'll certainly look for another term to use in the future.
+
