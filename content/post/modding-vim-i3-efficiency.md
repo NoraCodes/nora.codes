@@ -1,30 +1,30 @@
 ---
-title: "Ricing, Vim, i3, and Efficiency"
+title: "Modding, Vim, i3, and Efficiency"
 date: 2018-03-06T18:50:13-06:00
 ---
 
-I spend a great deal of time _ricing_ my Linux machine. Practiced by many Linux users, ricing is the process of making a Linux installation pretty, by changing the color schemes, fonts and font sizes, icons, default applications, and the desktop background. As a noun, a _rice_ is the final product of that process: a computer system which looks pretty while remaining functional.
-For example, here are screenshots of my two most recent rices.
+I spend a great deal of time _modding_ my Linux machine. Practiced by many Linux users, modding is the process of making a Linux installation pretty, by changing the color schemes, fonts and font sizes, icons, default applications, and the desktop background. As a noun, a _mod_ is the final product of that process: a computer system which looks pretty while remaining functional.
+For example, here are screenshots of my two most recent mods.
 
-> ![Screenshot of my dark NASA rice](/images/rices/2018-nasa-02.png)
-> My previous rice, a dark blue/grey theme with red highlights.
+> ![Screenshot of my dark NASA mod](/images/rices/2018-nasa-02.png)
+> My previous mod, a dark blue/grey theme with red highlights.
 
 &nbsp;
 
-> ![Screenshot of my purple space rice](/images/rices/2018-purple-space-01.png)
-> My current rice, a purple theme with pink and white highlights.
+> ![Screenshot of my purple space mod](/images/rices/2018-purple-space-01.png)
+> My current mod, a purple theme with pink and white highlights.
 
-A great many other examples of very pretty rices can be found on [Reddit](https://reddit.com/r/unixporn).
+A great many other examples of very pretty mods can be found on [Reddit](https://reddit.com/r/unixporn).
 
 I've always found ricing my system to be a very calming process. It re-familiarizes me with the machine I use to access the world, makes me re-think my work process, and encourages me to heavily optimize every aspect of what I do.
 
-I have a deep sense of aestheticism regarding the software that I use, and my rices reflect this. I use the [i3](http://i3wm.org) window manager, which rather than drawing borders with titles, close buttons, and resize handles around windows simply "tiles" them so that the whole screen space is always used. It also allows me to use the machine exclusively via the keyboard.
+I have a deep sense of aestheticism regarding the software that I use, and my mods reflect this. I use the [i3](http://i3wm.org) window manager, which rather than drawing borders with titles, close buttons, and resize handles around windows simply "tiles" them so that the whole screen space is always used. It also allows me to use the machine exclusively via the keyboard.
 
 My editor of choice, [vim](http://vim.org), is of a similar philosophy. Simple and configurable, it is almost entirely keyboard driven and easily configurable.
 
 Even my computer's name, Asfaloth (after [Glorfindel's horse](http://lotr.wikia.com/wiki/Asfaloth)), reflects this preference. I don't need it to be fancy; it just needs to get me where I'm going, rapidly and without fail.
 
-Despite this, I've historically used heavy-weight, mouse driven IDEs like IntelliJ for development. Even when not working in an IDE, I tend to use a graphical editor like Visual Studio Code or Atom. I've gotten used to it, but every time I rice my machine, it grates on my. Everything I do in the terminal lets me enjoy my rice, seeing the color scheme and background blend beautifully as I work, but these "advanced" editors don't.
+Despite this, I've historically used heavy-weight, mouse driven IDEs like IntelliJ for development. Even when not working in an IDE, I tend to use a graphical editor like Visual Studio Code or Atom. I've gotten used to it, but every time I mod my machine, it grates on my. Everything I do in the terminal lets me enjoy my mod, seeing the color scheme and background blend beautifully as I work, but these "advanced" editors don't.
 
 ![Screenshot of my VSCode development setup](/images/rices/vscode.png)
 
@@ -50,5 +50,4 @@ I really enjoy working this way, and I think I'm going to keep it up, at least f
 
 Ultimately, a combination of the two is likely to be most efficient; if I ever figure out the perfect workflow, I'll make sure to write it up.
 
-> NOTE: After publishing this article, I was made aware that the term "ricing" comes from the racing community, where it was originally coined as a pejorative racist term referring to over-modded Japanese motorcycles. Yikes. While it seems dishonest to remove/rename this article, I'll certainly look for another term to use in the future.
-
+> NOTE: After publishing this article, I was made aware that the term "ricing" comes from the racing community, where it was originally coined as a pejorative racist term referring to over-modded Japanese motorcycles. Yikes. Because of that, I've decided to use the term "modding" instead.
