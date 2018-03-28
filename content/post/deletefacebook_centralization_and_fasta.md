@@ -51,4 +51,6 @@ There are a few things you can do to help.
 
 1. Use other decentralized software. E-mail, for instance, is better than Facebook Messenger, even if you use GMail or Yahoo! Mail or another large e-mail provider, because there is the _option_ to move to another.
 
+1. Share this post. Share it on Facebook and Twitter and Instagram and _everywhere_. Or write your own and share that. Make it resonate.
+
 Together, we can build an internet that's not just safer, but more enjoyable. Thank you. Your effort and struggle are valuable.
