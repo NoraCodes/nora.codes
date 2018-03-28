@@ -47,6 +47,8 @@ That means that the problems mentioned above would be very, very short-lived. On
 
 While Mastodon is modelled after Twitter, the same underlying systems are being applied to Facebook-like and Tumblr-like sites. Even more interestingly, **these will be able to talk to each other**. Imagine being able to see Twitter posts in Facebook, or Facebook posts on Tumblr. This further reduces lock-in. Don't like the Mastodon format? Move to Aardwolf or Pleroma or ... wherever. You will still be connected to your friends.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IPSbNdBmWKE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
 ## What You Need To Do
 
 There are a few things you can do to help.
