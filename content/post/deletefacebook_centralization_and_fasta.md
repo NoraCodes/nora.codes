@@ -37,9 +37,13 @@ This solution is **decentralized services**. This means that anyone - any organi
 
 One of the key pieces of software here is called [Mastodon](joinmastodon.org). It is a microblogging platform, like Tumblr or Twitter, but rather than every user handing over their data to Twitter-the-company, there are thousands of "Mastodon sites". There is [cyber.space](https://cybre.space) and [witches.town](https://witches.town), [mastodon.social](https://mastodon.social) and [pawoo.net](https://pawoo.net). The crucial feature is this: **if you have an account on mastodon.social (or any other Mastodon site), and I have one on cybre.space (or any other Mastodon site), I can talk to you and you can talk to me**.
 
+> If you want to see a sample Mastodon profile, check out mine: [tindall@cybre.space](https://cybre.space/@tindall).
+
 Let's say I join mastodon.social with all my friends, but the people who run the site don't agree with me - perhaps they don't adequately protect me from harassment, and I want to move to [kitty.town](https://kitty.town) which is more aggressively moderated. With a traditional, centralized model, I would have to convince my friends to come with me, or be resigned to losing contact. **With decentralized social media, you stay connected even if you move service providers**.
 
 That means that the problems mentioned above would be very, very short-lived. One Mastodon site (or "instance" as they're called) starts doing shady things with user data. **All the users can simply move to another instance with practically zero effort.**. The network of instances can also cut off instances that are sources of spam or harassment, and that decision is up to the moderators and admins for each instance. **If you don't like the decisions the moderation team of your instance makes, you can move to another, more agreeable one with almost no effort.**
+
+> Remember, there have been massive issues with moderation on Twitter. Those issues are largely solved by smaller, more tailored moderation teams, which Mastodon enables.
 
 While Mastodon is modelled after Twitter, the same underlying systems are being applied to Facebook-like and Tumblr-like sites. Even more interestingly, **these will be able to talk to each other**. Imagine being able to see Twitter posts in Facebook, or Facebook posts on Tumblr. This further reduces lock-in. Don't like the Mastodon format? Move to Aardwolf or Pleroma or ... wherever. You will still be connected to your friends.
 
