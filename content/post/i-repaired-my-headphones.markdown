@@ -4,7 +4,8 @@ slug: i-repaired-my-headphones
 title: I Repaired My Headphones
 categories:
 - Hardware
-- Writing
+- Hacking
+- Culture
 ---
 
 Hardware manufacturers are missing out on a huge potential source of revenue: the thrifty tech user market. No, really. Let me explain.

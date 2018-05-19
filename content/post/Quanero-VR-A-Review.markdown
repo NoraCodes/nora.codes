@@ -4,12 +4,7 @@ title: Quanero VR, a Review
 slug: quanero-vr-a-review
 categories:
 - Video Games
-tags:
-- vr
-- gaming
-- video games
-- virtual reality
-- htc vive
+- Virtual Reality
 ---
 
 _Quanero VR_, available from “Laserboys3000” on Steam for nothing, is the best of the many VR experiences I’ve encountered so far. 

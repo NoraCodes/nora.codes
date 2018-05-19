@@ -1,6 +1,11 @@
 ---
 title: "Moving to Subdomains"
 date: 2018-05-13T16:26:58-05:00
+categories:
+- Networking
+- System Administration
+- Open Source
+- Linux
 ---
 
 I just finished moving my EtherPad Lite instance and my Gogs Git VCS instance to subdomains, rather than subdirectories.

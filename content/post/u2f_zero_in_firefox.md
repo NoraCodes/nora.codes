@@ -1,6 +1,10 @@
 ---
 title: "U2F Zero in Firefox"
 date: 2018-03-26T11:48:21-05:00
+categories:
+- Linux
+- Open Source
+- Hardware
 ---
 
 I recently got a [U2F Zero](https://u2fzero.com), a tiny (about 2 inches long) and cheap (about 8 dollars) device implementing the FIDO Universal Second Factor protocol. It's open source, too, which is awesome.

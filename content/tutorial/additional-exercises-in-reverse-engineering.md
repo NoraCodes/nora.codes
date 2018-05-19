@@ -4,13 +4,8 @@ slug: additional-exercises-in-reverse-engineering
 title: Additional Exercises in Reverse Engineering
 categories:
 - Programming
+- Assembly
 - Hacking
-tags:
-- c
-- programming
-- hacking
-- cracking
-- reverse engineering
 toc: true
 ---
 

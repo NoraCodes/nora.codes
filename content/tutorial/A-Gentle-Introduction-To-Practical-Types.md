@@ -4,11 +4,8 @@ title: A Gentle Introduction to Practical Types
 slug: a-gentle-introduction-to-practical-types
 categories:
 - Programming
+- Rust
 - Math
-tags:
-- programming
-- programming languages
-- type theory
 ---
 
 ## Types

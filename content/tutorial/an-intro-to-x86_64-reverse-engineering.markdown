@@ -5,12 +5,7 @@ title: An Intro to x86_64 Reverse Engineering
 categories:
 - Programming
 - Hacking
-tags:
-- c
-- programming
-- hacking
-- cracking
-- reverse engineering
+- Assembly
 toc: true
 ---
 

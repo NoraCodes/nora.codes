@@ -4,13 +4,8 @@ title: SBrain, an extension of BrainF*ck
 slug: sbrain-an-extension-of-brainfzck
 categories:
 - Programming
-- Programming Languages
-tags:
-- sbrain
-- esolang
-- rust
-- vm
-- virtual machine
+- Rust
+- Machine Learning
 ---
 
 **SBrain**, or *Semantic Brain*, is a language based on Urban Müller's famous language **Brainf*ck** with only 8 symbols (3 bit instructions). SBrain's additions increase the number of symbols to 32 (6 bit instructions), including bit-shifting and arithmetic, and add a stack and a register. 

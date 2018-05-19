@@ -4,12 +4,8 @@ slug: why-linux-on-the-pc-needs-a-focus-on-hardware-support
 title: Why Linux on the PC Needs a Focus on Hardware Support
 categories:
 - Open Source
-- Tech Culture
-tags:
-- drivers
-- hardware
-- linux
-- open source
+- Culture
+- Linux
 ---
 
 Linux cannot fall behind in hardware support. In fact, if we ever want to capture the desktop market, we have to race ahead.

@@ -4,11 +4,7 @@ slug: the-sinclair-zx-81-ts-1000
 title: The Sinclair ZX-81/TS-1000
 categories:
 - Hardware
-tags:
-- hardware
-- retro
-- sinclair
-- zx81
+- Hacking
 ---
 
 ![ts_1000_in_styrofoam](/images/ts_1000_in_styrofoam-169x300.jpg) 

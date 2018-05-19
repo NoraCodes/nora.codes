@@ -4,17 +4,9 @@ slug: rewriting-tinyhttpd-in-rust-part-one
 title: Rewriting tinyhttpd in Rust, Part One
 categories:
 - Programming
-tags:
-- embedded
-- http
-- http 1.1
-- internet of things
-- iot
-- legacy
-- rust
-- server
-- tinyhttpd
-- web server
+- Rust
+- Networking
+- Open Source
 ---
 
 In 1999, J. David Blackstone, or, as he is know online, [jdavidb](https://slashdot.org/~jdavidb), was taking CSE 4344 (Network Concepts) at UT Arlington. Those were the glory days of Sparc Solaris, and Blackstone wrote, for his college course, a C program called **tinyhttpd**. It is, essentially, a very short version of the immensely complex programs that seem run the world these days: web servers. Unlike the million-line behemoths (think Apache, nginx, et cetera), tinyhttpd is a HTTP 1.1 web server in 532 lines of well-commented C.

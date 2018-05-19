@@ -1,4 +1,4 @@
- baseURL = "https://leotindall.com/"
+baseURL = "https://leotindall.com/"
 languageCode = "en-us"
 
 title = "Leo Tindall"
@@ -15,9 +15,7 @@ pygmentsUseClassic = false
 pygmentsCodefences = true
 
 [taxonomies]
-  tag = "tags"
   category = "categories"
-  series = "series"
 
 [permalinks]
     post = "/post/:slug"
@@ -39,8 +37,14 @@ pygmentsCodefences = true
     weight = 3
 
 [[menu.feed]]
+    name = "Categories"
+    url = "/categories"
+    weight = 2
+
+[[menu.feed]]
     name = "Subscribe"
     url = "/index.xml"
+    weight = 1
 
 [params]
     description = "Leo Tindall's personal website"

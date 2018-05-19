@@ -5,11 +5,7 @@ title: Resources for a New Rustacean
 draft: true
 categories:
 - Programming
-tags:
-- newbie
-- programming
-- rust
-- rustlang
+- Rust
 ---
 
 

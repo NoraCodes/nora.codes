@@ -4,12 +4,7 @@ slug: rust-using-enums-and-match-expressionsstatements
 title: Rust - Using Enums and Match Expressions/Statements
 categories:
 - Programming
-tags:
-- enum
-- match
-- programming
-- rust
-- rustlang
+- Rust
 ---
 
 This is the source code from a screencast I did the other day on using enums and match expressions in Rust.

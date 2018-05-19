@@ -4,13 +4,7 @@ slug: rust-abstracting-the-fsm
 title: Rust - Abstracting the FSM
 categories:
 - Programming
-- Programming Languages
-tags:
-- finite state machine
-- fsm
-- programming
-- rust
-- rustlang
+- Rust
 ---
 
 This is a followup to my [previous tutorial](/post/2016/07/06/rust-using-enums-and-match-expressionsstatements/) on creating a finite state machine in Rust.

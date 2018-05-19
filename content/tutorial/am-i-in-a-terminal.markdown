@@ -4,12 +4,7 @@ slug: am-i-in-a-terminal
 title: Am I in a Terminal?
 categories:
 - Programming
-tags:
-- bash
-- coding
-- command line
-- python
-- terminal
+- Python
 ---
 
 Sometimes, it can be useful to know if your program is running in a terminal. Since Python 3.3, this functionality has been available in the `os` module:

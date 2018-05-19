@@ -3,14 +3,8 @@ date: 2016-04-10 15:37:11+00:00
 slug: ipfs-the-interplanetary-file-system
 title: IPFS, the Interplanetary File System
 categories:
-- Internet
+- Networking
 - Open Source
-tags:
-- internet
-- programming
-- python
-- software
-- open source
 ---
 
 I've been using (and working on) a project called IPFS. It's a new way of distributing content - like the Internet, but it doesn't go away if one server goes down. People much smarter than me came up with the idea; I'm working on the Python implementation of the standard, to allow people to embed it in their Python applications.

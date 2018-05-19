@@ -4,12 +4,7 @@ slug: session-types
 title: Session Types
 categories:
 - Programming
-- Programming Languages
-tags:
-- rust
-- session types
-- type system
-- types
+- Rust
 ---
 
 Session types are a technique for using a rich type system, like that of Rust or OCaml, to prevent the representation of certain kinds of illegal states. Here, I'll illustrate them with a (somewhat contrived) example.

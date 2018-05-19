@@ -10,7 +10,7 @@ title: Home
 
  I teach computers to do silly tricks that some people find useful.
 
- I program **Rust**, **Python**, **Go**, C, Java (and Processing), JavaScript/TypeScript, various esolangs, Lua, assembly, and many more. 
+ I program [**Rust**](/categories/rust), [**Python**](/categories/python), **Go**, C, Java (and Processing), JavaScript/TypeScript, various esolangs, Lua, [assembly](/categories/assembly), and many more. 
  
  You can check out my [projects](projects/) to see what I've worked on in the past. The big ones are the [Open Energy Dashboard](https://oed.beloit.edu) and [iui](https://github.com/LeoTindall/libui-rs).
 

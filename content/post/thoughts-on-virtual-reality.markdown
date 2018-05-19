@@ -4,12 +4,7 @@ title: Thoughts on Virtual Reality
 slug: thoughts-on-virtual-reality
 categories:
 - Video Games
-tags:
-- vr
-- gaming
-- video games
-- virtual reality
-- htc vive
+- Virtual Reality
 ---
 
 I was recently fortunate enough to be the recipient of a grant for $2000 to learn about virtual reality and develop a video game using the HTC Vive. So far, I've mostly been exploring prior art.

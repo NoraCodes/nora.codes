@@ -1,6 +1,10 @@
 ---
 title: "Modding, Vim, i3, and Efficiency"
 date: 2018-03-06T18:50:13-06:00
+categories:
+- Modding
+- Linux
+- Open Source
 ---
 
 I spend a great deal of time _modding_ my Linux machine. Practiced by many Linux users, modding is the process of making a Linux installation pretty, by changing the color schemes, fonts and font sizes, icons, default applications, and the desktop background. As a noun, a _mod_ is the final product of that process: a computer system which looks pretty while remaining functional.

@@ -3,15 +3,8 @@ date: 2016-06-01 04:39:51+00:00
 slug: a-story-about-my-personal-trainer
 title: A Story About My Personal Trainer
 categories:
-- Writing
 - Open Source
-- Tech Culture
-tags:
-- freedom
-- linux
-- software
-- user choice
-- windows
+- Culture
 ---
 
 This is a story about a woman who runs her own small business as a personal trainer. She uses Microsoft Publisher to create her at-home training programmes and Excel for keeping track of payments, et cetera. She has a Win XP computer from 2004.

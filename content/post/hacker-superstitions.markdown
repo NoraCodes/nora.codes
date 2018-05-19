@@ -4,17 +4,7 @@ slug: hacker-superstitions
 title: Hacker Superstitions
 categories:
 - Writing
-- Tech Culture
-tags:
-- ai lab
-- barnaby jack
-- folklore
-- hacker
-- hacking
-- legend
-- myth
-- stallman
-- superstition
+- Culture
 ---
 
 I'm currently taking a course called "Macbeth from Page to Stage". We're discussing superstitions in theatre, and it got me thinking about hacker myths. I wrote this for the assignment, but I thought others might find it interesting.

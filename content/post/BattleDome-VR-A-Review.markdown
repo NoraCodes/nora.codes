@@ -4,12 +4,7 @@ title: BattleDome VR, a Review
 slug: battledome-vr-a-review
 categories:
 - Video Games
-tags:
-- vr
-- gaming
-- video games
-- virtual reality
-- htc vive
+- Virtual Reality
 ---
 
 I hadn't really decided whether or not I liked _Battle Dome_ until I punched a wall with my Vive wand while trying to poke my rifle out from behind cover to distract the sniper that was killing all my teammates. Then I decided I liked it very, very much.

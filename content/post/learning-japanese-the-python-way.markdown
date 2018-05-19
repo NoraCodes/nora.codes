@@ -4,10 +4,7 @@ slug: learning-japanese-the-python-way
 title: Learning Japanese the Python Way
 categories:
 - Programming
-tags:
-- japanese
-- python
-- languages
+- Python
 ---
 
 Now that I'm in college, I'm taking a lot of non-computer science classes, and one of them is Japanese. I'm just starting out, and I need to be able to rapidly read numbers in Japanese and think about them without translating them consciously. I could make a bunch of flash cards, or use a service like Quizlet... or I could write some Python!

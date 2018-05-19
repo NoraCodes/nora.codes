@@ -2,6 +2,10 @@
 title: "#DeleteFacebook and FOSTA/SESTA"
 slug: "deletefacebook-and-FOSTA"
 date: 2018-03-28T11:16:18-05:00
+categories:
+- Culture
+- Privacy
+- Open Source
 ---
 
 We, each and every one of us, need to make the decision to move to free, open source, and **decentralized** online services.

@@ -4,13 +4,7 @@ title: MLeM, a VM for genetic programming
 slug: mlem-a-vm-for-genetic-programming
 categories:
 - Programming
-- Programming Languages
-tags:
-- mlem
-- esolang
-- rust
-- vm
-- virtual machine
+- Machine Learning
 ---
 
 I've recently been working on a project called the Machine Learning Machine, or MLeM. It's a VM implemented in the Rust programming language

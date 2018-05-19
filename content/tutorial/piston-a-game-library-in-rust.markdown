@@ -4,13 +4,8 @@ slug: piston-a-game-library-in-rust
 title: Getting started with Piston, a game library for Rust
 categories:
 - Programming
-- Game Programming
-tags:
-- 2d
-- game
-- graphics
-- piston
-- rust
+- Rust
+- Graphics
 ---
 
 I've been interested in game programming for a while, and I periodically sample the Rust ecosystem's offerings around game programming. Piston seems like the most promising candidate, but the tutorials are out of date, so here's a simple one. Last update: March 2017.

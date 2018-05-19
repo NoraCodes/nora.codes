@@ -3,12 +3,8 @@ date: 2016-04-11 05:54:17+00:00
 title: Open Source for Normal People
 slug: open-source-for-normal-people
 categories:
-- Writing
+- Culture
 - Open Source
-tags:
-- open source
-- programming
-- software
 ---
 
 This is not an article for technical people. It is an article normal people who just use their computers to get things done: to look at Facebook and Twitter, check their work email, write novels, design houses… whatever.
