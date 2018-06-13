@@ -1,7 +1,6 @@
 ---
 title: "Improved User Interface 0.3.0!"
 date: 2018-06-13T08:46:55-05:00
-draft: true
 categories:
  - Open Source
  - Programming
@@ -22,4 +21,4 @@ I want to give a huge shoutout to several GitHub users who helped with the proje
 
 From the project management side, we have a vastly improved README, a CONTRIBUTING guideline file, and have resolved to keep a changelog.
 
-Huge thank you to all my patrons for keeping this ball rolling. I'm excited to see where we go from here.
+Huge thank you to all my [patrons](https://patreon.com/leotindall) for keeping this ball rolling. I'm excited to see where we go from here.
