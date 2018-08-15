@@ -7,6 +7,8 @@ body {
   color: #000;
 }
 
+h1 { line-height: 1.2em; }
+ 
 .page-container {
   margin: 10px;
   padding: 10px;
@@ -42,7 +44,6 @@ output:
 
 .terms { font-size: .9em; }
 .menu, .article-meta, footer { text-align: center; }
-.title { font-size: 1.1em; line-height: 1.2em; }
 footer a { text-decoration: none; }
 
 .pull-left {
