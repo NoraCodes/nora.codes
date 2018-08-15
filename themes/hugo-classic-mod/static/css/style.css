@@ -3,14 +3,13 @@ body {
   margin: auto;
   padding: .2em;
   line-height: 1.5em;
-  background-color: #000000;
-  color: #ffffff;
+  background-color: #fff;
+  color: #000;
 }
 
 .page-container {
   margin: 10px;
   padding: 10px;
-  background-color: #333333;
   overflow: hidden;
 }
 
@@ -37,8 +36,6 @@ output:
 .menu li { display: inline-block; }
 .article-meta, .menu a {
   text-decoration: none;
-  background: #555555;
-  color: #ffffff;
   padding: 5px;
   border-radius: 5px;
 }
@@ -56,7 +53,7 @@ footer a { text-decoration: none; }
 }
 
 a {
-  color: rgb(158, 123, 255);
+  color: #22F;
   text-decoration: none;
 }
 
@@ -71,7 +68,6 @@ header nav {
     width: auto;
     height: auto;
     font-size: .875rem;
-    background: #613DC1;
     border-bottom: 1px solid #333333;
     border-radius: 3px;
     padding: 0 0.5rem;
@@ -86,26 +82,24 @@ header ol {
 }
 
 header a {
-    color: #ffffff;
+    color: #000;
     line-height: 1.75rem;
     padding: 0 0.5rem
 }
 header a:hover,
 header .current a {
-    color: #ffffff
+    color: #000;
 }
 
 /* Code Boxes */
 pre {
   border: 1px solid #ddd;
   margin: 12px;
-  background: #444444;
   padding: 1px;
   overflow-x: auto;
   border-radius: 3px;
 }
 code { 
-  background: #444444;
   padding: 0px; 
   border-radius: 2px; 
 }
@@ -115,7 +109,6 @@ pre code { background: none; }
 img, iframe, video { max-width: 100%; }
 main { hyphens: auto; }
 blockquote {
-  background: #444444;
   border-left: 5px solid #ccc;
   padding: 3px 1em 3px;
   border-radius: 2px;
@@ -164,10 +157,10 @@ ul.pagination {
   padding: none;
 }
 .postDate {
-  color: #888888;
+  color: #888;
 }
 .postIntro {
-  color: #cccccc;
+  color: #111;
 }
 
 table {
