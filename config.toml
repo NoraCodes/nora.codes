@@ -37,6 +37,21 @@ pygmentsCodefences = true
     weight = 3
 
 [[menu.feed]]
+    name = "✍"
+    url = "https://pad.leotindall.com/"
+    weight = 5
+
+[[menu.feed]]
+    name = "🔄"
+    url = "https://git.leotindall.com/"
+    weight = 4
+
+[[menu.feed]]
+    name = "📹"
+    url = "https://vid.leotindall.com/"
+    weight = 3
+
+[[menu.feed]]
     name = "Categories"
     url = "/categories"
     weight = 2
@@ -45,6 +60,8 @@ pygmentsCodefences = true
     name = "Subscribe"
     url = "/index.xml"
     weight = 1
+
+
 
 [params]
     description = "Leo Tindall's personal website"

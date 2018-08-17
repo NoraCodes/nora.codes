@@ -11,29 +11,9 @@
   <!-- Home page content -->
 
   {{if .IsHome }}
-  <div class="prelist">
-    <div class="list-meta">
-      <img src="/images/profile-small.jpg" class="headshot" alt="My face, with my hair pulled back, against a plain background."/>
-      <h5>Around the Web</h5>
-      <ul>
-        <li><a href="https://github.com/LeoTindall">GitHub</a></li>
-        <li><a href="https://cybre.space/@tindall">Mastodon</a></li>
-        <li><a href="https://linkedin.com/in/leo-tindall/">LinkedIn</a></li>
-        <li><a href="https://patreon.com/leotindall">Patreon</a></li>
-      </ul>
-
-      <h5>Services</h5>
-        <ul>
-          <li><a href="https://pad.leotindall.com/">Etherpad</a></li>
-          <li><a href="https://git.leotindall.com/">Git VCS</a></li>
-          <li><a href="https://vid.leotindall.com/">PeerTube</a></li>
-        </ul>
-
-    </div>
-    <div class="list-blurb">
-      {{ .Content }}
-    </div>
-  </div>
+  <main>
+    {{ .Content }}
+  </main>
   {{ end }}
 
   <!-- Paginated list of posts -->
