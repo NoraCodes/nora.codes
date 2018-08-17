@@ -1,6 +1,12 @@
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Avenir Next', Avenir, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+@font-face {
+  font-family: BitterRegular;
+  src: url(/fonts/bitter.woff);
 }
+
+body {
+  font-family: BitterRegular, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Symbola';
+}
+
 code {
   font-family: "Lucida Console", Monaco, monospace;
   font-size: 85%;
