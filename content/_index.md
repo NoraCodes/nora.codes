@@ -2,13 +2,21 @@
 title: Home
 ---
 
-# Leo Tindall
-## Senior Frobnication Engineer
+<div>
+<h1 style="display: inline-block; padding-right: 10px;">Leo Tindall</h1>
+<div style="display: inline-block; font-size: 1.5em;">Developer, Designer, Writer, Advocate</h2>
+</div>
 
-This is the personal website of Leo Tindall, a systems and web programmer with a penchant
-for strong type systems, lightweight interfaces, and optimization.
+I'm Leo Tindall. I work with computer hardware and software, building tools and tech that
+makes it easer for people to reclaim their lives from the Apples and Googles of the world.
 
-### TL;DR I teach computers to do tricks, and write about software and culture.
+I firmly believe that computers should belong to users, not their makers, and that as the
+wizards of the information age, it is our duty to demystify technology and make it as
+easy as possible for people to understand and fully control the data gathered for and
+about them.
+
+The majority of my code is licensed under an appropriate copyleft license; I prefer the
+AGPL when it is applicable, but GPL can be acceptable for certain use-cases.
 
 ## Code
 
@@ -18,7 +26,7 @@ You can check out my [projects](projects/) to see what I've worked on in the pas
 
 ## Tutorials
 
-I also write _about_ code. I've created two [virtual](/post/sbrain-an-extension-of-brainfzck/) [machines](http://localhost:1313/post/mlem-a-vm-for-genetic-programming/), written about [type systems](http://localhost:1313/tutorial/a-gentle-introduction-to-practical-types/) and what can be [done with them](http://localhost:1313/tutorial/session-types/), and [more](/categories/programming).
+I also write _about_ code. I've created two virtual machines, [SBrain](/post/sbrain-an-extension-of-brainfzck/) and the [Machine Learning VM](http://localhost:1313/post/mlem-a-vm-for-genetic-programming/), written about [type systems](http://localhost:1313/tutorial/a-gentle-introduction-to-practical-types/) and what can be done with them (for instance, [session types](http://localhost:1313/tutorial/session-types/)). I also have a lot of general writing on programming and useful libraries for various languages under the [programming category](/categories/programming).
 
 If you're interested in x86 hacking, my [reverse engineering](/tutorial/an-intro-to-x86_64-reverse-engineering/) tutorial is a great place to start.
 
@@ -40,4 +48,3 @@ If you'd like to support me, you can hire me by checking out my
 [LinkedIn](https://linkedin.com/in/leo-tindall/) or throw me a few bucks in exchange for
 early access via my [Patreon](https://patreon.com/leotindall).
 
- I host some web services, like Etherpad and a Git VCS server along with project management tools. If you become a Patreon donor, you'll gain access to these services.

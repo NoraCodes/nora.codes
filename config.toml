@@ -65,4 +65,4 @@ pygmentsCodefences = true
 
 [params]
     description = "Leo Tindall's personal website"
-    footer = "[GitHub](https://github.com/LeoTindall) | [@Tindall@Cybre.Space](https://cybre.space/@tindall) | [CC-BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/) | ![GNU Natalie Nguyen](/images/tipsytentacle.gif) | Font is Bitter ht by Huerta Tipográfica"
+    footer = "Text: [CC-BY-SA](http://creativecommons.org/licenses/by-sa/4.0/) ≥ 4.0 AYD | Code: [AGPL](https://www.gnu.org/licenses/agpl-3.0.en.html) ≥ v3.0 AYD | Font: [Bitter ht](https://www.huertatipografica.com/en/fonts/bitter-ht), [OFL](https://en.wikipedia.org/wiki/SIL_Open_Font_License) | ![GNU Natalie Nguyen](/images/tipsytentacle.gif)"
