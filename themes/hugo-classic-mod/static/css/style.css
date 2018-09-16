@@ -139,3 +139,31 @@ table {
 table thead th { border-bottom: 1px solid #444444; }
 th, td { padding: 5px; }
 tr:nth-child(even) { background: #444444 }
+
+.info-container {
+    display: grid;
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+@media (orientation: landscape) {
+    .info-container {
+        grid-template-columns: 50% 50%;
+    }
+}
+
+@media (orientation: portrait) {
+    .info-container {
+        grid-template-columns: 100%;
+    }
+}
+
+.info-maintitle {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.info-headblock {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
