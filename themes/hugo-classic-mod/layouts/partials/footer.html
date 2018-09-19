@@ -4,6 +4,8 @@
       <hr/>
       {{ . | markdownify }}
       {{ end }}
+      <br>
+      Last updated {{ now.Format "Jan 01 2006" }}
     </footer>
   </body>
 </html>
