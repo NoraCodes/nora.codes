@@ -16,7 +16,7 @@ This website now runs an IPFS node, which you can use to access the network by p
 an IPFS or IPNS (the DNS equivalent that allows "mutable" content on the immutable web)
 URL with `https://ipfs.leotindall.com`. For instance, the url `/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/`
 links to an immutable snapshot of the English Wikipedia; to access it through my IPFS
-gateway, you could use [https://ipfs.leotindall.com/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/](https://ipfs.leotindall.com/ipfs//ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/).
+gateway, you could use [https://ipfs.leotindall.com/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/](https://ipfs.leotindall.com//ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/).
 
 Setting this up was immensely easy. I installed it using `snap`:
 
