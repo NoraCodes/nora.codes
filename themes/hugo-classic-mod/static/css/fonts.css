@@ -3,8 +3,23 @@
   src: url(/fonts/bitter.woff);
 }
 
+@font-face {
+  font-family: BitterRegularFB1;
+  src: url(fonts/bitter.woff);
+}
+
+@font-face {
+  font-family: BitterRegularFB2;
+  src: url(../fonts/bitter.woff);
+}
+
+@font-face {
+  font-family: BitterRegularFB3;
+  src: url(../../fonts/bitter.woff);
+}
+
 body {
-  font-family: BitterRegular, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Symbola';
+  font-family: BitterRegular, BitterRegularFB1, BitterRegularFB2, BitterRegularFB3, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Symbola';
 }
 
 code {
