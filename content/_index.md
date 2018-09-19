@@ -60,4 +60,12 @@ If you'd like to support me, you can hire me by checking out my
 [LinkedIn](https://linkedin.com/in/leo-tindall/) or throw me a few bucks in exchange for
 early access via my [Patreon](https://patreon.com/leotindall).
 {{< /div >}}
+
+{{< div >}}
+## IPFS
+
+This website is also [available on IPFS](https://ipfs.io/ipns/Qme48wyZ7LaF9gC5693DZyJBtehgaFhaKycESroemD5fNX), a peer-to-peer content-addressed immutable datastore that spans the globe. I host a public IPFS gateway at [ipfs.leotindall.com](https://ipfs.leotindall.com/); you can also [view this blog](https://ipfs.leotindall.com/ipns/Qme48wyZ7LaF9gC5693DZyJBtehgaFhaKycESroemD5fNX) through that gateway rather than the public resolver.
+
+{{< /div >}}
+
 </div>
