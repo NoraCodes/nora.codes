@@ -9,6 +9,10 @@ theme = "hugo-classic-mod"
 # Allow Hugo to munge, e.g., "Programming Stuff" into "programming-stuff"
 preserveTaxonomyNames = false
 
+# Allow Hugo to rewrite URLs so they work on IPFS as well as locally and
+# on leotindall.com
+relativeURLs = true
+
 # Highlighting
 pygmentsStyle = "fruity"
 pygmentsUseClassic = false
