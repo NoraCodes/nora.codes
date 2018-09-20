@@ -6,9 +6,39 @@ date: 2018-09-19T13:57:47-05:00
 
 [IPFS](https://ipfs.io/), the Interplanetary File System, is a global distributed immutable
 datastore, an effort to decentralize and distribute the load of hosting websites, which
-I [first wrote about](/post/ipfs-the-interplanetary-file-system/) back in 2016. It's a
-great technology, and of course that means that
+I [first wrote about](/post/ipfs-the-interplanetary-file-system/) back in 2016. (I suggest
+you read that post if you aren't familiar with the technology.) It's a great technology,
+and of course that means that
 [Cloudflare wants to run a monkey-in-the-middle attack on it](https://blog.cloudflare.com/distributed-web-gateway/).
+
+## Goals
+
+I had two goals in mind when looking at IPFS again, two years down the road from my original
+contact with the project. First, I wanted an IPFS gateway I could hook up to my browser
+via [IPFS Companion](https://github.com/ipfs-shipyard/ipfs-companion) to make browsing
+IPFS content easier. Second, I wanted to host my blog on IPFS, so others could share
+the load of serving it (although it's mostly just because I thought it was cool).
+
+The gateway is a pretty simple service; it takes HTTP(S) requests with `/ipfs/` or `/ipns/`
+URLs, gets the content from the network, and returns it to the user. Setting up my blog,
+though, is a bit more complex.
+
+An `/ipfs/` URL is a totally static, immutable reference to some content, but this is
+a blog - I want people to be able to browse is in a friendly and up-to-date way.
+
+Friendliness is solved by the rather excellent directory implementation that IPFS natively
+supports. If I have a directory `foo/` with two files, `foo/a.txt` and `foo/b.txt` and I
+add `foo/` to IPFS recursively, the two regular files are hashed and published, and the
+directory is published as a table mapping the filenames to their hashes. Then, given the
+directory hash, IPFS can look up the files by name.
+
+Timeliness is a little more complex. How can I update a blog if its contents are immutable,
+represented by static content hashes? Fortunately, the IPNS (InterPlanetary Name System)
+provides a way. I can use my node ID to point, mutably, to a hash. In this case, that hash
+is the hash of my blog's directory, and I simply update where the IPNS name points every
+time I update the blog.
+
+Ok, let's get implementing!
 
 ## The Gateway
 
