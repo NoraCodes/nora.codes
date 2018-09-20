@@ -158,7 +158,7 @@ within the blog, things like `/posts/whatever`, which break when used through an
 gateway that prefixes my blog URLs with the gateway's domain and the IPFS URL. Hugo's
 `relativeURLs` options fixes that.
 
-Finally, my custom font broke, becuase it's in static CSS and there's no way to change the
+Finally, my custom font broke, because it's in static CSS and there's no way to change the
 URL per page without using JavaScript, which I don't really want to do.
 
 So, I used a rather ugly hack to "fix" it for nested directories down to 3 levels:
