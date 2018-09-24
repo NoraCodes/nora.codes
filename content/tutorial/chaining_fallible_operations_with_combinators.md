@@ -168,6 +168,7 @@ Thanks for reading, and a huge thanks to [CUViper](https://www.reddit.com/r/rust
 
 1. Functional combinators in Rust are very powerful. They fit well in any problem that involves processing many homogeneous data points.
 2. Design around fallibility. Pretending that fallible operations can't fail is a recipe for convoluted, type-weird code.
+3. When a problem can't be solved at one level, step back and look a the level above it. I spent hours trying to work out the types for the `.collect::<>()` call when I should have reexamined the whole pipeline.
 
 If you enjoyed this tutorial, you might like to read [more about Rust types](/tutorial/a-gentle-introduction-to-practical-types/), or perhaps learn how [session types](/tutorial/session-types/) can make your code better. Also, please consider supporting me on Patreon.
 
