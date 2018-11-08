@@ -199,6 +199,6 @@ Last updated {{ now.Format "Jan 01 2006" }}
 
 ## The Results
 
-All is now ready, and this blog is fully available on IPFS, at `/ipns/Qme48wyZ7LaF9gC5693DZyJBtehgaFhaKycESroemD5fNX/` (which you can [access via my gateway](https://ipfs.leotindall.com/ipns/Qme48wyZ7LaF9gC5693DZyJBtehgaFhaKycESroemD5fNX/)). Even if my server goes down, as long as these files are pinned _somewhere_, 
+All is now ready, and this blog is fully available on IPFS, at `/ipns/Qme48wyZ7LaF9gC5693DZyJBtehgaFhaKycESroemD5fNX/` (which you can [access via my gateway](https://ipfs.leotindall.com/ipns/QmSzXMBKA55NfpBH9wX4pfkJcRL2UuDorBXaVN3CLpFGke/)). Even if my server goes down, as long as these files are pinned _somewhere_, 
 anyone should be able to use that IPNS name at another gateway and see the blog.
 
