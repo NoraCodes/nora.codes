@@ -53,25 +53,22 @@ A function with that signature must allocate at least once (to have a `Vec` to r
 extern crate itertools; // 0.7.8
 use itertools::Itertools;
 fn functional(values: &[i32]) -> Vec<i32> {
-    values
-        .iter()
-        .map(|x| operation_one(*x))
-        .tuple_windows()
+    values.iter()
+        .map(|x| operation_one(*x)).tuple_windows()
         .map(|values: (i32, i32)| operation_two(values.0, values.1))
-        .filter(|x| check(*x))
-        .collect()
+        .filter(|x| check(*x)).collect()
 }
 </code></pre>
 
-Even including the imports and putting every chained call on a new line, this is 8 lines shorter and, in my opinion, far more readable. It also has only a single allocation (in the `collect()` call) and no mutable bindings.
+Even including the imports, this is 11 lines shorter and, in my opinion, far more readable. It also has only a single allocation (in the `collect()` call) and no mutable bindings.
 
-So, all is rosy and fun with functional programming, right? Not quite. Enter... fallibility.
+So, all is rosy and fun with functional programming, right? Not quite. Enter fallibility.
 
 ## Fallible Maps
 
-I work with microservices a great deal, and one of the big problems with microservices is the introduction of a great many system boundaries where all type information is lost.
+I work with microservices a lot, and one of the big problems with microservices is the introduction of system boundaries where all type information is lost.
 
-We pass around huge amounts of JSON, and therefore every ingestion routine has to consider the possibility that it was called with utterly nonsensical input.
+For instance, many architectures involve passing around JSON, and therefore every ingestion routine has to consider the possibility that it was called with nonsensical input; JSON that parses is not necessarily JSON that makes sense.
 
 Often, the desired behavior is to simply ignore the problematic input. This is easy with [`flat_map`](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.flat_map): 
 
@@ -82,7 +79,7 @@ let parsed: Vec&lt;Item&gt; = inputs.iter()
     .collect();
 </code></pre>
 
-Admittedly, this does result in throwing away the errors, which may not be what we want. We could `filter` with a `match` expression, or do other iterator magic, if we simply wanted to log the errors, but what if we want to abort on error?
+This results in throwing away the errors, which may not be what we want. We could `filter` with a `match` expression, or do other iterator magic, if we simply wanted to log the errors, but what if we want to abort on error?
 
 Fortunately, `Result<_, _>` [implements](https://doc.rust-lang.org/std/iter/trait.FromIterator.html#implementors) a trait called `FromIterator`, which allows the `collect()` iterator method to collect into a result, inverting the containment relationship:
 
@@ -96,12 +93,14 @@ This is really cool! In cooperation with [the `?` operator](https://doc.rust-lan
 
 ## Chaining Fallible Operations
 
-In a real-world scenario, there are often a number of fallible operations that have to be performed. For example, I had a problem in which I had to:
+In a real-world scenario, there are often a number of fallible operations that have to be performed. For example, the microservice that inspired this post had to:
 
-1. Ingest untrusted input into a list of unnormalized input values
-2. Normalize the input values, possibly rejecting them
-3. Perform a computation on the values, possibly rejecting them
+1. Ingest untrusted input into a list of unnormalized input values, possibly rejecting the input as unparsable
+2. Normalize the input values, possibly rejecting them as unnormalizable
+3. Perform a computation on the values, possibly rejecting them as uncomputable
 4. Aggregate the results into a single resulting value
+
+Because of the nature of the service, the correct behavior was to abort as soon as a nonsensical, unnormalizable, or unprocessable value was encountered.
 
 <pre><code class="rust">
 struct DataUnnormalized { data: i32 }
