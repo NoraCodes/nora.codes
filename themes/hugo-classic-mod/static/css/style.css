@@ -167,3 +167,8 @@ tr:nth-child(even) { background: #444444 }
     grid-column-start: 1;
     grid-column-end: 3;
 }
+
+iframe {
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -64,7 +64,7 @@ early access via my [Patreon](https://patreon.com/leotindall).
 {{< div >}}
 ## IPFS
 
-This website is also [available on IPFS](https://ipfs.io/ipns/Qme48wyZ7LaF9gC5693DZyJBtehgaFhaKycESroemD5fNX), a peer-to-peer content-addressed immutable datastore that spans the globe. I host a public IPFS gateway at [ipfs.leotindall.com](https://ipfs.leotindall.com/); you can also [view this blog](https://ipfs.leotindall.com/ipns/QmSzXMBKA55NfpBH9wX4pfkJcRL2UuDorBXaVN3CLpFGke) through that gateway rather than the public resolver.
+This website is also [available on IPFS](https://ipfs.io/ipns/QmSzXMBKA55NfpBH9wX4pfkJcRL2UuDorBXaVN3CLpFGke/), a peer-to-peer content-addressed immutable datastore that spans the globe. I host a public IPFS gateway at [ipfs.leotindall.com](https://ipfs.leotindall.com/); you can also [view this blog](https://ipfs.leotindall.com/ipns/QmSzXMBKA55NfpBH9wX4pfkJcRL2UuDorBXaVN3CLpFGke/) through that gateway rather than the public resolver.
 
 {{< /div >}}
 
