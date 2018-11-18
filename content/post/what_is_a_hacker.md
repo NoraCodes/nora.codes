@@ -1,6 +1,7 @@
 ---
 title: "What Is A Hacker? (in 2018)"
 date: 2018-11-06T09:27:47-06:00
+draft: true
 ---
 
 What is a hacker? What is a hacker _now_?
