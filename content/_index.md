@@ -54,11 +54,12 @@ I also really like [retro computing hardware](/post/the-sinclair-zx-81-ts-1000/)
 {{< div >}}
 ## Around the 'Net
 
-In terms of social media, I'm exclusively available on the [Fediverse](https://cybre.space/@tindall).
+I'm available at a few places around the 'net.
 
-If you'd like to support me, you can hire me by checking out my
-[LinkedIn](https://linkedin.com/in/leo-tindall/) or throw me a few bucks in exchange for
-early access via my [Patreon](https://patreon.com/leotindall).
+- On the <a href="https://cybre.space/@tindall" rel="me">Fediverse</a>.
+- On <a href="https://github.com/leotindall" rel="me">GitHub</a>.
+- On [LinkedIn](https://linkedin.com/in/leo-tindall/).
+- On <a href="https://patreon.com/leotindall" rel="me">Patreon</a>.
 {{< /div >}}
 
 {{< div >}}
