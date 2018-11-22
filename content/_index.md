@@ -54,12 +54,17 @@ I also really like [retro computing hardware](/post/the-sinclair-zx-81-ts-1000/)
 {{< div >}}
 ## Around the 'Net
 
-I'm available at a few places around the 'net.
+I'm available at a few places around the 'net. You can find me:
 
 - On the <a href="https://cybre.space/@tindall" rel="me">Fediverse</a>.
 - On <a href="https://github.com/leotindall" rel="me">GitHub</a>.
 - On [LinkedIn](https://linkedin.com/in/leo-tindall/).
 - On <a href="https://patreon.com/leotindall" rel="me">Patreon</a>.
+- At <a href="mailto:lfstindall@gmail.com" rel="me">lfstindall@gmail.com</a>.
+- Everywhere, with my <a href="static/leotindall.asc" rel="pgpkey authn">PGP Key</a>.
+
+These links are `rel=me`; you can validate them by seeing that their destinations point back.
+Consider using `rel=me` yourself with [IndieLogin](https://indielogin.com/setup).
 {{< /div >}}
 
 {{< div >}}
