@@ -15,20 +15,6 @@
 <main>
 {{ .Content }}
 </main>
-
-<section>
-    <h2>Comments</h2>
-    <div class="comments-go-here">
-        Comments are only supported with JavaScript (via Schlack on comments.leotindall.com)
-        on the live, non-IPFS version of the website. Ideas for how to support IPFS with
-        comments are welcome; please contact me at lfstindall@gmail.com
-    </div>
-    <script src="https://comments.leotindall.com/embed.js"
-        data-schnack-slug="{{ .File.BaseFileName }}"
-        data-schnack-target=".comments-go-here">
-    </script>
- 
-</section>
 </div>
 
 {{ partial "footer.html" . }}
