@@ -27,7 +27,7 @@
         <li>
           <a href="{{ .URL }}">{{ .Title }}</a>
           <span class="postDate">posted {{ .Date.Format "January 02, 2006" }}</span>
-          <blockquote class="postIntro">{{ .Summary }}</p>
+          <blockquote class="postIntro">{{ .Summary }}</blockquote>
         </li>
         {{ end }} {{ template "_internal/pagination.html" . }}
       </ul>
