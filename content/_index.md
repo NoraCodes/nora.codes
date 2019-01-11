@@ -1,8 +1,6 @@
 ---
 title: Home
 ---
-
-
 <h1 style="display: inline-block;">Leo Tindall</h1>
 &nbsp;
 <span style="display: inline-block; font-size: 1.5em;">Software Engineer, Writer, and Free Software Advocate</span>
@@ -10,12 +8,16 @@ title: Home
 I'm Leo Tindall. I work with computer hardware and software, building tools and tech that
 makes it easer for people to reclaim their lives from the Apples and Googles of the world.
 
-I firmly believe that computers should belong to users, not their makers, and that as the
-wizards of the information age, it is our duty to demystify technology and make it as
-easy as possible for people to understand and fully control the data gathered for and
-about them.
+I believe it is the duty of software engineers to build software in an ethical way. In short:
 
-<div class="info-container">
+- computers should serve their users, not their makers
+- software should empower, not restrict, user choices
+- users, not engineers or businesspeople, should decide how data is used
+
+We are the scribes of the information age, and it's our responsibility not to abuse the
+positions of influence
+
+{{< div "info-container" >}}
 
 {{< div >}}
 ## Code
@@ -54,7 +56,7 @@ I also really like [retro computing hardware](/post/the-sinclair-zx-81-ts-1000/)
 {{< div >}}
 ## Around the 'Net
 
-I'm available at a few places around the 'net. You can find me:
+You can find me:
 
 - On the <a href="https://cybre.space/@tindall" rel="me">Fediverse</a>.
 - On <a href="https://github.com/leotindall" rel="me">GitHub</a>.
@@ -63,8 +65,6 @@ I'm available at a few places around the 'net. You can find me:
 - At <a href="mailto:lfstindall@gmail.com" rel="me">lfstindall@gmail.com</a>.
 - Everywhere, with my <a href="static/leotindall.asc" rel="pgpkey authn">PGP Key</a>.
 
-These links are `rel=me`; you can validate them by seeing that their destinations point back.
-Consider using `rel=me` yourself with [IndieLogin](https://indielogin.com/setup).
 {{< /div >}}
 
 {{< div >}}
