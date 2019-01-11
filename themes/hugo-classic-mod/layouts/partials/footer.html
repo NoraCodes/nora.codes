@@ -1,7 +1,6 @@
-    <footer>
+    <footer title="Informational Footer">
       {{ partial "foot_custom.html" . }}
       {{ with .Site.Params.footer }}
-      <hr/>
       {{ . | markdownify }}
       {{ end }}
       <br>

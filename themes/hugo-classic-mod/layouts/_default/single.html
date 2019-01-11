@@ -1,5 +1,5 @@
 {{ partial "header.html" . }}
-<div class="page-container">
+<main title="{{ .Title }}">
 <div class="article-meta">
 <h1>{{ .Title }}</h1>
 <div class="postMeta">
@@ -9,12 +9,12 @@
 </div>
 
 {{ if .Params.toc }}
+<nav title="Table of Contents">
 {{ .TableOfContents }}
+</nav>
 {{ end }}
 
-<main>
 {{ .Content }}
 </main>
-</div>
 
 {{ partial "footer.html" . }}

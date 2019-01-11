@@ -1,29 +1,78 @@
+/* Variable declarations which are available to all styles. */
+:root {
+  /* The background of the page backdrop. */
+  --page-bg-color: #EEE;
+  /* The color of text on the backdrop. */
+  --page-fg-color: #333;
+
+  /* The background of the text areas of the page. */
+  --main-bg-color: #FFF;
+  /* The color of text on the page. */
+  --main-fg-color: #000;
+}
+
+/* Rules applied to the whole visible content of the page. */
 body {
+  /* Basic body shaping. Nothing outside of a centered 800 scaled pixel column. */
   max-width: 800px;
   margin: auto;
-  padding: .2em;
-  line-height: 1.5em;
-  background-color: #fff;
-  color: #000;
+  
+  /* Basic text color. From the color scheme variables used above. */
+  color: var(--page-fg-color);
+  background-color: var(--page-bg-color);
 }
 
-h1 { line-height: 1.2em; }
- 
-.page-container {
-  margin: 10px;
+/* Applied to the textual content of the page, not including the navigational header
+ * or information footer. */
+main {
+  /* Text color for the main content of the page. */
+  color: var(--main-fg-color);
+  background-color: var(--main-bg-color);
+
+  /* Browsers can add hyphens automagically, which is very helpful. */
+  hyphens: auto;
+
+  /* Layout for the primary text content. It's a healthy space away from the "page" edge,
+   * and the "page" has a noticable but subtle rouding. */
   padding: 10px;
-  overflow: hidden;
+  border-radius: 3px;
 }
 
-/* Table of Contents, if wanted
+/* Applied to the navigational header and informational footer. */
+header, footer {
+  border-radius: 3px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
 
-Add to yaml:
+/* Applied to li items in the header, placing primary navigation on the left. */
+header li.main-nav-item {
+    float: left
+}
+
+/* Applied to li items in the header, placing feed navigation on the right. */
+header li.feed-nav-item {
+    float: right
+}
+
+/* Top level titles get some extra space around them, so they stand out more. */
+h1 {
+  line-height: 1.2em;
+}
+
+/* Applied to article metadata, including the TOC. */
+.article-meta, .menu a {
+  padding: 5px;
+  border-radius: 5px;
+}
+/* Applied to the Hugo-generated Table of Contents.
+ * To get a TOC, the following is added to the YAML.
 
 output:
   blogdown::html_page:
     toc: true
 
-    */
+*/
 
 #TableOfContents, #TOC {
   border: 1px solid #eee;
@@ -32,29 +81,20 @@ output:
   float: left;
   min-width: 40%;
   padding-right: 10px;
+  display: inline-block;
 }
 
-/* Header and Footer */
-.menu li { display: inline-block; }
-.article-meta, .menu a {
-  text-decoration: none;
-  padding: 5px;
-  border-radius: 5px;
+#TableOfContents a, #TOC a {
+    text-decoration: none;
 }
 
-.terms { font-size: .9em; }
+ul.terms { font-size: .9em; }
 .menu, .article-meta, footer { text-align: center; }
 footer a { text-decoration: none; }
 
-.pull-left {
-    float: left
-}
-.pull-right {
-    float: right
-}
+
 
 a {
-  color: #22F;
   text-decoration: none;
 }
 
@@ -69,8 +109,6 @@ header nav {
     width: auto;
     height: auto;
     font-size: .875rem;
-    border-bottom: 1px solid #333333;
-    border-radius: 3px;
     padding: 0 0.5rem;
     overflow: hidden;
 }
@@ -82,14 +120,12 @@ header ol {
     list-style: none
 }
 
-header a {
-    color: #000;
-    line-height: 1.75rem;
-    padding: 0 0.5rem
-}
+header a,
 header a:hover,
-header .current a {
-    color: #000;
+header a:visited {
+    line-height: 1.75rem;
+    color: var(--page-fg-color);
+    padding: 0 2px;
 }
 
 /* Code Boxes */
@@ -107,8 +143,20 @@ code {
 pre code { background: none; }
 
 /* Images, tables, misc. */
-img, iframe, video { max-width: 100%; }
-main { hyphens: auto; }
+img, iframe, video { 
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Some images shouldn't be centered */
+img.inline {
+    display: inline;
+    margin-left: none;
+    margin-right: none;
+}
+
 blockquote {
   border-left: 5px solid #ccc;
   background: #ddd;
