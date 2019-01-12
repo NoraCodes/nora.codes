@@ -43,6 +43,13 @@ main {
   /* Browsers can add hyphens automagically, which is very helpful. */
   hyphens: auto;
 
+  /* "Let it breathe." Text does not need to be jammed as close together as possible. */
+  line-height: 1.4;
+
+  /* Slightly higher font size means it's easier to read. */
+  /* Setting a pt value here means other adjustments are made in scale. */
+  font-size: 14pt;
+
   /* Layout for the primary text content. It's a healthy space away from the "page" edge,
    * and the "page" has a noticable but subtle rouding. */
   padding: 10px;
