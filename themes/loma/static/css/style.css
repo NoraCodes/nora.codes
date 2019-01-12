@@ -17,6 +17,9 @@
   
   /* The color used to set links apart from non-interactable text. */
   --link-color: #811;
+
+  /* The distance between columns in grid layouts. */
+  --grid-column-gap: 16px;
 }
 
 /* Rules applied to the whole visible content of the page. */
@@ -125,19 +128,21 @@ output:
   display: inline-block;
 }
 
+/* Aligns the article metadata (title, date, author) in the center */
 .menu, .article-meta { text-align: center; }
 
+/* Header navigational section. */
 header nav {
-    position: relative;
-    margin-left: 1%;
-    margin-right: 1%;
-    width: auto;
-    height: auto;
-    font-size: .875rem;
-    padding: 0 0.5rem;
+    /* Pad the left and right sides very slightly. */
+    padding: 0px 5px;
+    /* Keep the lower div from overwhelming the menu. */
     overflow: hidden;
 }
 
+/* A list is used in the header to place all the navigational elements in a logical
+ * order, but for the styled page, no spacing or bullets are needed. Lists also
+ * assume a certain padding to the left (indentation) and margin at the top, which
+ * are not needed in this case. */
 header ul,
 header ol {
     margin: 0;
@@ -145,13 +150,9 @@ header ol {
     list-style: none
 }
 
-header a,
-header a:hover,
-header a:visited {
-    line-height: 1.75rem;
-    color: var(--page-fg-color);
-    padding: 0 2px;
-}
+/* Each link needs a small area around it, to clear other links and prevent them from
+ * being crowded. */
+header a { padding: 0px 2px; }
 
 /* Code Boxes */
 pre {
@@ -167,7 +168,7 @@ code {
 }
 pre code { background: none; }
 
-/* Images, tables, misc. */
+/* Images, tables, etc are centrally aligned. */
 img, iframe, video { 
     max-width: 100%;
     display: block;
@@ -175,16 +176,20 @@ img, iframe, video {
     margin-right: auto;
 }
 
-/* Some images shouldn't be centered */
+/* Some images shouldn't be centered. */
 img.inline {
     display: inline;
     margin-left: none;
     margin-right: none;
 }
 
+/* Block quotes (used in summaries, etc) have some emphasis added. */
 blockquote {
+  /* A bar to the left of each quote. */
   border-left: 5px solid var(--border-color);
+  /* An offset background. */
   background: var(--off-bg-color);
+  /* Basic outstanding layout. */ 
   padding: 3px 1em 3px;
   margin: 12px;
   border-radius: 3px;
@@ -220,11 +225,11 @@ tr:nth-child(even) { background: #444444 }
 
 .info-container {
     display: grid;
-    grid-gap: 10px;
+    grid-gap: var(--grid-column-gap);
     grid-auto-rows: minmax(100px, auto);
 
-    /* Keep the text off the right-hand side on the index page. */
-    padding-right: 10px;
+    /* Keep the text off the side on the index page. */
+    padding: 0px var(--grid-column-gap);
 }
 
 @media (orientation: landscape) {
