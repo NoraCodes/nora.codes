@@ -1,7 +1,7 @@
 baseURL = "https://leotindall.com/"
 languageCode = "en-us"
 
-title = "Leo Tindall"
+title = "Patterns in Cyberspace"
 theme = "loma"
 
 # dateFormat = "date -u +'%Y-%m-%d %R:%S%:z'"
@@ -9,8 +9,7 @@ theme = "loma"
 # Allow Hugo to munge, e.g., "Programming Stuff" into "programming-stuff"
 preserveTaxonomyNames = false
 
-# Allow Hugo to rewrite URLs so they work on IPFS as well as locally and
-# on leotindall.com
+# Allow Hugo to rewrite URLs so they work on IPFS as well as locally and via URL
 relativeURLs = true
 
 # Highlighting

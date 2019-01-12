@@ -1,14 +1,22 @@
 /* Variable declarations which are available to all styles. */
 :root {
   /* The background of the page backdrop. */
-  --page-bg-color: #EEE;
+  --page-bg-color: #DBB;
   /* The color of text on the backdrop. */
   --page-fg-color: #333;
 
   /* The background of the text areas of the page. */
-  --main-bg-color: #FFF;
+  --main-bg-color: #FDD;
   /* The color of text on the page. */
-  --main-fg-color: #000;
+  --main-fg-color: #311;
+
+  /* The color used for borders and highlights. */
+  --border-color: #FAA;
+  /* The background used to encapsulate off-set text areas of the page. */
+  --off-bg-color: #FCC;
+  
+  /* The color used to set links apart from non-interactable text. */
+  --link-color: #811;
 }
 
 /* Rules applied to the whole visible content of the page. */
@@ -38,11 +46,16 @@ main {
   border-radius: 3px;
 }
 
-/* Applied to the navigational header and informational footer. */
+/* Basic shape of the navigational header and informational footer. */
 header, footer {
   border-radius: 3px;
   margin-top: 4px;
   margin-bottom: 4px;
+}
+
+/* Text alignment for footer. */
+footer {
+    text-align: center;
 }
 
 /* Applied to li items in the header, placing primary navigation on the left. */
@@ -55,15 +68,42 @@ header li.feed-nav-item {
     float: right
 }
 
-/* Top level titles get some extra space around them, so they stand out more. */
-h1 {
-  line-height: 1.2em;
+/* Styling for the main block at the top of the index. */
+.name-and-title {
+    padding-top: 10px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.75em;
 }
+
+/* Styling for the first paragraph introducing the site. */
+.intro-paragraph {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 1.3em;
+}
+
+/* Link styling. All links get the same color. When hovering, they get an underline. */
+a,
+a:visited,
+a:hover { color: var(--link-color) }
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
 
 /* Applied to article metadata, including the TOC. */
 .article-meta, .menu a {
   padding: 5px;
   border-radius: 5px;
+  text-align: center;
+}
+
+/* Top level titles get some extra space around them, so they stand out more. */
+.article-meta h1 {
+  line-height: 1.2em;
 }
 /* Applied to the Hugo-generated Table of Contents.
  * To get a TOC, the following is added to the YAML.
@@ -75,8 +115,9 @@ output:
 */
 
 #TableOfContents, #TOC {
-  border: 1px solid #eee;
-  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  background-color: var(--off-bg-color);
   margin: 15px;
   float: left;
   min-width: 40%;
@@ -84,23 +125,7 @@ output:
   display: inline-block;
 }
 
-#TableOfContents a, #TOC a {
-    text-decoration: none;
-}
-
-ul.terms { font-size: .9em; }
-.menu, .article-meta, footer { text-align: center; }
-footer a { text-decoration: none; }
-
-
-
-a {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
+.menu, .article-meta { text-align: center; }
 
 header nav {
     position: relative;
@@ -130,7 +155,7 @@ header a:visited {
 
 /* Code Boxes */
 pre {
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
   margin: 12px;
   padding: 1px;
   overflow-x: auto;
@@ -158,10 +183,11 @@ img.inline {
 }
 
 blockquote {
-  border-left: 5px solid #ccc;
-  background: #ddd;
+  border-left: 5px solid var(--border-color);
+  background: var(--off-bg-color);
   padding: 3px 1em 3px;
   margin: 12px;
+  border-radius: 3px;
 }
 
 /* pagination */
@@ -192,6 +218,9 @@ tr:nth-child(even) { background: #444444 }
     display: grid;
     grid-gap: 10px;
     grid-auto-rows: minmax(100px, auto);
+
+    /* Keep the text off the right-hand side on the index page. */
+    padding-right: 10px;
 }
 
 @media (orientation: landscape) {

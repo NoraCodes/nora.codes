@@ -1,23 +1,29 @@
 ---
 title: Home
 ---
-<h1 style="display: inline-block;">Leo Tindall</h1>
-&nbsp;
-<span style="display: inline-block; font-size: 1.5em;">Software Engineer, Writer, and Free Software Advocate</span>
 
+{{< div "name-and-title" >}}
+Patterns in Cyberspace
+{{< /div >}}
+
+{{< div "intro-paragraph" >}}
 I'm Leo Tindall. I work with computer hardware and software, building tools and tech that
 makes it easer for people to reclaim their lives from the Apples and Googles of the world.
-
-I believe it is the duty of software engineers to build software in an ethical way. In short:
-
-- computers should serve their users, not their makers
-- software should empower, not restrict, user choices
-- users, not engineers or businesspeople, should decide how data is used
-
-We are the scribes of the information age, and it's our responsibility not to abuse the
-positions of influence
+{{< /div >}}
 
 {{< div "info-container" >}}
+
+{{< div >}}
+## Ethics
+I believe it is the duty of software engineers to build software in an ethical way. In short:
+
+- computers should serve their users before their makers
+- software should empower users, not restrict them
+- users should decide how data is used before engineers or businesspeople
+
+We are the scribes of the information age, and it's our responsibility not to abuse the
+positions of influence we hold.
+{{< /div >}}
 
 {{< div >}}
 ## Code
