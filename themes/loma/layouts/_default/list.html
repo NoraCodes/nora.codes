@@ -22,6 +22,9 @@
         {{ range .Pages }}
         <li>
           <a href="{{ .URL }}">{{ .Title }}</a> {{ .Date.Format "Jan 02, 2006" }}
+          {{ with .Description }}
+          <div class="postDescription">{{ . }}</div>
+          {{ end }}
           <!-- Uncomment to enable post summaries. -->
           <!-- <blockquote class="postIntro">{{ .Summary }}</blockquote> -->
         </li>

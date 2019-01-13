@@ -213,6 +213,11 @@ ul.postsList li {
   margin-bottom: 4px;
 }
 
+.postDescription {
+  padding-left: 16px;
+  color: var(--main-deemph-color);
+}
+
 /* pagination */
 .pagination li {
   display: inline;
