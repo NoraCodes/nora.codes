@@ -7,8 +7,10 @@
 
   /* The background of the text areas of the page. */
   --main-bg-color: #FDD;
-  /* The color of text on the page. */
+  /* The color of text on the text areas. */
   --main-fg-color: #311;
+  /* The color of deemphasized text. */
+  --main-deemph-color: #844;
 
   /* The color used for borders and highlights. */
   --border-color: #FAA;
@@ -202,6 +204,15 @@ blockquote {
   border-radius: 3px;
 }
 
+/* Styling for the list of posts on list pages. */
+ul.postsList {
+  list-style: "✏ " outside;
+}
+
+ul.postsList li {
+  margin-bottom: 4px;
+}
+
 /* pagination */
 .pagination li {
   display: inline;
@@ -210,13 +221,8 @@ blockquote {
 ul.pagination {
   padding: none;
 }
-.postDate {
-  color: #888;
-}
-.postIntro {
-  color: #111;
-}
 
+/* Pretty styling for tables. */
 table {
   margin: auto;
   border-top: 1px solid #666;
