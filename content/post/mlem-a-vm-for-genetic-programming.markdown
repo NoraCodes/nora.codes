@@ -7,9 +7,8 @@ categories:
 - Machine Learning
 ---
 
-I've recently been working on a project called the Machine Learning Machine, or MLeM. It's a VM implemented in the Rust programming language
-which I hope to use as a basis for some genetic programming.
-
+I've recently been working on a project called the Machine Learning Machine, or MLeM.
+It's a VM implemented in the Rust programming language which I hope to use as a basis for some genetic programming.
 
 It's a Harvard architecture machine, meaning that it has separate representations and memory for data and program segments. While this is not the way most modern computers work, it does model the more secure W XOR X functionality that exists in operating systems such as BSD and allows me to properly utilize the amazing type system of the Rust language to do compile time verification of a lot of the system.
 
@@ -39,7 +38,7 @@ I’ve also developed an extremely simple assembly syntax for testing purposes; 
 That is, add (register) r1 to (pointer) r2.
 
 
-The primary goal for this project is to provide a more stable and closer-to-real-CPU language than Muller’s Brainf*** or my own [SBrain](https://github.com/leotindall/sbrain), both of which I’ve [previously used](https://github.com/leotindall/evolve_bf) for genetic programming with rather mixed results.
+The primary goal for this project is to provide a more stable and closer-to-real-CPU language than Muller’s Brainf\*\*\* or my own [SBrain](https://github.com/leotindall/sbrain), both of which I’ve [previously used](https://github.com/leotindall/evolve_bf) for genetic programming with rather mixed results.
 
 The ability to generate instructions I know are valid helps short-circuit the process of culling unparseable genes from the population, which, while not particularly difficult, slows the process of evolution significantly.
 

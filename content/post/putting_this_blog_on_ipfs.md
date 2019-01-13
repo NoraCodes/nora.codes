@@ -2,6 +2,7 @@
 title: "Putting This Blog on IPFS"
 slug: "putting_this_blog_on_ipfs"
 date: 2018-09-19T13:57:47-05:00
+description: How I made this blog available on the IPFS content addressable network.
 ---
 
 [IPFS](https://ipfs.io/), the Interplanetary File System, is a global distributed immutable

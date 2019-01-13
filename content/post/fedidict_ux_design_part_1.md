@@ -6,6 +6,7 @@ categories:
 - Fedidict
 - Programming
 - Rust
+description: My first stab at defining the user experience for my federated dictionary software.
 ---
 
 _This is the first of several posts on the design of my current ActivityPub-enabled

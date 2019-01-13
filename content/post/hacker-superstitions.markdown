@@ -5,6 +5,7 @@ title: Hacker Superstitions
 categories:
 - Writing
 - Culture
+description: Hackers pride ourselves on being logical and empirical, but that doesn't make us immune to superstition.
 ---
 
 I'm currently taking a course called "Macbeth from Page to Stage". We're discussing superstitions in theatre, and it got me thinking about hacker myths. I wrote this for the assignment, but I thought others might find it interesting.

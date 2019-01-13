@@ -6,12 +6,11 @@ categories:
 - Culture
 - Privacy
 - Open Source
+description: The fallout of the FOSTA and SESTA bills and recent revelations about Facebook's unethical business practices have made it clear that users need to retake control over our data.
 ---
 
 We, each and every one of us, need to make the decision to move to free, open source, and **decentralized** online services.
-
 It will be painful. It will be difficult. It may mean giving up some comforts, like sending money instantly to friends without fees.
-
 It is also the only way to prevent some seriously bad things from happening.
 
 ## Inciting Events

@@ -5,6 +5,7 @@ categories:
 - Linux
 - Open Source
 - Modding
+description: Making the font cascade behave as you want can be kind of difficult, but it's not impossible, especially with the right methodology and mindset.
 ---
 
 One of the hardest parts of building beautiful Linux systems is fonts. Font precedence on Linux is generally handled with [fontconfig](https://www.freedesktop.org/wiki/Software/fontconfig/).

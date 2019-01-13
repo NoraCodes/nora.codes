@@ -5,6 +5,7 @@ title: A Story About My Personal Trainer
 categories:
 - Open Source
 - Culture
+description: Microsoft's forced updates caused major issues for a small business I used to work with.
 ---
 
 This is a story about a woman who runs her own small business as a personal trainer. She uses Microsoft Publisher to create her at-home training programmes and Excel for keeping track of payments, et cetera. She has a Win XP computer from 2004.

@@ -5,6 +5,7 @@ categories:
 - Hacking
 - Programming
 - JavaScript
+description: Turns out, it's possible to embed files that automatically execute as soon as a PDF is opened, making it an optimal malware delivery mechanism.
 ---
 
 PDF, or Portable Document Format, is an incredibly complex file format, governed by many

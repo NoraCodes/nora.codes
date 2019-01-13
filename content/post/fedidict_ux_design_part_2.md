@@ -6,6 +6,7 @@ categories:
 - Fedidict
 - Programming
 - Rust
+description: More in-depth analysis and design for the UX of FediDict, focused on security.
 ---
 
 *This is the second of several posts on the design of my current ActivityPub-enabled

@@ -7,6 +7,7 @@ categories:
 - Programming
 - Rust
 - Databases
+description: The core of Fedidict is the data it stores, for which it uses a traditional SQL database with a simple but powerful schema. This post explores both the SQL and Rust sides of the schema.
 ---
 
 *This is the first of several posts on the implementation of my ActivityPub-enabled Rust
