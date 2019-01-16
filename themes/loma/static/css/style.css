@@ -21,13 +21,13 @@
   --link-color: #811;
 
   /* The distance between columns in grid layouts. */
-  --grid-column-gap: 16px;
+  --grid-column-gap: 14px;
 }
 
 /* Rules applied to the whole visible content of the page. */
 body {
   /* Basic body shaping. Nothing outside of a centered 800 scaled pixel column. */
-  max-width: 800px;
+  max-width: 1000px;
   margin: auto;
   
   /* Basic text color. From the color scheme variables used above. */
@@ -50,7 +50,7 @@ main {
 
   /* Slightly higher font size means it's easier to read. */
   /* Setting a pt value here means other adjustments are made in scale. */
-  font-size: 14pt;
+  font-size: 12pt;
 
   /* Layout for the primary text content. It's a healthy space away from the "page" edge,
    * and the "page" has a noticable but subtle rouding. */
@@ -97,6 +97,11 @@ header li.feed-nav-item {
     padding-top: 20px;
     padding-bottom: 20px;
     font-size: 1.3em;
+    text-align: center;
+}
+
+.intro-paragraph p {
+    margin: 0;
 }
 
 /* Link styling. All links get the same color. When hovering, they get an underline. */
