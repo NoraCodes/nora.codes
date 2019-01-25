@@ -1,24 +1,24 @@
 /* Variable declarations which are available to all styles. */
 :root {
   /* The background of the page backdrop. */
-  --page-bg-color: #DBB;
+  --page-bg-color: #EEE;
   /* The color of text on the backdrop. */
-  --page-fg-color: #333;
+  --page-fg-color: #121;
 
   /* The background of the text areas of the page. */
-  --main-bg-color: #FDD;
+  --main-bg-color: #EEE;
   /* The color of text on the text areas. */
-  --main-fg-color: #311;
+  --main-fg-color: #121;
   /* The color of deemphasized text. */
-  --main-deemph-color: #844;
+  --main-deemph-color: #353;
 
   /* The color used for borders and highlights. */
-  --border-color: #FAA;
+  --border-color: #DDD;
   /* The background used to encapsulate off-set text areas of the page. */
-  --off-bg-color: #FCC;
+  --off-bg-color: #CCC;
   
   /* The color used to set links apart from non-interactable text. */
-  --link-color: #811;
+  --link-color: #44C;
 
   /* The distance between columns in grid layouts. */
   --grid-column-gap: 14px;
@@ -86,6 +86,66 @@ header li.feed-nav-item {
     font-weight: bold;
     text-align: center;
     font-size: 1.75em;
+}
+
+/* Styling for the glitch-effect text. */
+.glitch {
+  position: relative;
+}
+
+/* Blue copy of the glitch effect. */
+.glitch::before {
+  content: attr(data-text);
+  color: var(--main-fg-color);
+  position: absolute;
+  top: 0;
+  margin-left: 30%;
+  margin-right: 30%;
+  width: 40%;
+  height: 100%;
+  /* background: var(--main-bg-color); */
+  animation: glitch-anim 1s infinite step-start reverse;
+  /* Differences */
+  left: 4px;
+  text-shadow: -1px 0 blue;
+}
+
+/* Red copy of the glitch effect. */
+.glitch::after {
+  content: attr(data-text);
+  color: var(--main-fg-color);
+  position: absolute;
+  top: 0;
+  margin-left: 30%;
+  margin-right: 30%;
+  width: 40%;
+  height: 100%;
+  /* background: var(--main-bg-color); */
+  animation: glitch-anim 1.2s infinite step-start;
+  /* Differences */
+  left: -4px;
+  text-shadow: -1px 0 red;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip-path: polygon(0% 10%, 100% 10%, 100% 30%, 0% 30%);
+  }
+  20% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 20%, 0% 20%);
+  }
+  40% {
+    clip-path: polygon(0% 50%, 100% 50%, 100% 60%, 0% 60%);
+  }
+  60% {
+    clip-path: polygon(0% 70%, 100% 70%, 100% 90%, 0% 90%);
+  }
+  80% {
+    clip-path: polygon(0% 30%, 100% 30%, 100% 50%, 0% 50%);
+  }
+  100% {
+    clip-path: polygon(0% 21%, 100% 21%, 100% 30%, 0% 30%);
+  }
 }
 
 /* Styling for the first paragraph introducing the site. */
@@ -211,7 +271,7 @@ blockquote {
 
 /* Styling for the list of posts on list pages. */
 ul.postsList {
-  list-style: "✏ " outside;
+  list-style: "> " outside;
 }
 
 ul.postsList li {
@@ -253,6 +313,18 @@ tr:nth-child(even) { background: #444444 }
 
     /* Keep the text off the side on the index page. */
     padding: 0px var(--grid-column-gap);
+}
+
+/* Styling for the "resume" section on the front page. */
+.resume p {
+    margin-top: 12px;
+    margin-bottom: 4px;
+}
+
+/* Styling for the data about each job in the resume. */
+.job-info {
+    margin: 0px;
+    font-size: 10pt;
 }
 
 @media (orientation: landscape) {

@@ -3,7 +3,7 @@ title: Home
 ---
 
 {{< div "name-and-title" >}}
-Patterns in Cyberspace
+<div class="glitch" data-text="Patterns in Cyberspace">Patterns in Cyberspace</div>
 {{< /div >}}
 
 {{< div "intro-paragraph" >}}
