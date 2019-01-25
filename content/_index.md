@@ -3,11 +3,11 @@ title: Home
 ---
 
 {{< div "name-and-title" >}}
-Hi, I'm Leonora.
+Patterns in Cyberspace
 {{< /div >}}
 
 {{< div "intro-paragraph" >}}
-You can call me Nora, if you like.
+I'm Leonora. You can call me Nora, if you like.
 
 I'm a full time student in computer science at [Beloit](https://beloit.edu).
 
@@ -16,16 +16,28 @@ I build and break open source software for fun.
 
 {{< div "info-container" >}}
 
-{{< div >}}
+{{< div "resume" >}}
 ## 💼 Experience
 
-**Software Engineering Intern** at CancerIQ, Inc during summer 2018
+**Software Engineering Intern**
+{{< div "job-info" >}}
+**CancerIQ, Inc. Summer 2018.**
+I developed user interface components and designed algorithms used to analyze health data,
+as well as working with DevOps technologies including Kubernetes, Apache Kafka, Prometheus,
+and Grafana.
+{{< /div >}}
 
-**IT Technology Assistant II** at Beloit College during fall 2017 and spring 2018
+**Software Engineering Intern**
+{{< div "job-info" >}}
+**GudTech, Inc. Summer 2017.**
+I used agile methodology to work with a small team, gaining experience with Go and the 
+inner workings of Docker in a Service Oriented Architecture environment. I created a
+developer tooling used for onboarding and external (SDK) development.
+{{< /div >}}
 
-**Software Engineering Intern** at GudTech, Inc during summer 2017
+This is a selection of my experience. See my [full resume](/resume.pdf) for more,
+including volunteer positions and college work experience.
 
-**IT Technology Intern** at CyberHIVE San Diego during 2016
 {{< /div >}}
 
 {{< div >}}
@@ -36,10 +48,12 @@ scripts and utilities in [**Python**](/categories/python) and **Lua**, and
 websites in HTML5, CSS, JavaScript, and TypeScript.
 
 ## ⚛ Projects
-- [Open Energy Dashboard](https://github.com/OpenEnergyDashboard/OED) (React/TypeScript)
-- [RLoris](https://github.com/LeoTindall/rloris) (Rust)
-- Other project (technologies)
-- Last project (technologies)
+- [Open Energy Dashboard](https://github.com/OpenEnergyDashboard/OED) - React data analysis app
+- [rloris](https://github.com/NoraCodes/rloris) - Rust implementation of layer 7 HTTP DoS attacks
+- [Evolve SBrain](https://github.com/NoraCodes/evolve-sbrain) — Rust genetic programming engine
+- [RandomUA](https://github.com/NoraCodes/RandomUA) — browser extension to enhance privacy
+- [workctl](https://github.com/NoraCodes/workctl) — Rust library for multithreaded programming
+- [libUI-rs](https://github.com/rust-native-ui/libui-rs) — Rust bindings to platform APIs for GUI apps
 - [More...](/projects)
 
 {{< /div >}}
@@ -59,9 +73,13 @@ we must proceed as best we can.
 {{< div >}}
 ## 🖥  Hardware
 
-I occasionally build actual, physical stuff, mostly small RC aircraft and hacking kit. Thanks to this hobby I
+I occasionally build actual, physical stuff, mostly small RC aircraft and hacking kit.
+Thanks to this hobby I have a good foundation in embedded programming with C and Wiring
+(the Arduino programming language), as well as some exposure to hardware description
+languages and FPGA programming.
 
-I also really like [retro computing hardware](/post/the-sinclair-zx-81-ts-1000/), but generally don't have the time or money to indulge this interest.
+I also really like [retro computing hardware](/post/the-sinclair-zx-81-ts-1000/), but
+generally don't have the time or money to indulge this interest.
 {{< /div >}}
 
 {{< div >}}
@@ -78,24 +96,18 @@ The culture, business, and sociology of technology fascinate me.
 I've written about topics ranging from [hacker superstitions](/post/hacker-superstitions/) and how spending way too much time customizing my desktop is [productive, actually](/post/modding-vim-i3-and-efficiency/) to [repairable hardware](/post/i-repaired-my-headphones/) and [free software](/post/open-source-for-normal-people/) and [why it matters](/post/a-story-about-my-personal-trainer/), for individuals and for [society](/post/deletefacebook-and-fosta/) as a whole.
 {{< /div >}}
 
-<! -- {{< div >}}
-## 💽 IPFS
-
-This website is also [available on IPFS](https://ipfs.io/ipns/QmSzXMBKA55NfpBH9wX4pfkJcRL2UuDorBXaVN3CLpFGke/), a peer-to-peer content-addressed immutable datastore that spans the globe. I host a public IPFS gateway at [ipfs.leotindall.com](https://ipfs.leotindall.com/); you can also [view this blog](https://ipfs.leotindall.com/ipns/QmSzXMBKA55NfpBH9wX4pfkJcRL2UuDorBXaVN3CLpFGke/) through that gateway rather than the public resolver.
-
-{{< /div >}} -->
-
 {{< div >}}
 ## 🗺 Around the 'Net
 
 You can find me:
 
 - On the <a href="https://cybre.space/@tindall" rel="me">Fediverse</a>.
-- On <a href="https://github.com/leotindall" rel="me">GitHub</a>.
+- On <a href="https://github.com/NoraCodes" rel="me">GitHub</a>.
 - On <a href="https://patreon.com/leotindall" rel="me">Patreon</a>.
 - At nora AT nora DOT codes.
-- Everywhere, with my <a href="static/leotindall.asc" rel="pgpkey authn">PGP Key</a>.
+- Everywhere, with my <a href="/leonoratindall.asc" rel="pgpkey authn">PGP Key</a>.
 
 {{< /div >}}
+
 {{< /div >}}
 
