@@ -38,7 +38,7 @@ I’ve also developed an extremely simple assembly syntax for testing purposes; 
 That is, add (register) r1 to (pointer) r2.
 
 
-The primary goal for this project is to provide a more stable and closer-to-real-CPU language than Muller’s Brainf\*\*\* or my own [SBrain](https://github.com/leotindall/sbrain), both of which I’ve [previously used](https://github.com/leotindall/evolve_bf) for genetic programming with rather mixed results.
+The primary goal for this project is to provide a more stable and closer-to-real-CPU language than Muller’s Brainf\*\*\* or my own [SBrain](https://github.com/noracodes/sbrain), both of which I’ve [previously used](https://github.com/noracodes/evolve_bf) for genetic programming with rather mixed results.
 
 The ability to generate instructions I know are valid helps short-circuit the process of culling unparseable genes from the population, which, while not particularly difficult, slows the process of evolution significantly.
 

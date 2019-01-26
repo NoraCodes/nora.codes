@@ -17,9 +17,9 @@ This program is also a small, manageable example of a legacy application - an ol
 
 For the purposes of these posts, I'll be looking at tinyhttpd from the perspective of a company that uses it internally, and wants to transition to a more modular, portable, and maintainable design, rather than one which either ships it as a product or buys it as a product from another company and wants to replace it; these situations are similar, but have additional challenges.
 
-The first thing to do is to analyze the existing source. I've gone ahead and created a GitHub repository to host both the old and new source code, and I'll link to specific commits in these posts. For instance, [here](https://github.com/leotindall/rtinyhttpd/tree/af6ea072d72d8f86f0648d98eef9e1fb80782479/legacy) is the commit with nothing but the unmodified source of the legacy app.
+The first thing to do is to analyze the existing source. I've gone ahead and created a GitHub repository to host both the old and new source code, and I'll link to specific commits in these posts. For instance, [here](https://github.com/noracodes/rtinyhttpd/tree/af6ea072d72d8f86f0648d98eef9e1fb80782479/legacy) is the commit with nothing but the unmodified source of the legacy app.
 
-The first thing to do is to build the existing app. In order not to clutter the repository with object files, I [created a .gitignore file](https://github.com/leotindall/rtinyhttpd/commit/08c890d28bac42c04988d8d75ad46ac79b6414f1) from GitHub's default C gitignores. Now all I have to do is run `make`, right?
+The first thing to do is to build the existing app. In order not to clutter the repository with object files, I [created a .gitignore file](https://github.com/noracodes/rtinyhttpd/commit/08c890d28bac42c04988d8d75ad46ac79b6414f1) from GitHub's default C gitignores. Now all I have to do is run `make`, right?
 
     
     11:32:58: leo [~/Projects/rtinyhttpd/legacy]
@@ -45,7 +45,7 @@ What's this, it doesn't compile? Well, you'll remember I mentioned it was writte
  */
 ```
 
-I made a note of this in my analysis folder and [made those changes](https://github.com/leotindall/rtinyhttpd/commit/a1ae783977550ce4752243f34513a7c855f27492) - except that they didn't apply. The makefile didn't have `-lsocket`, and there was only one occurrence of `pthread_create`. They did make the app build, but it didn't work!
+I made a note of this in my analysis folder and [made those changes](https://github.com/noracodes/rtinyhttpd/commit/a1ae783977550ce4752243f34513a7c855f27492) - except that they didn't apply. The makefile didn't have `-lsocket`, and there was only one occurrence of `pthread_create`. They did make the app build, but it didn't work!
 
 In order to figure out what's happening, I looked up `pthread_create` on man7.org. It's part of the POSIX threading API, and it is definitely available on Linux. Furthermore, if we look at the main() function, we can see why commenting out those lines caused a problem - it's an infinite loop that does nothing but accept connections!
 
@@ -71,7 +71,7 @@ So, we need to get POSIX threads working to make this app run properly. (Note th
 
 In our case, luckily, this is easy: just revert the commenting and change `-lpthread` in the Makefile to` -pthread`, as mentioned [on the manual page](http://man7.org/linux/man-pages/man3/pthread_create.3.html).
 
-[Doing this](https://github.com/leotindall/rtinyhttpd/commit/8e938ec4943fc859d8bd7eff0dafd13c7a23b168) allows the app to build and run correctly, binding to port 9999. When I open localhost:9999 in my web browser, I get a page back. Success!
+[Doing this](https://github.com/noracodes/rtinyhttpd/commit/8e938ec4943fc859d8bd7eff0dafd13c7a23b168) allows the app to build and run correctly, binding to port 9999. When I open localhost:9999 in my web browser, I get a page back. Success!
 
 Now that we have a compiling and running version of the legacy tinyhttpd, it's time to go through the source code. Luckily for us, tinyhttpd is entirely contained in a single file. Let's start off with the top:
 
@@ -92,7 +92,7 @@ Now that we have a compiling and running version of the legacy tinyhttpd, it's t
  */
 ```
 
-Here is some information which will often be included in legacy programs - some short information about the author and purpose of the program, and some (in this case out of date and inaccurate) information about building and running the program. [Removing the misleading lines](https://github.com/leotindall/rtinyhttpd/commit/185a968f0f1307968ada452e86f17f1e23b72225) makes this section a lot more concise and is probably a good idea.
+Here is some information which will often be included in legacy programs - some short information about the author and purpose of the program, and some (in this case out of date and inaccurate) information about building and running the program. [Removing the misleading lines](https://github.com/noracodes/rtinyhttpd/commit/185a968f0f1307968ada452e86f17f1e23b72225) makes this section a lot more concise and is probably a good idea.
 
 Skipping the `#include`s, which aren't very helpful in this case, we find two `#define` statements:
 
@@ -104,7 +104,7 @@ Skipping the `#include`s, which aren't very helpful in this case, we find two `
 
 The `SERVER_STRING` definition is pretty straightforward; it's an identifier of the software, which will be sent to clients. In our version, I would prefer to not include the `\r\n` terminator in the definition itself. As to the `ISspace` definition, though, I'm not immediately sure. A quick search of the source shows no definition of a function `isspace` taking an integer, so it's probably coming from one of the includes.
 
-If this program had multiple files, I'd search through them next; but, as there are none, I'm going straight to the Internet. [Turns out](http://www.tutorialspoint.com/c_standard_library/c_function_isspace.htm), it does just what you'd expect - it checks if a given integer represents whitespace or not. This definition simply allows calling it directly on `char` values without writing out an explicit cast every time. I've [made a note of this](https://github.com/leotindall/rtinyhttpd/commit/7c9fe4d96e1735fa3e12c941f01f0da968ac4e66) in my analysis documents.
+If this program had multiple files, I'd search through them next; but, as there are none, I'm going straight to the Internet. [Turns out](http://www.tutorialspoint.com/c_standard_library/c_function_isspace.htm), it does just what you'd expect - it checks if a given integer represents whitespace or not. This definition simply allows calling it directly on `char` values without writing out an explicit cast every time. I've [made a note of this](https://github.com/noracodes/rtinyhttpd/commit/7c9fe4d96e1735fa3e12c941f01f0da968ac4e66) in my analysis documents.
 
 After the head macros, we can see explicit definitions of all the functions used in the program.
 
@@ -178,7 +178,7 @@ Immediately afterward, the `server_sock` variable is filled by the result of the
 /**********************************************************************/
 ```
 
-That makes more sense now - it allows dynamically generating a port number. That's useful, but the functionality isn't exposed through the command line interface, which is annoying. In our program, I'd like to expose that, and I'd also like to move away from the C convention of modifying inputs. In the rewrite, I think I'll return a tuple. Since this is a fairly complex idea, I'll take this time to [write some notes down](https://github.com/leotindall/rtinyhttpd/commit/c76164487b6f82403e9f179f1a8092fdf3ab9232).
+That makes more sense now - it allows dynamically generating a port number. That's useful, but the functionality isn't exposed through the command line interface, which is annoying. In our program, I'd like to expose that, and I'd also like to move away from the C convention of modifying inputs. In the rewrite, I think I'll return a tuple. Since this is a fairly complex idea, I'll take this time to [write some notes down](https://github.com/noracodes/rtinyhttpd/commit/c76164487b6f82403e9f179f1a8092fdf3ab9232).
 
 That's enough to understand a bit more about `main`. After a simple status message, the program moves on to the main loop:
 
@@ -212,7 +212,7 @@ The next few lines try (and handle errors for) spawning a new thread that runs 
 
 I'm not really sure what processing the request "appropriately" entails. For now, though, it's enough to know that this is the main function for dealing with incoming requests.
 
-The only code after this is cleanup code we won't need in the rewrite, so we have enough info to [write a short pseudocode summary](https://github.com/leotindall/rtinyhttpd/commit/58d96df64f7d015d80853952c8f77cf851d1eee5) of the server:
+The only code after this is cleanup code we won't need in the rewrite, so we have enough info to [write a short pseudocode summary](https://github.com/noracodes/rtinyhttpd/commit/58d96df64f7d015d80853952c8f77cf851d1eee5) of the server:
 
 ```   
 Open and configure a server socket

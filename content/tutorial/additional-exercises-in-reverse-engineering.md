@@ -13,7 +13,7 @@ This is a sequel to my (rather long) [introduction](an-intro-to-x86_64-reverse-e
 
 ## The CrackMe Programs
 
-You can find the CrackMes discussed here on [GitHub](https://github.com/leotindall/crackmes). Clone that repository and, _without looking at the source code_, build each CrackMe with `make crackme01`, `make crackme02`, etc.
+You can find the CrackMes discussed here on [GitHub](https://github.com/noracodes/crackmes). Clone that repository and, _without looking at the source code_, build each CrackMe with `make crackme01`, `make crackme02`, etc.
 
 ## Tools and Software
 

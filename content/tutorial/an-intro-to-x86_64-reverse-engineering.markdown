@@ -15,7 +15,7 @@ There are a lot of excellent tutorials out there, but they mostly focus on the 3
 
 A CrackMe is an executable file which takes (typically) a single argument, does some check on it, and returns a message informing the user if it's correct or not.  The challenge is to determine the correct argument _without_ looking at the source code. Here, I present some CrackMe programs which I wrote, and demonstrate how to arrive at their solutions. 
 
-If you enjoy this tutorial, please consider contributing to my [Patreon](https://www.patreon.com/leotindall) so I can make more like it.
+If you enjoy this tutorial, please consider contributing to my [Patreon](https://www.patreon.com/noracodes) so I can make more like it.
 
 # Prerequisites 
 
@@ -27,7 +27,7 @@ If you are a fluent programmer but don't know assembly, I suggest you look at th
 
 ## The CrackMe Programs
 
-You can find the CrackMes discussed here on [GitHub](https://github.com/leotindall/crackmes). Clone that repository and, _without looking at the source code_, build each CrackMe with `make crackme01`, `make crackme02`, etc.
+You can find the CrackMes discussed here on [GitHub](https://github.com/noracodes/crackmes). Clone that repository and, _without looking at the source code_, build each CrackMe with `make crackme01`, `make crackme02`, etc.
 
 ## Tools and Software
 
@@ -531,7 +531,7 @@ $ ./crackme02.64 o\`rrvnqc0
 Yes, o`rrvnqc0 is correct!
 </code></pre>
 
-The sharp-eyed among you might have noticed that this binary has a problem, however; it will actually accept _any_ of these characters. o, o\`, o\`r, o\`rr, et cetera all work! Clearly not a very good method to use for your product key. Also, as pointed out by [an astute GitHub commenter](https://github.com/LeoTindall/crackmes/issues/2), an empty password (`./crackme02.64 ""`) will be accepted.
+The sharp-eyed among you might have noticed that this binary has a problem, however; it will actually accept _any_ of these characters. o, o\`, o\`r, o\`rr, et cetera all work! Clearly not a very good method to use for your product key. Also, as pointed out by [an astute GitHub commenter](https://github.com/noracodes/crackmes/issues/2), an empty password (`./crackme02.64 ""`) will be accepted.
 
 If you made it this far, good job! Reverse engineering is difficult, but this is the core of it, and it only gets easier from here.
 
@@ -872,4 +872,4 @@ The files named `crackme01e.c`, `crackme02e.c`, et cetera are modified versions 
 
 ## Media
 
-Saturday, Jan. 6, 2018: This tutorial was featured on Hackaday, which briefly brought down my server. Hi to all of you who make it here from there. Please consider checking out my other tutorials and, if you want more content like this to be created, contributing to my [Patreon](https://leotindall.com).
+Saturday, Jan. 6, 2018: This tutorial was featured on Hackaday, which briefly brought down my server. Hi to all of you who make it here from there. Please consider checking out my other tutorials and, if you want more content like this to be created, contributing to my [Patreon](https://noracodes.com).

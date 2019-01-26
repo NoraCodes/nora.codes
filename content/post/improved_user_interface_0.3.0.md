@@ -21,5 +21,5 @@ I want to give a huge shoutout to several GitHub users who helped with the proje
 
 From the project management side, we have a vastly improved README, a CONTRIBUTING guideline file, and have resolved to keep a changelog.
 
-I'd like to extend a huge thank you to all my [patrons](https://patreon.com/leotindall) for keeping this ball rolling. I'm excited to see where we go from here.
+I'd like to extend a huge thank you to all my [patrons](https://patreon.com/noracodes) for keeping this ball rolling. I'm excited to see where we go from here.
 

@@ -103,7 +103,7 @@ You can find me:
 
 - On the <a href="https://cybre.space/@tindall" rel="me">Fediverse</a>.
 - On <a href="https://github.com/NoraCodes" rel="me">GitHub</a>.
-- On <a href="https://patreon.com/leotindall" rel="me">Patreon</a>.
+- On <a href="https://patreon.com/noracodes" rel="me">Patreon</a>.
 - At nora AT nora DOT codes.
 - Everywhere, with my <a href="/leonoratindall.asc" rel="pgpkey authn">PGP Key</a>.
 
