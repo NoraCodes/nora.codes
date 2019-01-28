@@ -7,7 +7,7 @@ title: Home
 {{< /div >}}
 
 {{< div "intro-paragraph" >}}
-I'm Leonora. You can call me Nora, if you like.
+I'm Leonora. 
 
 I'm a full time student in computer science at [Beloit](https://beloit.edu).
 
@@ -73,13 +73,12 @@ we must proceed as best we can.
 {{< div >}}
 ## 🖥  Hardware
 
-I occasionally build actual, physical stuff, mostly small RC aircraft and hacking kit.
+I occasionally build actual, physical stuff, mostly small RC aircraft and RF gear.
 Thanks to this hobby I have a good foundation in embedded programming with C and Wiring
 (the Arduino programming language), as well as some exposure to hardware description
 languages and FPGA programming.
 
-I also really like [retro computing hardware](/post/the-sinclair-zx-81-ts-1000/), but
-generally don't have the time or money to indulge this interest.
+I also really like [retro computing hardware](/post/the-sinclair-zx-81-ts-1000/).
 {{< /div >}}
 
 {{< div >}}
