@@ -2,6 +2,7 @@
 <main>
   <!-- Home page content -->
   {{if .IsHome }}
+  <h1 class="index-title"> {{ .Site.Title }} </h1>
     {{ .Content }}
   {{ end }}
 

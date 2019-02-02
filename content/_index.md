@@ -2,16 +2,13 @@
 title: Home
 ---
 
-{{< div "name-and-title" >}}
-<div class="glitch" data-text="Patterns in Cyberspace">Patterns in Cyberspace</div>
-{{< /div >}}
-
 {{< div "intro-paragraph" >}}
 I'm Leonora. 
 
 I'm a full time student in computer science at [Beloit](https://beloit.edu).
 
 I build and break open source software for fun.
+
 {{< /div >}}
 
 {{< div "info-container" >}}
@@ -48,7 +45,7 @@ scripts and utilities in [**Python**](/categories/python) and **Lua**, and
 websites in HTML5, CSS, JavaScript, and TypeScript.
 
 ## ⚛ Projects
-- [Open Energy Dashboard](https://github.com/OpenEnergyDashboard/OED) - React data analysis app
+- Contributor to [Open Energy Dashboard](https://github.com/OpenEnergyDashboard/OED) (React/Redux)
 - [rloris](https://github.com/NoraCodes/rloris) - Rust implementation of layer 7 HTTP DoS attacks
 - [Evolve SBrain](https://github.com/NoraCodes/evolve-sbrain) — Rust genetic programming engine
 - [RandomUA](https://github.com/NoraCodes/RandomUA) — browser extension to enhance privacy
@@ -71,28 +68,18 @@ we must proceed as best we can.
 {{< /div >}}
 
 {{< div >}}
-## 🖥  Hardware
-
-I occasionally build actual, physical stuff, mostly small RC aircraft and RF gear.
-Thanks to this hobby I have a good foundation in embedded programming with C and Wiring
-(the Arduino programming language), as well as some exposure to hardware description
-languages and FPGA programming.
-
-I also really like [retro computing hardware](/post/the-sinclair-zx-81-ts-1000/).
-{{< /div >}}
-
-{{< div >}}
 ## 🎓 Tutorials
-I've written tutorials on [type systems](/tutorial/a-gentle-introduction-to-practical-types/) and what can be done with them (for instance, [session types](/tutorial/session-types/).) 
+I've written tutorials on [type systems](/tutorial/a-gentle-introduction-to-practical-types/) and what can be done with them (for instance, [session types](/tutorial/session-types/)), [x86_64 binary reverse engineering](/tutorial/an-intro-to-x86_64-reverse-engineering/), and application security topics on [embedding malware in PDF files](/post/pdf-embedding-attacks/).
 
-If you're interested in x86 hacking, my [reverse engineering](/tutorial/an-intro-to-x86_64-reverse-engineering/) tutorial is a great place to start. For a more application-level security discussion, check out my post on [embedding malware in PDF files](/post/pdf-embedding-attacks/).
-{{< /div >}}
-
-{{< div >}}
 ## 💬 Culture & Practices
 The culture, business, and sociology of technology fascinate me.
 
 I've written about topics ranging from [hacker superstitions](/post/hacker-superstitions/) and how spending way too much time customizing my desktop is [productive, actually](/post/modding-vim-i3-and-efficiency/) to [repairable hardware](/post/i-repaired-my-headphones/) and [free software](/post/open-source-for-normal-people/) and [why it matters](/post/a-story-about-my-personal-trainer/), for individuals and for [society](/post/deletefacebook-and-fosta/) as a whole.
+{{< /div >}}
+
+{{< div "recent-posts" >}}
+## 📓 Recent Posts
+{{< recent >}}
 {{< /div >}}
 
 {{< div >}}
@@ -108,5 +95,8 @@ You can find me:
 
 {{< /div >}}
 
+
 {{< /div >}}
+
+
 

@@ -81,71 +81,11 @@ header li.feed-nav-item {
 }
 
 /* Styling for the main block at the top of the index. */
-.name-and-title {
+h1.index-title {
     padding-top: 10px;
     font-weight: bold;
     text-align: center;
     font-size: 1.75em;
-}
-
-/* Styling for the glitch-effect text. */
-.glitch {
-  position: relative;
-}
-
-/* Blue copy of the glitch effect. */
-.glitch::before {
-  content: attr(data-text);
-  color: var(--main-fg-color);
-  position: absolute;
-  top: 0;
-  margin-left: 30%;
-  margin-right: 30%;
-  width: 40%;
-  height: 100%;
-  /* background: var(--main-bg-color); */
-  animation: glitch-anim 1s infinite step-start reverse;
-  /* Differences */
-  left: 4px;
-  text-shadow: -1px 0 blue;
-}
-
-/* Red copy of the glitch effect. */
-.glitch::after {
-  content: attr(data-text);
-  color: var(--main-fg-color);
-  position: absolute;
-  top: 0;
-  margin-left: 30%;
-  margin-right: 30%;
-  width: 40%;
-  height: 100%;
-  /* background: var(--main-bg-color); */
-  animation: glitch-anim 1.2s infinite step-start;
-  /* Differences */
-  left: -4px;
-  text-shadow: -1px 0 red;
-}
-
-@keyframes glitch-anim {
-  0% {
-    clip-path: polygon(0% 10%, 100% 10%, 100% 30%, 0% 30%);
-  }
-  20% {
-    clip-path: polygon(0% 0%, 100% 0%, 100% 20%, 0% 20%);
-  }
-  40% {
-    clip-path: polygon(0% 50%, 100% 50%, 100% 60%, 0% 60%);
-  }
-  60% {
-    clip-path: polygon(0% 70%, 100% 70%, 100% 90%, 0% 90%);
-  }
-  80% {
-    clip-path: polygon(0% 30%, 100% 30%, 100% 50%, 0% 50%);
-  }
-  100% {
-    clip-path: polygon(0% 21%, 100% 21%, 100% 30%, 0% 30%);
-  }
 }
 
 /* Styling for the first paragraph introducing the site. */
