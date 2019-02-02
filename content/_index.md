@@ -69,7 +69,7 @@ we must proceed as best we can.
 
 {{< div >}}
 ## 🎓 Tutorials
-I've written tutorials on [type systems](/tutorial/a-gentle-introduction-to-practical-types/) and what can be done with them (for instance, [session types](/tutorial/session-types/)), [x86_64 binary reverse engineering](/tutorial/an-intro-to-x86_64-reverse-engineering/), and application security topics on [embedding malware in PDF files](/post/pdf-embedding-attacks/).
+I've written tutorials on [type systems](/tutorial/a-gentle-introduction-to-practical-types/) and what can be done with them (for instance, [session types](/tutorial/session-types/)), [x86_64 binary reverse engineering](/tutorial/an-intro-to-x86_64-reverse-engineering/), and application security topics like [embedding malware in PDF files](/post/pdf-embedding-attacks/).
 
 ## 💬 Culture & Practices
 The culture, business, and sociology of technology fascinate me.
