@@ -1,7 +1,7 @@
 ---
 title: "Building Readable Tests with Fluent Testing APIs"
 date: 2018-07-23T09:56:24-05:00
-author: "Leo Tindall"
+author: "Leonora Tindall"
 tags: ['rust', 'programming', 'testing']
 ---
 
