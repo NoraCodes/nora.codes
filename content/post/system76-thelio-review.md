@@ -85,6 +85,13 @@ form factor will mean a shortage of USB ports. I recommend placing a USB 3.1
 gen 2 hub either atop the machine or on your desk or console just beside it for
 easy access.
 
+Having machined cutouts for the back panel I/O is a boon for reliability and
+durability, but it does make upgrading the motherboard very difficult. On the
+other hand, System76 has chosen relatively high-end motherboards which are
+likely to be supported for some time; AMD in particular plans to release new
+CPUs on Socket AM4 as far out at 2022, making Thelio a long-term investment for
+those willing to pull out the guts of their machines once or twice.
+
 ## The Mechanics
 
 Clustering all the ports on the back contributes to the overall
