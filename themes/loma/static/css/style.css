@@ -197,6 +197,26 @@ img.inline {
     margin-right: none;
 }
 
+/* For photographs in-line with text */
+.photo {
+    margin: 20px;
+    max-width: 300px;
+    font-size: 0.75em; 
+}
+
+.photo-right {
+    float: right;
+}
+
+.photo-left {
+    float: left;
+}
+
+.photo img {
+    max-width: 200px;
+    border-radius: 3px;
+}
+
 /* Block quotes (used in summaries, etc) have some emphasis added. */
 blockquote {
   /* A bar to the left of each quote. */
