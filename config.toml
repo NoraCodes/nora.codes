@@ -1,7 +1,7 @@
 baseURL = "https://nora.codes/"
 languageCode = "en-us"
 
-title = "Patterns in Cyberspace"
+title = "Nora Codes"
 theme = "loma"
 
 # dateFormat = "date -u +'%Y-%m-%d %R:%S%:z'"
@@ -49,4 +49,4 @@ pygmentsCodefences = true
     description = "Leonora Tindall's personal website"
     author = "Leonora Tindall"
     MetaDescription = "Leonora Tindall's personal website, regarding programming, hacking, and politics."
-    footer = "Text: [CC-BY-SA](http://creativecommons.org/licenses/by-sa/4.0/) ≥ 4 | Code: [AGPL](https://www.gnu.org/licenses/agpl-3.0.en.html) ≥ v3 | Font: [Bitter ht](https://www.huertatipografica.com/en/fonts/bitter-ht), [OFL](https://en.wikipedia.org/wiki/SIL_Open_Font_License) | <img class='inline' alt='GNU Natalie Nguyen' src='/images/tipsytentacle.gif' /> | [No AMP](https://www.polemicdigital.com/google-amp-go-to-hell/)"
+    footer = "Text is [CC-BY-SA](http://creativecommons.org/licenses/by-sa/4.0/) v4, code is [AGPL](https://www.gnu.org/licenses/agpl-3.0.en.html) v3 | Font is [Bitter ht](https://www.huertatipografica.com/en/fonts/bitter-ht) licensed [OFL](https://en.wikipedia.org/wiki/SIL_Open_Font_License) | <img class='inline' alt='GNU Natalie Nguyen' src='/images/tipsytentacle.gif' /> | [No AMP](https://www.polemicdigital.com/google-amp-go-to-hell/)"
