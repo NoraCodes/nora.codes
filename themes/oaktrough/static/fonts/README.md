@@ -1,0 +1,1 @@
+These fonts are derived from Bitter ht by Huerta Tipográphica, licensed under the SIL Open Font License.

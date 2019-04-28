@@ -1,0 +1,15 @@
+    <hr>
+    <footer> 
+      {{ partial "foot_custom.html" . }}
+      <p>
+        Last updated {{ now.Format "Jan 01 2006" }}
+      </p>
+      <p>
+        {{ with .Site.Params.footer }}
+            {{ . | markdownify }}
+        {{ end }}
+      </p>
+      <br>
+    </footer>
+  </body>
+</html>

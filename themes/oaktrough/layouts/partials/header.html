@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+<head>
+  {{ if .Title }}
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+    <meta name="DC.Title" content="{{ .Title }}">
+  {{ end }}
+
+  {{ if .Date }}
+    <meta name="DC.Date" content="{{ .Date.Format "2006/01/02" }}">
+  {{ end }}
+
+  {{ if .Params.author }}
+    <meta name="DC.Creator" content="{{ .Params.author }} $.Params.author">
+  {{ else if .Site.Params.author }}
+    <meta name="DC.Creator" content="{{ .Site.Params.author }}">
+  {{ else if $.Site.Author }}
+      {{ range $.Site.Author }}
+        <meta name="DC.Creator" content="{{ . }} $.Site.Author">
+      {{ end }}
+  {{ end }}
+
+  {{ if .Site.Language.Lang }}
+    <meta name="DC.Language" content="{{ .Site.Language.Lang }}">
+  {{ end }}
+
+  {{ if .Description }}
+    <meta name="DC.Description" content="{{ .Description }}">
+  {{ else if .IsPage }}
+    <meta name="DC.Description" content="{{ .Summary | plainify }}">
+  {{ else }}
+    <meta name="DC.Description" content="{{ .Site.Params.MetaDescription }}">
+  {{ end }}
+
+  {{ if .Permalink }}
+    <meta name="DC.Identifier" content="{{ .Permalink }}">
+  {{ end }}
+
+  {{ if .Params.tags }}
+    <meta name="keywords" content="{{ range .Params.tags }}{{.}},{{ end }}">
+  {{ end }}
+
+  {{ if .Site.Params.googlesiteverification }}
+    <meta name="google-site-verification" content="{{ .Site.Params.googlesiteverification }}" />
+  {{ end }}
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}" />
+  <link rel="stylesheet" href="{{ "/css/fonts.css" | relURL }}" />
+</head>
+
+<body>
+    <a class="skip-main" href="#main">Skip to main content</a>
+    {{ partial "head_custom.html" . }}
+

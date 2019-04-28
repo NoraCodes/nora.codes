@@ -1,0 +1,217 @@
+/* Variable declarations which are available to all styles. */
+:root {
+  /* The background of the page backdrop. */
+  --bg-color: #FAFAFA;
+  /* The color of text on the backdrop. */
+  --fg-color: #111;
+
+  /* The color used for borders and highlights. */
+  --offset-border-color: #DDD;
+  /* The background used to encapsulate off-set text areas of the page. */
+  --offset-bg-color: #CCC;
+  
+  /* The color used to set links apart from non-interactable text. */
+  --link-color: #44C;
+}
+
+/* Applied to the whole visible content of the page. */
+body {
+  max-width: 800px;
+  margin: auto;
+  color: var(--fg-color);
+  background-color: var(--bg-color);
+}
+
+/* Applied to the textual content of the page. */
+main {
+  hyphens: auto;
+  /* "Let it breathe." Text does not need to be jammed as close together as possible. */
+  line-height: 1.4;
+  /* Slightly higher font size means it's easier to read. */
+  /* Setting a pt value here means other adjustments are made in scale. */
+  font-size: 12pt;
+}
+
+main header {
+    text-align: center;
+}
+
+main h2, main h3 {
+    border-bottom: 1px solid var(--fg-color);
+}
+
+main p {
+    margin-left: 16px;
+}
+
+
+/* Basic shape and alignment of the navigational header and informational footer. */
+nav, footer {
+  border-radius: 3px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+/* Place the title on the left and the navigation on the right.  */
+nav {
+    overflow: hidden;
+    width: 100%;
+}
+
+nav div {
+    font-size: 16pt;
+    float: right;
+    margin: 2px;
+}
+
+nav h1 {
+    display: block;
+    float: left;
+    font-size: 16pt;
+    margin: 2px;
+}
+
+/* Link styling. All links get the same color. When hovering, they get an underline. */
+a,
+a:visited,
+a:hover { color: var(--link-color) }
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Applied to the Hugo-generated Table of Contents.
+ * To get a TOC, the following is added to the YAML.
+
+output:
+  blogdown::html_page:
+    toc: true
+
+*/
+
+header nav {
+  border-radius: 3px;
+  margin: 15px;
+  float: left;
+  min-width: 40%;
+  padding-right: 10px;
+  display: inline-block;
+}
+
+/* Code Boxes */
+pre {
+  border: 1px solid var(--offset-border-color);
+  margin: 12px;
+  padding: 1px;
+  overflow-x: auto;
+  border-radius: 3px;
+}
+code { 
+  padding: 0px; 
+  border-radius: 2px; 
+}
+pre code { background: none; }
+
+/* Images, tables, etc are centrally aligned. */
+img, iframe, video { 
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Some images shouldn't be centered. */
+img.inline {
+    display: inline;
+    margin-left: none;
+    margin-right: none;
+}
+
+/* For images with caption, placed in-line with text */
+figure {
+    margin: 20px;
+    max-width: 300px;
+    font-size: 0.75em; 
+}
+
+figure.right {
+    float: right;
+}
+
+figure.left {
+    float: left;
+}
+
+figure img {
+    max-width: 200px;
+    border-radius: 3px;
+}
+
+/* Block quotes (used in summaries, etc) have some emphasis added. */
+blockquote {
+  /* A bar to the left of each quote. */
+  border-left: 5px solid var(--border-color);
+  /* An offset background. */
+  background: var(--off-bg-color);
+  /* Basic outstanding layout. */ 
+  padding: 3px 1em 3px;
+  margin: 12px;
+  border-radius: 3px;
+}
+
+section h3 {
+    margin-bottom: 2px;
+    border: none;
+}
+
+section p {
+    margin-top: 2px;
+    padding-left: 16px;
+}
+
+/* pagination */
+.pagination li {
+  display: inline;
+  list-style: none;
+}
+ul.pagination {
+  padding: none;
+}
+
+/* Pretty styling for tables. */
+table {
+  margin: auto;
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #666;
+}
+table thead th { border-bottom: 1px solid #444444; }
+th, td { padding: 5px; }
+tr:nth-child(even) { background: #444444 }
+
+/* From https://accessibility.oit.ncsu.edu/it-accessibility-at-nc-state/developers/accessibility-handbook/mouse-and-keyboard-events/skip-to-main-content/ */
+a.skip-main {
+    left:-999px;
+    position:absolute;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+    z-index:-999;
+}
+
+a.skip-main:focus, a.skip-main:active {
+    color: #fff;
+    background-color:#000;
+    left: auto;
+    top: auto;
+    width: 30%;
+    height: auto;
+    overflow:auto;
+    margin: 10px 35%;
+    padding:5px;
+    border-radius: 15px;
+    border:4px solid yellow;
+    text-align:center;
+    font-size:1.2em;
+    z-index:999;
+}
+

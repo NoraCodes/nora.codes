@@ -1,0 +1,32 @@
+<!--
+    Progressively enhanced code blocks. From foot_custom.html.
+    Basically, without JavaScript, code blocks are fine but don't look as good as they
+    could. With JavaScript, they get dynamic syntax highlighting and some dynamic styling.
+
+    Uses the atom light theme. See the list at: 
+        https://github.com/isagalaev/highlight.js/tree/master/src/styles
+-->
+  <link rel="stylesheet" href="/css/vs.min.css">
+  <script src="/js/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+<!-- Automagically replace ``` based code blocks with something better. -->
+  <script>
+    // Get all the <div class="highlight"> stuff
+    let elements = document.getElementsByClassName("highlight");
+    for (let element_id = 0; element_id < elements.length; element_id++) {
+      const element = elements[element_id];
+      // Clear the existing style, highlightjs will do this for us
+      element.firstChild.setAttribute("style", "");
+      // Set a hljs class based on language
+      let language = element.firstChild.firstChild.getAttribute("data-lang");
+      if (language !== null) {
+          element.firstChild.firstChild.setAttribute("class", language);
+      }
+    }
+  </script>
+<!-- Fix the extra line at the top of the code blocks. -->
+  <script>
+    const code = document.querySelectorAll("code");
+    [...code].forEach(el => el.textContent = el.textContent.replace(/^\n/,''));
+  </script>

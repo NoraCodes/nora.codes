@@ -1,0 +1,19 @@
+<nav>
+      <h1> {{ .Site.Title }} </h1>
+      <div>
+      {{ $title := lower .Title }}
+      {{ $section := lower .Section }}
+        <a href="{{ .Site.BaseURL }}" title="Home">home</a>
+      {{ range .Site.Menus.main }}
+      {{ $name := lower .Name }}
+        <a href="{{ .URL }}" title="{{ .Name }}">{{ lower .Name }}</a>
+      {{end}}
+
+      {{ range .Site.Menus.feed }}
+      {{ $name := lower .Name}}
+        <a href="{{ .URL }}" title="{{ .Name }}">{{ lower .Name}}</a>
+      {{end}}
+      </div>
+    </ul>
+  </nav>
+  <hr />

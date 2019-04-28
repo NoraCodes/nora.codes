@@ -1,0 +1,22 @@
+{{ partial "header.html" . }}
+<main id="main">
+<header>
+    <h1>{{ .Title }}</h1>
+    {{ if .Params.author }}
+        {{ .Author }}
+    {{ else if .Site.Params.author }}
+        {{ .Site.Params.author }}
+    {{ end }}
+    {{ if .Date }} {{ .Date.Format "2006/01/02" }} {{ end }}
+
+    {{ if .Params.toc }}
+        {{ .TableOfContents }}
+    {{ end }}
+</header>
+
+<article>
+{{ .Content }}
+</article>
+</main>
+
+{{ partial "footer.html" . }}

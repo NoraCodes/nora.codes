@@ -1,0 +1,39 @@
+{{ partial "header.html" . }}
+<main id="main">
+  <!-- Home page content -->
+  {{if .IsHome }}
+    {{ .Content }}
+  <!-- Paginated list of posts -->
+  {{ else }}
+  <h1>
+      <span class="title">{{ .Title }}</span>
+  </h1>
+  <main>
+    {{ .Content }}
+      <ul>
+        <!-- Change the range to look like the line below to enable paging. -->
+        <!-- range (.Paginator 5).Pages -->
+        {{ range .Pages }}
+        <li>
+          <section>
+              <h3><a href="{{ .URL }}">{{ .Title }}</a>
+              {{ with .Date }}
+                written {{ .Format "Jan 02, 2006" }}
+                {{ end }} </h3>
+              {{ with .Description }}
+              <p>{{ . }}</p>
+              {{ end }}
+          <!-- Uncomment to enable post summaries. -->
+          <!-- <blockquote class="postIntro">{{ .Summary }}</blockquote> -->
+          </section>
+        </li>
+        {{ end }}
+        <!-- Uncomment the line below to enable pagination controls. -->
+        <!-- {{ template "_internal/pagination.html" . }} -->
+      </ul>
+  </main>
+
+{{ end }}
+</main>
+{{ partial "footer.html" . }}
+

@@ -1,0 +1,13 @@
+name = "OAKTROUGH"
+license = "AGPLv3"
+licenselink = "https://www.gnu.org/licenses/agpl-3.0.en.html"
+description = "A minimal, ultra-responsive theme focused on readability."
+homepage = "https://nora.codes"
+tags = ["minimal", "blog", "personal", "simple", "clean", "starter", "minimalist"]
+features = ["blog"]
+min_version = "0.47"
+
+[author]
+  name = "Leonora Tindall"
+  homepage = "https://nora.codes"
+
