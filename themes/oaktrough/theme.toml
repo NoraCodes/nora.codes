@@ -5,7 +5,7 @@ description = "A minimal, ultra-responsive theme focused on readability."
 homepage = "https://nora.codes"
 tags = ["minimal", "blog", "personal", "simple", "clean", "starter", "minimalist"]
 features = ["blog"]
-min_version = "0.47"
+min_version = "0.40"
 
 [author]
   name = "Leonora Tindall"
