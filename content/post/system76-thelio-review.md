@@ -19,10 +19,10 @@ modify
 > **Cons**: somewhat noisy, no front I/O, not as many USB ports as one might
 desire
 
-{{< div "photo photo-left" >}}
+{{< figure "left" >}}
 ![The front and wooden side of the Thelio thelio-r1 with the included post-card.](/images/thelio/front_with_postcard.jpg)
 The smallest Thelio, thelio-r1, was made available in January 2019.
-{{< /div >}}
+{{< /figure >}}
 
 
 In November 2018, System76, renowned Linux laptop company, announced the Thelio
@@ -42,10 +42,10 @@ centimeters wide, and 28 centimeters deep, coming to only a total of 18 liters
 in volume, a good deal smaller than even the tiniest commercial full-GPU mITX
 form factor cases, most of which are at least 22 liters.
 
-{{< div "photo photo-right" >}}
+{{< figure "right" >}}
 ![The wooden side with the post-card and a 6inch/15cm ruler.](/images/thelio/side_with_postcard.jpg)
 `thelio-r1` is absolutely tiny. The ruler in this photo is 15cm, or 6 inches.
-{{< /div >}}
+{{< /figure >}}
 
 The front, sides, and top are all made of powder coated metal, colored a deep
 and even black. On the front and metal side are subtle laser-etched designs: a
@@ -65,10 +65,10 @@ surface the computer rests upon, though four small rubber posts on the
 underside take the weight of the system itself. Between those areas there is a
 small cut-out section to permit sufficient airflow to the underside intake fan.
 
-{{< div "photo photo-right" >}}
+{{< figure "left" >}}
 ![The rear panel of the Thelio.](/images/thelio/rear_panel.jpg)
 The rear panel provides all the I/O on the entire system.
-{{< /div >}}
+{{< /figure >}}
 
 The choice of motherboard and GPU determines the back panel’s ports and
 configuration. My AMD model has
@@ -101,11 +101,11 @@ screws, which are powder-coated to the same color as the case. Once these are
 taken out, the whole case shroud simply slides up on a set of extruded rails
 that fit like a glove and are simple to slot back into place.
 
-{{< div "photo photo-left" >}}
+{{< figure "left" >}}
 ![The metal side of the Thelio, showing the mountainscape engraving.](/images/thelio/metal_side.jpg)
 Thelio's metal shroud is decordated with a beautiful stylized mountainscape, echoing its
 Colorado origins.
-{{< /div >}}
+{{< /figure >}}
 
 The metal power button connects to the rest of the system via a set of four
 pins which slide in and out of their sockets with ease, comfortably long after
@@ -120,10 +120,10 @@ metal, these antennae can be entirely internal, leaving the exterior smooth and
 durable. The chassis design preempts much of the damage than occurs in typical
 systems when shipped with metal cross-bars and a well-secured GPU.
 
-{{< div "photo photo-right" >}}
+{{< figure "right" >}}
 ![The interior of the Thelio, showing off the excellent cable management.](/images/thelio/cable_management.jpg)
 The interior cables are well-managed, which is important in such a tiny space.
-{{< /div >}}
+{{< /figure >}}
 
 The case design centers on combination of miniaturized computing and modular
 storage. All systems ship with an NVMe drive mounted directly on the
@@ -156,11 +156,11 @@ well as ensuring that the maximum amount of air passes through the heat
 exchanger, though it does have the potential to starve the GPU fans of
 room-temperature air.
 
-{{< div "photo photo-right" >}}
+{{< figure "right" >}}
 ![The bottom intake of Thelio, showing its Unix epoch solar system.](/images/thelio/bottom_vent.jpg)
 Both of the Thelio's vents show the solar system at the time of the UNIX epoch. The filter
 on this bottom intake does a good job even in the very dusty environment of my dorm.
-{{< /div >}}
+{{< /figure >}}
 
 Though not as effective as liquid cooling, this system
 proved more than adequate for my system. I was unable to force the system’s
@@ -215,11 +215,11 @@ On the other hand, the product is targeted at developers, and installing and
 using Snap support is trivial from the command line, so this isn’t too much of
 a black mark.
 
-{{< div "photo photo-right" >}}
+{{< figure "right" >}}
 ![The drive cage of my Thelio with one drive out of its slot.](/images/thelio/drive_cage.jpg)
 Drives are inserted on rails using vibration-isolating gromits. If only it were this easy
 to get RAID working!
-{{< /div >}}
+{{< /figure >}}
 
 With so many drive slots, a graphical configuration utility for
 software RAID would be great; unfortunately, GNOME Disks no longer supports
