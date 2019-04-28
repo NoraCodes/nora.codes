@@ -5,6 +5,7 @@ categories:
 - Modding
 - Linux
 - Open Source
+description: In which I try to justify why it's actually really good that I spend hours trying to pick the right shade of blue for my terminal font.
 ---
 
 I spend a great deal of time _modding_ my Linux machine. Practiced by many Linux users, modding is the process of making a Linux installation pretty, by changing the color schemes, fonts and font sizes, icons, default applications, and the desktop background. As a noun, a _mod_ is the final product of that process: a computer system which looks pretty while remaining functional.

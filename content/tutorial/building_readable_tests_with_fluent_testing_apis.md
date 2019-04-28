@@ -3,6 +3,7 @@ title: "Building Readable Tests with Fluent Testing APIs"
 date: 2018-07-23T09:56:24-05:00
 author: "Leonora Tindall"
 tags: ['rust', 'programming', 'testing']
+description: A discussion of some issues my former employer ran into with extremely verbose and fragile Rust unit tests, which we solved with a fluent testing API.
 ---
 
 One of the biggest challenges in software testing is defining the input for code under

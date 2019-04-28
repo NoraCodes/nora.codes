@@ -5,6 +5,7 @@ title: IPFS, the Interplanetary File System
 categories:
 - Networking
 - Open Source
+desctiption: A quick primer on the InterPlanetary File System (IPFS), including how it works and what its benefits and drawbacks are for hosting.
 ---
 
 **IPFS**, the **InterPlanetary File System**, is a content-addressable network.

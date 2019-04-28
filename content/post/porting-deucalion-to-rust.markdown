@@ -5,6 +5,7 @@ title: Porting Deucalion to Rust
 categories:
 - Programming
 - Rust
+description: A quick note on my experience with Rust for game programming.
 ---
 
 A few months ago, I made a proof-of-concept for an RPG engine based on SFML and the Tiled map editor, called Deucalion. Over time, the source code became unwieldy, leaked a great deal of memory, and was nearly impossible to build. I ended up spending more time configuring build systems than actually working on the code, and I abandoned it in favor of SBrain and schoolwork.

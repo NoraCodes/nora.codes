@@ -5,6 +5,7 @@ title: Session Types
 categories:
 - Programming
 - Rust
+description: Rust's type system is very powerful, even beyond memory safety. Session types are one way to leverage compiler analysis to prevent API misuse.
 ---
 
 Session types are a technique for using a rich type system, like that of Rust or OCaml, to prevent the representation of certain kinds of illegal states. Here, I'll illustrate them with a (somewhat contrived) example.

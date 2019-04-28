@@ -7,6 +7,7 @@ categories:
 - Rust
 - Networking
 - Open Source
+description: The beginning of the process of rewriting an old C webserver in Rust.
 ---
 
 In 1999, J. David Blackstone, or, as he is known online, [jdavidb](https://slashdot.org/~jdavidb), was taking CSE 4344 (Network Concepts) at UT Arlington. Those were the glory days of Sparc Solaris, and Blackstone wrote, for his college course, a C program called **tinyhttpd**. It is, essentially, a very short version of the immensely complex programs that seem run the world these days: web servers. Unlike the million-line behemoths (think Apache, nginx, et cetera), tinyhttpd is a HTTP 1.1 web server in 532 lines of well-commented C.

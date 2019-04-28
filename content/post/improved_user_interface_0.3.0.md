@@ -5,6 +5,7 @@ categories:
  - Open Source
  - Programming
  - Rust
+description: Release announcement for the 3rd pre-release of the Improved User Interface library.
 ---
 
 The [Improved User Interface crate](https://crates.rs/crates/iui) has had its 0.3.0 release, adding new input fields ([Checkbox](https://docs.rs/iui/0.3.0/iui/controls/struct.Checkbox.html) and [Combobox](https://docs.rs/iui/0.3.0/iui/controls/struct.Combobox.html)), new layout options ([LayoutGrid](https://docs.rs/iui/0.3.0/iui/controls/struct.LayoutGrid.html)), as well as finally working 100% on Windows, and with many bug fixes.

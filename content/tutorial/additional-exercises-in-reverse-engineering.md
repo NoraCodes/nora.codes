@@ -6,6 +6,7 @@ categories:
 - Programming
 - Assembly
 - Hacking
+description: Some more exercises and commentary about reverse engineering 64-bit Intel binaries.
 ---
 
 This is a sequel to my (rather long) [introduction](an-intro-to-x86_64-reverse-engineering/) to reverse engineering. It is something of a "whirlwind tour" of some useful methods that weren't shown in that tutorial, and provides a number of exercises to hone your skills.

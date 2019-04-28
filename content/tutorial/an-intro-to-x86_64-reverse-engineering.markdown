@@ -6,6 +6,7 @@ categories:
 - Programming
 - Hacking
 - Assembly
+description: A thorough introduction to understanding the radare reverse engineering toolkit, demonstrated by taking apart some programs compiled for Intel x86_64, a.k.a. AMD64, under Linux.
 ---
 
 This document presents an introduction to x86\_64 binary reverse engineering, the process of determining the operation of a compiled computer program without access to its source code, through a series of CrackMe programs. 

@@ -5,6 +5,7 @@ title: Am I in a Terminal?
 categories:
 - Programming
 - Python
+description: A useful code for determining if a Python program is running in an interactive terminal or not.
 ---
 
 Sometimes, it can be useful to know if your program is running in a terminal. Since Python 3.3, this functionality has been available in the `os` module:

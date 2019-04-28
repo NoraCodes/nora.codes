@@ -5,6 +5,7 @@ slug: open-source-for-normal-people
 categories:
 - Culture
 - Open Source
+description: An explanation of what open source is and why it matters, for non-techies.
 ---
 
 This is not an article for technical people. It is an article normal people who just use their computers to get things done: to look at Facebook and Twitter, check their work email, write novels, design houses… whatever.
@@ -14,8 +15,6 @@ Maybe you’ve heard about open source by using a open source program like Firef
 **TL;DR (Too long, didn't read)**
 
 For the quick overview: Most software is secret; open source software isn't. As counterintuitive as it may seem, it's not necessary to keep software secret in order to make money, and when software is not secret, competition is fiercer and innovation often progresses at a faster pace. Keeping software transparent also prevents the authors of that software from using anti-consumer and anti-competitive tactics like proprietary format lock-in.
-
-<!-- more -->
 
 #### Background
 

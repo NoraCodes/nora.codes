@@ -6,6 +6,7 @@ categories:
 - Programming
 - Networking
 - Python
+description: The Python 3 socketserver module makes network servers much easier and more readable than similar code using raw sockets.
 ---
 
 I occasionally spend time randomly surfing the Python standard library docs; there is a lot of useful functionality included in the language's standard distribution, such as, for instance, the [`socketserver`](https://docs.python.org/3/library/socketserver.html) module, which I didn't know about until this evening and which is one of the most useful I've seen in a while. As ever, the docs are straightforward in their self-description:

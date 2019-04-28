@@ -4,6 +4,7 @@ date: 2017-11-06T11:32:43-06:00
 categories:
 - Open Source
 - Privacy
+description: Some tips and configuration switches to throw in order to make a Firefox Quantum installation more secure and privacy-protecting.
 ---
 
 I recently switched back to Firefox from Google Chrome. Firefox has gotten a lot faster recently, and is [in the process](https://www.cnet.com/news/firefox-quantum-challenges-chrome-in-browser-speed/) of getting event faster, partly thanks to Mozilla's [Rust language](https://rust-lang.org), which is being used to write important components in a provably memory-safe way. This allows them to be made much more concurrent and parallel, leading to large speed improvements.

@@ -4,6 +4,7 @@ date: 2018-06-26T12:54:53-05:00
 categories:
 - Programming
 - Rust
+description: A demonstration of some techniques for chaining fallible operations, such as parsing or network requests, using Rust's iterator combinators, without introducing overhead.
 ---
 
 Rust's [Iterator](https://doc.rust-lang.org/std/iter/trait.Iterator.html) trait is one of its most useful features. It allows lazy processing of item-by-item streams of anything from [the bytes of a file](https://doc.rust-lang.org/std/io/trait.Read.html#method.bytes) to [threads](https://doc.rust-lang.org/beta/rust-by-example/std_misc/threads.html) to complex and exotic data structures.

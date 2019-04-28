@@ -6,9 +6,8 @@ categories:
 - Programming
 - Rust
 - Math
+description: Some programmers talk a lot about types, but what is a "type", anyway? This tutorial explores the definition and utility of a ML-like type system.
 ---
-
-## Types
 
 Programmers talk a lot about types, but what is a "type", anyway? It is, in essence, _the set of all possible values_ for some variable. Defining such a set gives us some information about _what we can do_ with the value of that variable, in general.
 

@@ -6,9 +6,10 @@ categories:
 - Hardware
 - Hacking
 - Culture
+description: Hardware manufacturers are missing out on a huge potential source of revenue: the thrifty tech user market.
 ---
 
-Hardware manufacturers are missing out on a huge potential source of revenue: the thrifty tech user market. No, really. Let me explain.
+Hardware manufacturers are missing out on a huge potential source of revenue: the thrifty tech user market.
 
 I just woke up to find that my favorite pair of headphones was making only one sound, and it wasn't the one I was putting in as an electrical signal. It was rattling.
 

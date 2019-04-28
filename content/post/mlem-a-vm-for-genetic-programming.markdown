@@ -5,6 +5,7 @@ slug: mlem-a-vm-for-genetic-programming
 categories:
 - Programming
 - Machine Learning
+description: A summary of a virtual machine I designed as a genetic programming target.
 ---
 
 I've recently been working on a project called the Machine Learning Machine, or MLeM.
