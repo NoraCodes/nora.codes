@@ -36,8 +36,21 @@ main header {
     text-align: center;
 }
 
-main h2, main h3 {
+main h1 {
+    margin-top: 4px;
+    font-size: 22pt;
+    border-bottom: 2px solid var(--fg-color);
+}
+
+main h2 {
+    font-size: 18pt;
+    margin-left: 8px;
     border-bottom: 1px solid var(--fg-color);
+}
+
+main h3 {
+    font-size: 14pt;
+    margin-left: 16px;
 }
 
 main p {
@@ -90,6 +103,7 @@ output:
 
 header nav {
   border-radius: 3px;
+  width: auto;
   margin: 15px;
   float: left;
   min-width: 40%;
@@ -186,6 +200,12 @@ table {
 table thead th { border-bottom: 1px solid #444444; }
 th, td { padding: 5px; }
 tr:nth-child(even) { background: #444444 }
+
+/* Turn off unused elements in print layouts */
+@media print {
+    footer, nav { display: none !important; }
+    code { font-size: 45%; }
+}
 
 /* From https://accessibility.oit.ncsu.edu/it-accessibility-at-nc-state/developers/accessibility-handbook/mouse-and-keyboard-events/skip-to-main-content/ */
 a.skip-main {

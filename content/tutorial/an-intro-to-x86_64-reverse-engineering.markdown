@@ -6,7 +6,6 @@ categories:
 - Programming
 - Hacking
 - Assembly
-toc: true
 ---
 
 This document presents an introduction to x86\_64 binary reverse engineering, the process of determining the operation of a compiled computer program without access to its source code, through a series of CrackMe programs. 
