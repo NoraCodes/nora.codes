@@ -57,7 +57,6 @@ main p {
     margin-left: 16px;
 }
 
-
 /* Basic shape and alignment of the navigational header and informational footer. */
 nav, footer {
   border-radius: 3px;
@@ -163,9 +162,9 @@ figure img {
 /* Block quotes (used in summaries, etc) have some emphasis added. */
 blockquote {
   /* A bar to the left of each quote. */
-  border-left: 5px solid var(--border-color);
+  border-left: 5px solid var(--offset-border-color);
   /* An offset background. */
-  background: var(--off-bg-color);
+  background: var(--offset-bg-color);
   /* Basic outstanding layout. */ 
   padding: 3px 1em 3px;
   margin: 12px;
