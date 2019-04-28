@@ -204,6 +204,7 @@ tr:nth-child(even) { background: #444444 }
 @media print {
     footer, nav { display: none !important; }
     code { font-size: 45%; }
+    a.footnote-return { display: none !important; }
 }
 
 /* From https://accessibility.oit.ncsu.edu/it-accessibility-at-nc-state/developers/accessibility-handbook/mouse-and-keyboard-events/skip-to-main-content/ */
