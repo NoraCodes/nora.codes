@@ -191,7 +191,7 @@ We do run into a bit of a problem, though, when looking at the size of this type
 
 > **Sidebar: Representing Infinite Types in Real Computers**
 
-> The property just described actually causes the Rust compiler (which sadly must exist in the real world) to reject this type as invalid, because it cannot generate a representation that would fit into a computer's memory. Because each node contains all subsequent nodes, and because one of the things that makes Rust programs fast is that values are, by default, allocated all at once, the compiler would have to ask the computer to allocate the _maximum number of nodes that could ever exist_. Since we didn't introduce any limit to the number of nodes, that would require an infinite amount of memory. This is where _indirection_ via pointers comes in; see [the Rust Book](https://doc.rust-lang.org/book/second-edition/ch15-01-box.html) for more info. 
+> The property just described actually causes the Rust compiler (which sadly must exist in the real world) to reject this type as invalid, because it cannot generate a representation that would fit into a computer's memory. Because each node contains all subsequent nodes, and because one of the things that makes Rust programs fast is that values are, by default, allocated all at once, the compiler would have to ask the computer to allocate the _maximum number of nodes that could ever exist_. Since we didn't introduce any limit to the number of nodes, that would require an infinite amount of memory. This is where _indirection_ via pointers comes in; see the Rust Book[^rustbook] for more info. 
 >
 > Any programming language that puts values on the stack by default will have this problem; for instance, C and Rust will require explicit indirection, while e.g. Python and Java do it for you, at a bit of a speed cost.
 > 
@@ -250,6 +250,9 @@ error[E0308]: mismatched types
 
 It's been a long journey. We've gone from nothing, through finite lists of possible values (enumerations/sum types), to combinations of those lists (structured types/product types) and, finally, types with only one possible value and those with infinitely many possible values. Go forth and apply this knowledge!
 
-To help you in actually understanding how to use the type system of Rust specifically, I suggest the excellent [Rust Book](https://doc.rust-lang.org/book/second-edition) and [this talk on the type system](https://www.youtube.com/watch?v=wxPehGkoNOw&index=6&list=PL85XCvVPmGQhUSX_QBkxb4g1-o56cCqI9) from RustConf 2017. Traits and lifetimes are the next topics I'd look into in order to develop a better understanding of how Rust leverages the type system to make guarantees about your programs. Most of these ideas are applicable to other languages, like TypeScript, Java, and of course OCaml-like and Haskell-like languages.
+To help you in actually understanding how to use the type system of Rust specifically, I suggest the excellent Rust Book[^rustbook] and Sean Griffin's talk on the type system[^seangriffin] from RustConf 2017. Traits and lifetimes are the next topics I'd look into in order to develop a better understanding of how Rust leverages the type system to make guarantees about your programs. Most of these ideas are applicable to other languages, like TypeScript, Java, and of course OCaml-like and Haskell-like languages.
 
 NOTE: The examples here will not compile on their own; I have elided `use` statements and other such language-specific constructs to make a point. Refer to the Rust Book for information on how to actually use the types.
+
+[^rustbook]: [The Rust Programming Language](https://doc.rust-lang.org/stable/book/), 2nd Edition, by S. Klabnik and C. Nichols. 2018. O'Reilly.
+[^seangriffin]: [Type System Tips for the Real World](https://www.youtube.com/watch?v=wxPehGkoNOw), by Sean Griffin at RustConf 2017.
