@@ -68,11 +68,11 @@ nav, footer {
 /* Place the title on the left and the navigation on the right.  */
 nav {
     overflow: hidden;
-    width: 100%;
+    width: 90%;
 }
 
 nav div {
-    font-size: 16pt;
+    font-size: 14pt;
     float: right;
     margin: 2px;
 }
@@ -80,7 +80,7 @@ nav div {
 nav h1 {
     display: block;
     float: left;
-    font-size: 16pt;
+    font-size: 14pt;
     margin: 2px;
 }
 
