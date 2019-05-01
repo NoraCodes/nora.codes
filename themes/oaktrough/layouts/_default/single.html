@@ -1,13 +1,22 @@
 {{ partial "header.html" . }}
 <main id="main">
 <header>
-    <h1>{{ .Title }}</h1>
-    {{ if .Params.author }}
-        {{ .Author }}
-    {{ else if .Site.Params.author }}
-        {{ .Site.Params.author }}
+    {{ if .Params.display_title }}
+        <h1> {{ .Params.display_title }} </h1>
+    {{ else }}
+        <h1>{{ .Title }}</h1>
     {{ end }}
-    {{ if .Date }} {{ .Date.Format "2006/01/02" }} {{ end }}
+
+    {{ if .Params.hide_post_meta }}
+
+    {{ else }}
+        {{ if .Params.author }}
+            {{ .Author }}
+        {{ else if .Site.Params.author }}
+            {{ .Site.Params.author }}
+        {{ end }}
+        {{ if .Date }} {{ .Date.Format "2006/01/02" }} {{ end }}
+    {{ end }}
 
     {{ if .Params.toc }}
         {{ .TableOfContents }}

@@ -3,6 +3,14 @@
 OAKTROUGH is a Hugo theme based on semantic HTML elements and simple, ultra-responsive
 CSS.
 
+## Title Override
+
+Want your page title to be one thing but the page itself to show something else, like a
+name for a resumé? Use `display_title` in the front matter. The `title` will
+still show up in the title bar and as the `title` attribute for all metadata.
+
+Need to hide post metadata? Try `hide_post_meta: true`.
+
 ## Skip to Main Content
 
 Every page has a "skip to main content" as its first link, for better screenreader and
