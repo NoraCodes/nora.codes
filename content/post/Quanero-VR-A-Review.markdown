@@ -5,7 +5,7 @@ slug: quanero-vr-a-review
 categories:
 - Video Games
 - Virtual Reality
-description: A review of the VR game "Quanero VR". Spoiler alert: it's great.
+description: A review of the VR game Quanero VR. It's great.
 ---
 
 _Quanero VR_, available from “Laserboys3000” on Steam for nothing, is the best of the many VR experiences I’ve encountered so far. 
