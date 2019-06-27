@@ -6,7 +6,7 @@ title: Home
 Hi, I'm Leonora. I'm a full time student in computer science at [Beloit](https://beloit.edu).
 I build and break open source software for fun.
 
-You can find me on the <a href="https://cybre.space/@tindall" rel="me">Fediverse</a>, on <a href="https://github.com/NoraCodes" rel="me">GitHub</a>, on <a href="https://patreon.com/noracodes" rel="me">Patreon</a>, at nora AT nora DOT codes, and everywhere, with my <a href="/leonoratindall.asc" rel="pgpkey authn">PGP Key</a>.
+You can find me on the <a href="https://cybre.space/@tindall" rel="me">Fediverse</a>, on <a href="https://github.com/NoraCodes" rel="me">GitHub</a>, on <a href="https://patreon.com/noracodes" rel="me">Patreon</a>, at nora AT nora DOT codes, and everywhere, with my <a href="/leonoratindall.asc" rel="pgpkey authn">PGP Key</a> and [other keys](/keys).
 
 ### 💼 Experience
 
