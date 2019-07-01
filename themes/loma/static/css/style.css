@@ -29,6 +29,7 @@ body {
   /* Basic body shaping. Nothing outside of a centered 800 scaled pixel column. */
   max-width: 1000px;
   margin: auto;
+  padding: 8px;
   
   /* Basic text color. From the color scheme variables used above. */
   color: var(--page-fg-color);

@@ -18,6 +18,7 @@
 body {
   max-width: 800px;
   margin: auto;
+  padding: 4px;
   color: var(--fg-color);
   background-color: var(--bg-color);
 }
@@ -55,6 +56,34 @@ main h3 {
 
 main p {
     margin-left: 16px;
+}
+
+/* The main content for the index page, standing out on purpose.  */
+div.hero {
+    clear: both;
+    overflow: auto;
+    font-size: 14pt;
+}
+
+/* Remove the disclosure triangle, per
+ * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary
+ */
+summary {
+    display: block;
+}
+
+/* Show a textual prompt for opening details (shown after the summary) */
+summary:after {
+    color: var(--link-color);
+    font-weight: bold;
+    content: "Show more...";
+}
+
+/* Show a textual prompt for closing details (shown after the summary) */
+details[open] summary:after {
+    color: var(--link-color);
+    font-weight: bold;
+    content: "Show less...";
 }
 
 /* Basic shape and alignment of the navigational header and informational footer. */
@@ -157,6 +186,15 @@ figure.left {
 figure img {
     max-width: 200px;
     border-radius: 3px;
+}
+
+figure.portrait {
+    float: left;
+}
+
+figure.portrait img {
+    max-width: 200px;
+    border-radius: 12px;
 }
 
 /* Block quotes (used in summaries, etc) have some emphasis added. */
