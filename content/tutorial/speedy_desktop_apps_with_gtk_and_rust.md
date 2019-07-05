@@ -323,6 +323,10 @@ Then, if you want to remove the program:
 sudo make uninstall
 ```
 
+> NOTE: This Makefile is incomplete; please check out the one used by the actual project
+as a better template [here](https://gitlab.gnome.org/NoraCodes/gdiceroller/blob/master/Makefile)
+and/or wait for the next post to explain all the aspects of that Makefile.
+
 # Conclusion and Recap
 
 gDiceRoller isn't a groundbreaking application, but I hope it demonstrates how easy it is
