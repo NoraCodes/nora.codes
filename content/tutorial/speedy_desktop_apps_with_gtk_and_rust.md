@@ -1,6 +1,6 @@
 ---
 title: "Speedy Desktop Apps With GTK and Rust"
-date: 2019-06-30T17:22:12-07:00
+date: 2019-07-05T14:00:00-07:00
 tags: ['rust', 'programming', 'gui', 'gtk', 'gdiceroller']
 description: A step-by-step walkthrough of the lessons and techniques I learned from building a GTK application in Rust.
 ---
