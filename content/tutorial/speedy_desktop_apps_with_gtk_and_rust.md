@@ -3,7 +3,6 @@ title: "Speedy Desktop Apps With GTK and Rust"
 date: 2019-06-30T17:22:12-07:00
 tags: ['rust', 'programming', 'gui', 'gtk', 'gdiceroller']
 description: A step-by-step walkthrough of the lessons and techniques I learned from building a GTK application in Rust.
-draft: true
 ---
 
 The web platform is the delivery mechanism of choice for a ton of software these
@@ -20,7 +19,8 @@ In future posts, I'll explain how I packaged it for different systems.
 
 ## What App?
 
-**gDiceRoller** is a truly simple app. It leverages the excellent `rfyl` dice notation
+**gDiceRoller** is a truly simple app. It leverages the excellent [`rfyl`](https://crates.rs/rfyl/)
+dice notation
 library to allow users to roll dice of arbitrary numbers of sides and perform arithmetic
 on the results.
 
@@ -93,8 +93,9 @@ Within the Cargo.toml, the dependencies are actually pretty simple; we need GTK,
 and RFYL (which handles the dice rolling).
 
 With GTK, we have to specify a feature corresponding to the minimum toolkit version the
-program will support. This project deliberately uses an old version for maximum
-compatibility, but you're free to choose whatever you want.
+program will support, through the use of `cargo` feature tags.
+This project deliberately uses an old version for maximum compatibility, but you're free
+to choose whatever you want.
 
 ```toml
 [package]
@@ -114,8 +115,14 @@ features = ["v3_16"]
 
 ## Factorization
 
-> Thanks to [Federico Mena Quintero](https://mstdn.mx/@federicomena) for help refactoring
+> Thanks to [@federicomena](https://mstdn.mx/@federicomena) for help refactoring
 this program to be easier to read.
+
+gDiceRoller is an example of an easy-to-use factorization template for any GTK Rust
+application. It keeps its application logic, state management, and GUI management in
+seperate modules, and uses the `main()` function to tie them together.
+
+### Rolling Dice
 
 The most important thing this program does is to roll dice - that is, take a string of
 dice notation and generate a number from it. All of that logic is provided by `rfyl`, and
@@ -124,6 +131,8 @@ it's only really necessary to have a single function that handles the whole proc
 That's `roll_expression`; it lives in [`src/rolls.rs`](https://gitlab.gnome.org/NoraCodes/gdiceroller/blob/dc705989259dbe13a9806a80c764b3a76de170b3/src/rolls.rs)
 and takes a string, passes it to `rfyl::roll`, and returns either the result or an error.
 Putting this logic in its own file also gives us an obvious place to do some basic tests.
+
+### State Management
 
 Then there's the application's state to think about. For gDiceRoller, that's simple. It
 stores the last rolled value and, if there was a problem with the user-entered dice notation,
@@ -135,6 +144,8 @@ as a `State` struct with functions to operate on it. These functions are what th
 just one; the application does sometimes directly change the value inside, but the only
 complex behavior is encapsulated in `update_from_roll_result`, which is tested in the same
 file.
+
+### GUI Handling
 
 Now comes the actual "front-end" portion; the GUI. In gDiceRoller, all the handles into
 the UI are contained in a single struct, `MainWindow`, in [`src/main_window.rs'](https://gitlab.gnome.org/NoraCodes/gdiceroller/blob/dc705989259dbe13a9806a80c764b3a76de170b3/src/main_window.rs)
@@ -215,6 +226,8 @@ For example, the `clearResult` callback is written thus:
 
 Finally, `main` calls `gui.start()` and `gtk::main()` and the program runs!
 
+You can run the tests with `cargo tests`, or actually run the program with `cargo run`.
+
 ## Putting the "Desktop" in "Desktop App"
 
 Just a pretty GUI and speedy functionality aren't enough, though;
@@ -238,18 +251,28 @@ Type=Application
 ```
 
 This format is [well documented](https://developer.gnome.org/integration-guide/stable/desktop-files.html.en), and supports a lot of nice features like translations. It should be placed in
-`/usr/share/applications/` or somewhere similar (depending on distribution); we'll get to
-that in a bit.
+`/usr/share/applications/` or somewhere similar (depending on distribution).
 
 You'll notice that the `Icon` field uses the same name as the application's full ID. That
 is because the icon can also be installed on the system. `gDiceRoller` provides an SVG
 icon which can be scaled to any size, as well as raster icons at 64x64 and 128x128
-resolutions.
+resolutions. These are placed in `/usr/share/icons/hicolor/<size>/applications`. These
+icon names can then be used to set the window's icon in the Glade file as well.
+
+GTK and desktop environments automatically find icons by name, but it's sometimes
+necessary to refresh their cache before they can actually find new icons.
+
+All of this is getting kind of complex. Time to introduce: the build system!
 
 # The Build System
 
+The build system, in this case using `make`, lets us easily install and uninstall
+the program from a system.
+
 So, **why did I use `make`**? Well, it's _really_ simple and pretty much just does what
-I want, and gets out of the way. Here's the whole `Makefile` I used during early
+I want, and gets out of the way. In addition,
+using a `make`-based build makes it easier for other distributions to package the project
+in the future. Here's the whole `Makefile` I used during early
 development, which will act as the template for the rest of the project.
 
 ```make
@@ -262,11 +285,16 @@ target/release/gDiceRoller : src
 
 # Install onto the system
 install : target/release/gDiceRoller
+    # Install the binary
     cp target/release/gDiceRoller /usr/bin/codes.nora.gDiceRoller
+    cp data/codes.nora.gDiceRoller.desktop /usr/share/applications/codes.nora.gDiceRoller.desktop
+    cp data/codes.nora.gDiceRoller.svg /usr/share/icons/hicolor/scalable/applications/codes.nora.gDiceRoller.svg
 
 # Remove from the system
 uninstall :
     rm -f /usr/bin/codes.nora.gDiceRoller
+    rm -f /usr/share/applications/codes.nora.gDiceRoller.desktop
+    rm -f /usr/share/icons/hicolor/scalable/applications/codes.nora.gDiceRoller.svg
 
 # Rebuild from scratch
 clean-all : clean
@@ -277,3 +305,26 @@ clean :
     true
 ```
 
+With this `Makefile`, it's possible to simply:
+
+```bash
+make
+sudo make install
+```
+
+and have a totally working installation. To fix a few issues with the system not picking
+up on the new icon, adding `touch /usr/share/icon/hicolor` to the `install` target after
+installing the icon does the trick.
+
+Then, if you want to remove the program:
+
+```bash
+sudo make uninstall
+```
+
+# Conclusion and Recap
+
+gDiceRoller isn't a groundbreaking application, but I hope it demonstrates how easy it is
+to make useful, non-web-based software. I only showed to to install the software on a
+dev machine, but in the next few posts, I'll look at Flatpak, Snap, .deb packages, and
+even Windows packaging. GTK is a cross-platform toolkit, after all!
