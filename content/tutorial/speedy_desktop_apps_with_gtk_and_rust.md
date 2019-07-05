@@ -191,7 +191,8 @@ with the `State` and `MainWindow` structs, and starting the whole thing rolling.
 The program first tries to initialize GTK.
 Then, the GUI state and the application state are initialized and placed in `Arc<>` and
 `Arc<RefCell<>>`, respectively. `State` can now be safely modified from within callbacks,
-thanks to `RefCell`'s interior mutability.
+thanks to `RefCell`'s interior mutability (see [Section 15.05](https://doc.rust-lang.org/book/ch15-05-interior-mutability.html?highlight=cell#refcellt-and-the-interior-mutability-pattern) in The Rust Programming Language
+for more information on this pattern).
 
 > **`RefCell`** and **`RwLock`** are both good candidates for use as the
 interior-mutability abstraction here. `RefCell` is used in this case because there is no
