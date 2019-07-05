@@ -199,6 +199,10 @@ interior-mutability abstraction here. `RefCell` is used in this case because the
 need to share between threads, and `RefCell` has less complexity than `RwLock`. `Mutex` is
 also a viable candidate, or a custom data structure using `std::sync::atomic`s.
 
+> The use of `Arc` instead of `Rc` is unnecessary here, since the program is single-threaded.
+This is an error on my part; the data structure should be `Rc<RefCell<T>>` or
+`Arc<Mutex<T>>`/`Arc<RwLock<T>>`. This will be corrected soon.
+
 After that, `main` just needs to add all the callbacks for the various buttons. All the
 standard dice can be done with a loop. Those for `clearResult`, `halveDownResult`, et
 cetera are done on their own.
