@@ -245,10 +245,6 @@ The compiler will stop you from using `Rc` where you should use `Arc`, because t
 who implemented `Rc` did not mark it as thread safe. If they had, that would be "unsound":
 a false promise of safety.
 
-### When is Unsafe Rust Necessary?
-
-Unsafe Rust is needed whenever performing an operation that might cause one of those two
-rules mentioned above to be violated. For example, 
 ## On Whose Shoulders Does It Fall?
 
 So, we come back to the point I made above - **yes**, the Rust language's utility is built
