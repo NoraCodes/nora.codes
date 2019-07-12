@@ -245,6 +245,27 @@ The compiler will stop you from using `Rc` where you should use `Arc`, because t
 who implemented `Rc` did not mark it as thread safe. If they had, that would be "unsound":
 a false promise of safety.
 
+### When is Unsafe Rust Necessary?
+
+Unsafe Rust is needed whenever performing an operation that might cause one of those two
+rules mentioned above to be violated. For example, in a doubly-linked list, not having
+two mutable references to the same data (from the node before and after a given node)
+defeats the whole purpose. With `unsafe`, the implementor of a doubly-linked list can
+write that code using `*mut Node<T>` pointers and then encapsulate it in a safe
+abstraction.
+
+Another example is when working in the embedded space. Often, microcontrollers use a set
+of registers whose values are determined by the actual physical state of that device.
+The world won't just pause for you when you take an `&mut u8` of that register, so the
+device support crates need `unsafe` in order to work with them - but they generally strive
+to encapsulate that state in transparent safe wrappers that copy data when possible, or
+use other techniques to uphold the guarantees of the compiler.
+
+It's sometimes unavoidable to do an operation that might lead to simultaneous reading
+and writing, or memory unsafety, and that's when `unsafe` is needed. But, so long as there
+is a way to ensure that the Rust safety invariants are checked before the user of safe
+(that is, non-`unsafe`-marked) code touches anything, that's completely fine.
+
 ## On Whose Shoulders Does It Fall?
 
 So, we come back to the point I made above - **yes**, the Rust language's utility is built
