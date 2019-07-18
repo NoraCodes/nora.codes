@@ -69,7 +69,7 @@ punning](https://en.wikipedia.org/wiki/Type_punning).
 references to the same data at the same time.** This is, if you have a mutable reference
 to some data, _only you_ have that reference, and if you have an immutable reference to
 that data, _it will not change_ while you hold that reference. This means it is impossible
-to cause a data race in safe Rust, which is a guarantee most other safe langauges do not
+to cause a data race in safe Rust, which is a guarantee most other safe languages do not
 provide.
 
 Rust encodes this information in the type system, either through the use of **algebraic
@@ -146,7 +146,7 @@ enforcement except for the case of memory safety.
 Unsafe Rust is Rust code annotated with the `unsafe` keyword. `unsafe` can be applied to
 a function or a block of code. When applied to a function, it means, "this function
 requires that its caller manually uphold variants otherwise upheld by the compiler"; when
-applie to a block of code, it means, "this block of code manually upholds variants required to
+applied to a block of code, it means, "this block of code manually upholds variants required to
 prevent causing memory unsafety, and should therefore be permitted to do `unsafe` things".
 
 **In other words, on a function, `unsafe` means "you need to check", and on a block of
@@ -160,7 +160,7 @@ doubly-linked lists, hashmaps, and other fundamental data structures.
 - **Access or modify a mutable static variable**. Static variables whose scope is not
 controlled cannot be statically checked, so their use is inherently unsafe.
 - **Implement an unsafe trait**. Unsafe traits are used to mark whether or not specific
-types guarantee certian invariants; for instance, the `Send` and `Sync` traits determine
+types guarantee certain invariants; for instance, the `Send` and `Sync` traits determine
 whether or not a type can be sent across a thread boundry or used in multiple threads
 at once.
 
@@ -232,9 +232,10 @@ A safe abstraction is one that uses the type system to provide an API that canno
 to violate the safety guarantees I mentioned above. `Box` is safer than `*mut T` because
 it _cannot_ be used to produce the double-free just illustrated.
 
-Another great example of this is Rust's `Rc` type. It's a reference counted pointer - a read-
-only reference to some data stored on the heap. Because it allows multiple simultaneous
-access to a single memory location, it _must_ prevent mutation to be considered safe.
+Another great example of this is Rust's `Rc` type. It's a reference counted pointer - a
+read-only reference to some data stored on the heap. Because it allows multiple
+simultaneous access to a single memory location, it _must_ prevent mutation to be
+considered safe.
 
 In addition, it's marked as not thread-safe; if you want thread-safety, you have to use
 the `Arc` (Atomic Reference Counting) type, which takes a performance hit from using
