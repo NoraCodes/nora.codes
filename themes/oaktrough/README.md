@@ -37,6 +37,7 @@ Non-Dublin Core attributes are:
 - `viewport` for rendering properly, this isn't customizable
 - `keywords` is from the `tags` taxonomy in the frontmatter
 - `google-site-verification` is from `params.googlesiteverification` in `config.toml` in case you need that.
+- `nolist` turns off listing sub-pages on specific index pages.
 
 ## Figures
 

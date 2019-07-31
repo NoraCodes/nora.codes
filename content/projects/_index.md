@@ -1,5 +1,6 @@
 ---
 title: Projects
+nolist: true
 ---
 
 I write a lot of software. Not all of it is production quality, but I like to make it public so that others can benefit from my work.
@@ -22,7 +23,7 @@ I write a lot of software. Not all of it is production quality, but I like to ma
 
 ### Graphical Applications
 
-* [RandomUA](../randomua/) - a WebExtension that changes your User-Agent string to a sensible-looking UA string which is different for every request.
+* [RandomUA](/randomua/) - a WebExtension that changes your User-Agent string to a sensible-looking UA string which is different for every request.
 * [Silver Smuggler](https://github.com/LeoTindall/silver_smuggler) - a QT app for the XOR "cipher".
 
 ### Security & Administration Tools
