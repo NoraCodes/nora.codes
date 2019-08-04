@@ -16,7 +16,7 @@ After that, the program is pretty simple: if the number is less than 11, simply 
 
 The interactive part is pretty simple too: it runs a loop that randomly generates numbers, checking that they haven't been done before, translates them, and asks me to translate them back. If I succeed, it moves on; if not, it doesn't record the number as having been completed, so I have to do it again at some point in the same run.
 
-This [simple program](https://gist.github.com/leotindall/ecb9dcbe44091b9f077d0cb4e0147b0a) came out to 136 lines of very verbose and error-checked Python. It's a good piece of code for a beginner to try and modify - for example, can you get it to incorporate the alternate form of four (し) as well as the primary form? Can you make one that teaches Kanji numbers? (I plan to do both of those things at some point.)
+This [simple program](https://gist.github.com/NoraCodes/ecb9dcbe44091b9f077d0cb4e0147b0a) came out to 136 lines of very verbose and error-checked Python. It's a good piece of code for a beginner to try and modify - for example, can you get it to incorporate the alternate form of four (し) as well as the primary form? Can you make one that teaches Kanji numbers? (I plan to do both of those things at some point.)
 
 ```python
 #!/usr/bin/env python3

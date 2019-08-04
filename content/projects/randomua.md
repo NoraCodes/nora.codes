@@ -2,9 +2,9 @@
 title: RandomUA
 ---
 
-![RandomUA Logo](https://github.com/LeoTindall/randomua/raw/master/addon/icons/randomua-96.png)
+![RandomUA Logo](https://github.com/NoraCodes/randomua/raw/master/addon/icons/randomua-96.png)
 
-Install for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/randomua/) or [Chrome](https://chrome.google.com/webstore/detail/randomua/hjnnbhmaakbibdndnmjbkppmfjoejadg), or view on [GitHub](https://github.com/LeoTindall/randomua/)
+Install for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/randomua/) or [Chrome](https://chrome.google.com/webstore/detail/randomua/hjnnbhmaakbibdndnmjbkppmfjoejadg), or view on [GitHub](https://github.com/NoraCodes/randomua/)
 
 ## What is RandomUA?
 RandomUA is a WebExtension that changes your User-Agent string to a sensible-looking, desktop-browser-like UA string which is different for every request.

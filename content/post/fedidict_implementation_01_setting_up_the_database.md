@@ -233,7 +233,7 @@ configure the database with a `.env` file and `chrono` to handle dates and times
 [package]
 name = "fedidict"
 version = "0.1.0"
-authors = ["LeoTindall <lfstindall@gmail.com>"]
+authors = ["Leonora Tindall <nora@nora.codes>"]
 
 [dependencies]
 serde = "1"
