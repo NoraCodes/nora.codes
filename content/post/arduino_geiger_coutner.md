@@ -72,4 +72,6 @@ to block about 30% of the signal. It's pretty clear, then, why it is that the ma
 of radioactive material is not mere exposure but ingestion or inhalation, which exposes
 sensitive organs to the radiation directly.
 
+You can find the code for this project [here](/code/geiger_counter.ino). It requires
+the Adafruit support library for their I2C display backpacks.
 
