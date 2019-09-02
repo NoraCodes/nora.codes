@@ -334,6 +334,6 @@ and/or wait for the next post to explain all the aspects of that Makefile.
 # Conclusion and Recap
 
 gDiceRoller isn't a groundbreaking application, but I hope it demonstrates how easy it is
-to make useful, non-web-based software. I only showed to to install the software on a
+to make useful, non-web-based software. I only showed how to install the software on a
 dev machine, but in the next few posts, I'll look at Flatpak, Snap, .deb packages, and
 even Windows packaging. GTK is a cross-platform toolkit, after all!
