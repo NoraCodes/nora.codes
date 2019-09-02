@@ -7,8 +7,9 @@ title: Home
 ![A drawing of my face. I'm wearing a black shirt and a green cardigan, smiling slightly, with my hair down and falling partly over one shoulder.](/images/profile-small.jpg)
 {{< /figure >}}
 
-Hi, I'm Leonora. I'm a full time student in computer science at [Beloit](https://beloit.edu).
-I build and break hardware and software both digital and analog.
+Hi, I'm Leonora Tindall. I'm a full time student in computer science at
+[Beloit](https://beloit.edu). I build and break hardware and software, both digital and
+analog.
 
 You can find me on the <a href="https://cybre.space/@tindall" rel="me">Fediverse</a>, on <a href="https://github.com/NoraCodes" rel="me">GitHub</a>, on <a href="https://patreon.com/noracodes" rel="me">Patreon</a>, at nora AT nora DOT codes, and everywhere, with my <a href="/leonoratindall.asc" rel="pgpkey authn">PGP Key</a> and [other keys](/keys).
 {{< /div >}}
