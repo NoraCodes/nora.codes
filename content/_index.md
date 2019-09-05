@@ -17,22 +17,36 @@ You can find me on the <a href="https://cybre.space/@tindall" rel="me">Fediverse
 ## 💼 Experience
 <details>
 <summary>
-I've worked at several companies, including two software engineering positions.
+I've worked at several companies, including two professional software engineering
+positions and two major volunteer positions.
 </summary>
+
+**Google Summer of Code** with **Freifunk** during **Summer 2019.**
+
+- Worked with a global remote team to develop a greenfield telecommunications project.
+- Designed and built a testing framework for eventually consistent systems.
+- Collaborated on the design of the qaul.net base service API.
+- Leveraged Rust’s powerful static type system to create ergonomic and easy-to-use APIs.
 
 **Software Engineering Intern** at **CancerIQ, Inc.** during **Summer 2018.**
 
-- designed and implemented algorithms to analyze health data according to industry standards
-- worked in a DevOps role
-- built software for a distributed system using Kubernetes and Apache Kafka
-- created a comprehensive monitoring system using Prometheus and Grafana
+- Worked with a small team of engineers to develop clinical software in a DevOps-heavy environment.
+- Designed and implemented graph algorithms to search and analyze health data using the Rust language.
+- Worked within an agile framework with 2-week sprints to rapidly deploy new features and fixes.
+- Created a monitoring and alerting system to ensure uptime of a large Kubernetes deployment.
+
+**Open Source Software Development** for **Dr. Steve Huss-Lederman** from **Fall 2017** to **May 2019.**
+
+- Developed front-end, back-end, and database components of the [Open Energy Dashboard](https://openenergydashboard.github.io/).
+- Built and tested a high-capacity API for data transfer between measurement devices and PostgreSQL.
+- Performed user experience testing with A/B tests and in-person interviews.
+- Refactored a large React.js codebase to significantly improve developer productivity and performance.
 
 **Software Engineering Intern** at **GudTech, Inc.** during **Summer 2017.**
 
-- learned how to work efficiently using agile techniques
-- built developer tooling with Google's Go language
-- designed tools taking advantage of Docker container internals
-- built software designed for a Service Oriented Architecture (SOA) environment
+- Worked with a small team of engineers to build developer productivity tooling.
+- Built command line tools using Go, working with the internals of Docker and Docker Compose.
+- Worked with senior engineers to orchestrate onboarding and automated testing of microservices.
 
 See my [full resume](/resume.pdf) for more, including volunteer positions and college work
 experience.
