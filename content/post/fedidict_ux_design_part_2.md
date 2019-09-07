@@ -208,7 +208,7 @@ set of defaults for not-logged-in users (probably just **DefinitionReader**).
 ## New Introductions
 
 Like other federated systems (such as e-mail), an ActivityPub identity is determined by
-both a username (like `ltindall`) and a domain (for instance, `leotindall.com`). Assuming
+both a username (like `ltindall`) and a domain (for instance, `nora.codes`). Assuming
 I hosted a FediDict instance on `computerjargon.online` with the user accounts shown
 above, their full federated usernames would be `ltindall@computerjargon.online`,
 `chughes@computerjargon.online`, and `djanes@computerjargon.online`. These are identities
