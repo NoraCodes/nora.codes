@@ -23,6 +23,7 @@ I write a lot of software. Not all of it is production quality, but I like to ma
 
 ### Graphical Applications
 
+* [gDiceRoller](https://flathub.org/apps/details/codes.nora.gDiceRoller) - a GTK app that allows users to roll dice in simple or complex combinations. Created to teach how to [make](../tutorial/speedy-desktop-apps-with-gtk-and-rust/) GTK applications with Rust and Flatpak.
 * [RandomUA](/randomua/) - a WebExtension that changes your User-Agent string to a sensible-looking UA string which is different for every request.
 * [Silver Smuggler](https://github.com/NoraCodes/silver_smuggler) - a QT app for the XOR "cipher".
 
@@ -42,6 +43,7 @@ I write a lot of software. Not all of it is production quality, but I like to ma
 ### Embedded Applications
 
 * [esp8266_scan](https://gist.github.com/NoraCodes/c328e47e47cafc0be353feec020175af) - a wireless scanner code for the ESP8266 chip, which produces either JSON or human-readable output.
+* [geiger_counter](/post/arduino-geiger-counter-dosimeter/) - a Geiger counter with a dosimeter output for comparing the radioactivity of different samples.
 
 ### Games
 
