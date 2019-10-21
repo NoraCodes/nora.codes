@@ -17,8 +17,9 @@
 /* Applied to the whole visible content of the page. */
 body {
   max-width: 800px;
-  margin: auto;
-  padding: 4px;
+  margin: 0 auto;
+  /* provides nice soft padding for text on narrow screens. */
+  padding: 2.5%;
   color: var(--fg-color);
   background-color: var(--bg-color);
 }
@@ -34,35 +35,50 @@ main {
 }
 
 main header {
-    text-align: center;
+  text-align: center;
 }
 
 main h1 {
     margin-top: 4px;
     font-size: 22pt;
-    border-bottom: 2px solid var(--fg-color);
 }
 
 main h2 {
     font-size: 18pt;
-    margin-left: 8px;
-    border-bottom: 1px solid var(--fg-color);
+}
+
+main h2:before,
+footer:before {
+    --width: 65%;
+    content: '';
+    display: block;
+    width: var(--width);
+    height: 1px;
+    background-color: grey;
+    margin: 4rem 0;
+    margin-left: calc((100% - var(--width)) / 2);
 }
 
 main h3 {
     font-size: 14pt;
-    margin-left: 16px;
-}
-
-main p {
-    margin-left: 16px;
 }
 
 /* The main content for the index page, standing out on purpose.  */
-div.hero {
-    clear: both;
-    overflow: auto;
+.hero {
     font-size: 14pt;
+    display: flex;
+    align-items: center;
+}
+
+/* Reduces margin just enough to accomodate the shadow (see below) */
+/* (shadows gets cut off otherwise, since it breaches the borders of <body>) */
+.hero .portrait {
+    margin-left: 2px;
+}
+
+/* Adds a soft border-like shadow under the image to make it stand out but not too much */
+.hero img {
+    filter: drop-shadow(0 0 2px hsla(0deg, 0%, 0%, 0.15));
 }
 
 /* Remove the disclosure triangle, per
@@ -70,6 +86,16 @@ div.hero {
  */
 summary {
     display: block;
+}
+
+/* Makes the content cascade downwards nicely */
+details {
+    padding: 0 1em;
+}
+
+details > :not(summary) {
+    margin-left: 1em;
+    margin-right: 1em;
 }
 
 /* Show a textual prompt for opening details (shown after the summary) */
@@ -81,44 +107,48 @@ summary:after {
 
 /* Show a textual prompt for closing details (shown after the summary) */
 details[open] summary:after {
-    color: var(--link-color);
-    font-weight: bold;
     content: "Show less...";
 }
 
 /* Basic shape and alignment of the navigational header and informational footer. */
-nav, footer {
-  border-radius: 3px;
-  margin-top: 4px;
-  margin-bottom: 4px;
+header, footer {
   text-align: center;
 }
 
 /* Place the title on the left and the navigation on the right.  */
-nav {
-    overflow: hidden;
-    width: 90%;
+header {
+    display: flex;
+    /* spreads the elements of a flex-displayed container as far apart as possible */
+    justify-content: space-between;
+    /* aligns the elements of a flex-displayed container vertically, along the center line */
+    align-items: center;
+    margin-bottom: 1em;
 }
 
-nav div {
-    font-size: 14pt;
-    float: right;
-    margin: 2px;
+header h1 {
+    font-size: 16pt;
+    margin: 0;
 }
 
-nav h1 {
-    display: block;
-    float: left;
+nav {    
     font-size: 14pt;
-    margin: 2px;
+}
+
+nav a + a {
+    margin-left: 0.33em;
 }
 
 /* Link styling. All links get the same color. When hovering, they get an underline. */
 a,
 a:visited,
 a:hover { color: var(--link-color) }
+
 a { text-decoration: none; }
 a:hover { text-decoration: underline; }
+
+/* List styling */
+
+li + li { margin-top: 0.5ex; }
 
 /* Applied to the Hugo-generated Table of Contents.
  * To get a TOC, the following is added to the YAML.
@@ -128,16 +158,6 @@ output:
     toc: true
 
 */
-
-header nav {
-  border-radius: 3px;
-  width: auto;
-  margin: 15px;
-  float: left;
-  min-width: 40%;
-  padding-right: 10px;
-  display: inline-block;
-}
 
 /* Code Boxes */
 pre {
@@ -154,18 +174,11 @@ code {
 pre code { background: none; }
 
 /* Images, tables, etc are centrally aligned. */
-img, iframe, video { 
+img:not(.inline), iframe, video { 
     max-width: 100%;
     display: block;
     margin-left: auto;
     margin-right: auto;
-}
-
-/* Some images shouldn't be centered. */
-img.inline {
-    display: inline;
-    margin-left: none;
-    margin-right: none;
 }
 
 /* For images with caption, placed in-line with text */
@@ -240,36 +253,24 @@ tr:nth-child(even) { background: #444444 }
 
 /* Turn off unused elements in print layouts */
 @media print {
-    footer, nav { display: none !important; }
+    header, footer { display: none !important; }
     code { font-size: 45%; }
     a.footnote-return { display: none !important; }
 }
 
 /* From https://accessibility.oit.ncsu.edu/it-accessibility-at-nc-state/developers/accessibility-handbook/mouse-and-keyboard-events/skip-to-main-content/ */
 a.skip-main {
-    left:-999px;
-    position:absolute;
-    top:auto;
-    width:1px;
-    height:1px;
-    overflow:hidden;
-    z-index:-999;
+    position: absolute;
+    left: -9999px;
+    background-color: #000;
+    color: #fff;
+    padding: 0.25em 1em;
+    border-radius: 16px;
+    border: 4px solid yellow;
+    text-align: center;
+    font-size: 1.25em;
 }
 
-a.skip-main:focus, a.skip-main:active {
-    color: #fff;
-    background-color:#000;
-    left: auto;
-    top: auto;
-    width: 30%;
-    height: auto;
-    overflow:auto;
-    margin: 10px 35%;
-    padding:5px;
-    border-radius: 15px;
-    border:4px solid yellow;
-    text-align:center;
-    font-size:1.2em;
-    z-index:999;
-}
+a.skip-main:focus,
+a.skip-main:active { left: auto; }
 
