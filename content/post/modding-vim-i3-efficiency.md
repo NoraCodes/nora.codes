@@ -21,7 +21,7 @@ For example, here are screenshots of my two most recent mods.
 
 A great many other examples of very pretty mods can be found on [Reddit](https://reddit.com/r/unixporn).
 
-I've always found ricing my system to be a very calming process. It re-familiarizes me with the machine I use to access the world, makes me re-think my work process, and encourages me to heavily optimize every aspect of what I do.
+I've always found modding my system to be a very calming process. It re-familiarizes me with the machine I use to access the world, makes me re-think my work process, and encourages me to heavily optimize every aspect of what I do.
 
 I have a deep sense of aestheticism regarding the software that I use, and my mods reflect this. I use the [i3](http://i3wm.org) window manager, which rather than drawing borders with titles, close buttons, and resize handles around windows simply "tiles" them so that the whole screen space is always used. It also allows me to use the machine exclusively via the keyboard.
 
