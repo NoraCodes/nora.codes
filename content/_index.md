@@ -7,14 +7,19 @@ title: Leonora Tindall
 ![A drawing of my face. I'm wearing a black shirt and a green cardigan, smiling slightly, with my hair down and falling partly over one shoulder.](/images/profile-small.jpg)
 {{< /figure >}}
 
+{{< div "intro" >}}
 Hi, I'm Leonora Tindall. I'm a full time student in computer science at
 [Beloit](https://beloit.edu). I build and break hardware and software, both digital and
 analog.
 
 You can find me on the <a href="https://cybre.space/@tindall" rel="me">Fediverse</a>, on <a href="https://github.com/NoraCodes" rel="me">GitHub</a>, on <a href="https://patreon.com/noracodes" rel="me">Patreon</a>, at nora AT nora DOT codes, and everywhere, with my <a href="/leonoratindall.asc" rel="pgpkey authn">PGP Key</a> and [other keys](/keys).
 {{< /div >}}
+{{< /div >}}
 
+
+{{< section >}}
 ## 💼 Experience
+
 <details>
 <summary>
 I've worked at several companies, including two professional software engineering
@@ -50,8 +55,11 @@ positions and two major volunteer positions.
 
 See my [full resume](/resume.pdf) for more, including volunteer positions and college work
 experience.
-</details>
 
+</details>
+{{< /section >}}
+
+{{< section >}}
 ## 💻 Code
 
 <details>
@@ -70,7 +78,9 @@ significantly to, many open source projects.
 - [libUI-rs](https://github.com/rust-native-ui/libui-rs), Rust bindings to platform APIs to enable Rusty GUI app development
 - [Even more...](/projects)
 </details>
+{{< /section >}}
 
+{{< section >}}
 ## 📜 Writing
 <details>
 <summary>
@@ -82,7 +92,10 @@ I've written tutorials on [type systems](/tutorial/a-gentle-introduction-to-prac
 
 I've also written about topics ranging from [hacker superstitions](/post/hacker-superstitions/) and how spending way too much time customizing my desktop is [productive, actually](/post/modding-vim-i3-and-efficiency/) to [repairable hardware](/post/i-repaired-my-headphones/) and [free software](/post/open-source-for-normal-people/) and [why it matters](/post/a-story-about-my-personal-trainer/), for individuals and for [society](/post/deletefacebook-and-fosta/) as a whole.
 </details>
+{{< /section >}}
 
+{{< section >}}
 ## 📓 Recent Posts
 {{< recent >}}
 
+{{< /section >}}

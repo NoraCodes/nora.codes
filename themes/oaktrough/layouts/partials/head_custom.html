@@ -1,6 +1,6 @@
-    <nav>
+    <header>
       <h1> {{ .Site.Title }} </h1>
-      <div>
+      <nav>
       {{ $title := lower .Title }}
       {{ $section := lower .Section }}
         <a href="{{ .Site.BaseURL }}" title="Home">home</a>
@@ -13,7 +13,7 @@
       {{ $name := lower .Name}}
         <a href="{{ .URL }}" title="{{ .Name }}">{{ lower .Name}}</a>
       {{end}}
-      </div>
+      </nav>
     </ul>
-  </nav>
+  </header>
 
