@@ -6,6 +6,7 @@ categories:
 - Hacking
 - Programming
 - Hardware
+description: A short write-up of my rough-and-ready Geiger counter, and lessons learned from building and testing it.
 ---
 
 {{< figure "right" >}}

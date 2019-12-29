@@ -5,6 +5,7 @@ title: The Sinclair ZX-81/TS-1000
 categories:
 - Hardware
 - Hacking
+description: A beautiful plastic slab of an 80s home computer and how I got it working with a modern dashboard display.
 ---
 
 ![ts_1000_in_styrofoam](/images/ts_1000_in_styrofoam-169x300.jpg) 

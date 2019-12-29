@@ -6,6 +6,7 @@ categories:
 - Open Source
 - Culture
 - Linux
+description: Frustrations with the Linux desktop regarding hardware support.
 ---
 
 Linux cannot fall behind in hardware support. In fact, if we ever want to capture the desktop market, we have to race ahead.
@@ -21,3 +22,10 @@ Why is this? Well, it’s because laptops are often very, very custom. They have
 Windows runs on most laptops, and has a lot of big issues. Privacy concerns, resource overutilization, extremely poor real-time performance, and a massive lack of customization are the obvious ones, along with a downright byzantine user interface without much power to back it up (in the consumer versions, that is). Mac OS X looks simple on the surface while still exposing the massive power of a UNIX to its power users and developers (although this is becoming progressively less true). On the other hand, it costs an absolute fortune to buy into that ecosystem, and that is where Linux comes in.
 
 In reality, Linux is a modern UNIX like Mac OS X, and it is far more flexible and powerful, but to many people, it's just "Windows that costs less". What we need to be is a Mac OS X that can run anywhere. Linux needs to be simple on the surface, which most DEs accomplish brilliantly, while exposing the power of the underlying OS, which isn't hard given a terminal emulator. Where Linux falls short is the "runs anywhere" part.
+
+> An update, four years on. Things are better now; a lot better. I've managed to stay
+almost entirely on Linux as my desktop OS by relying on the excellent support for ThinkPad
+hardware. The mainline kernel supports a lot of hardware out of the box. On the other hand,
+as more custom laptops come out with highly integrated hardware, there is a class of
+very cheap laptops that would be nice to use as Linux machines that have hardware that isn't
+even really well supported on Windows, and is totally unusable on Linux.
