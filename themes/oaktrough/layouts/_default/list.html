@@ -18,7 +18,7 @@
         {{ range .Pages }}
         <li>
           <section>
-              <h3><a href="{{ .URL }}">{{ .Title }}</a>
+              <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a>
               {{ with .Date }}
                 written {{ .Format "Jan 02, 2006" }}
                 {{ end }} </h3>
