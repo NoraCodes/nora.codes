@@ -60,7 +60,18 @@ main h3 {
 .hero {
     font-size: 14pt;
     display: flex;
+    flex-flow: row nowrap;
     align-items: center;
+}
+
+/* Let the hero portrait image be above the hero intro text on small devices. */
+@media only screen and (max-width: 600px) {
+    .hero {
+        font-size: 14pt;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+    }
 }
 
 /* Reduces margin just enough to accomodate the shadow (see below) */
@@ -72,6 +83,11 @@ main h3 {
 /* Adds a soft border-like shadow under the image to make it stand out but not too much */
 .hero img {
     filter: drop-shadow(0 0 2px var(--callout-dropshadow-color));
+}
+
+/* Text block in the hero for displaying larger introductory text. */
+.intro {
+    min-width: 200px;
 }
 
 /* Make section into cards. */
@@ -128,6 +144,15 @@ header {
     margin-bottom: 1em;
 }
 
+/* Let the header text be above the navigation links in the header on small devices. */
+@media only screen and (max-width: 600px) {
+    header {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        margin-bottom: 1em;
+    }
+}
 header h1 {
     font-size: 16pt;
     margin: 0;
@@ -212,10 +237,6 @@ figure.left {
 figure img {
     max-width: 200px;
     border-radius: 3px;
-}
-
-figure.portrait {
-    float: left;
 }
 
 figure.portrait img {
