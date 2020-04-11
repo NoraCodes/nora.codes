@@ -35,7 +35,7 @@ This is valuable in an introductory course, as it avoids wasting class time and 
 
 In my experience as a student, after the first or second year of CS classes, students tend to grasp the basic control structures.
 They can write branches and loops and functions and use basic data structures like lists and maps.
-According to the ACM's 2013 guidance on CS curricula agrees with me here; they recommend a focus on basic structures of programming languages and problem solving.
+The ACM's 2013 guidance on CS curricula agrees with me here; they recommend a focus on basic structures of programming languages and problem solving.
 
 What they can't do, unless they've figured it out on their own, is operate a computer outside of the confines of the IDE they've been taught.
 In none of the curricula I've seen, through personal experience or reading syllabi provided by other students, is there a place for students to get past the myriad of barriers that constitute the use of a computer in the modern day.
