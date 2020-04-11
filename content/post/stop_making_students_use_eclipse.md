@@ -52,7 +52,7 @@ Introductory CS curricula focus on abstract ideas of programming, and use IDEs t
 So, okay, students are being taught how to write code and solve problems with math instead of grapple with the intricate details of the eldrich monstrosities that are modern operating systems. Surely that's a good thing?
 
 The issue is, as Kevlin Henney is fond of saying, "Software is nothing *but* the details."
-When students who don't understand what a file is, or haven't ever edited text in anything but Microsoft Word and don't realize they _can_ edit code outside of an IDE[^msword], they will not be able to do the crucial work of self-directed learning that is a hallmark of all computer science success.
+When students don't understand what a file is, or haven't ever edited text in anything but Microsoft Word and don't realize they _can_ edit code outside of an IDE[^msword], they will not be able to do the crucial work of self-directed learning that is a hallmark of all computer science success.
 When students have only ever programmed in Java using some bespoke learning library provided by their professor, it will take them much longer than necessary to figure out other languages, other libraries, and other approaches.
 In a field that moves as fast as this one does, that's a very serious problem.
 
