@@ -104,3 +104,5 @@ Blending that perspective with more practical elements is important so that stud
 These are hard changes for a lot of departments, especially those with faculty that hasn't writted production software in decades, or has only used a non-UNIX OS for a long time. I don't think that there's any good reason to force students to figure this stuff out on their own.
 
 Students who have a good understanding of theory, competence in a standard UNIX environment with some language of choice, and some exposure to other languages will be better professors, better engineers, and better web developers. Let's improve this field for the future of computing!
+
+> A commenter on Lobste.rs pointed out that there are some great resources from MIT around learning tooling and build systems: [The Missing Semester of Your CS Education](https://lobste.rs/s/ti1k98/missing_semester_your_cs_education_mit)
