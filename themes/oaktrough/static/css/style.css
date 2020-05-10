@@ -1,22 +1,28 @@
 /* Variable declarations which are available to all styles. */
 :root {
+  --pale-silver: #dbcdc6;
+  --champagne-pink: #ead7d1;
+  --russian-violet: #2c0e37;
+  --matriarch: #690375;
+  --matriarch-lightened: #69037530;
+  --mulberry: #cb429f;
   /* The background of the page backdrop. */
-  --bg-color: #DDD;
+  --bg-color: var(--pale-silver); 
   /* The color of text on the backdrop. */
-  --fg-color: #111;
+  --fg-color: var(--russian-violet);
 
   /* The color used for borders and highlights. */
-  --offset-border-color: #BBB;
+  --offset-border-color: var(--matriarch);
   /* The background used to encapsulate off-set text areas of the page. */
-  --offset-bg-color: #AAA;
+  --offset-bg-color: var(--matriarch-lightened);
 
   /* The color used for cards and callouts. */
-  --callout-bg-color: #EEE;
-  --callout-fg-color: #050505;
-  --callout-dropshadow-color: hsla(0deg, 0%, 0%, 0.15);
+  --callout-bg-color: var(--champagne-pink);
+  --callout-fg-color: var(--fg-color);
+  --callout-dropshadow-color: var(--matriarch-lightened);
   
   /* The color used to set links apart from non-interactable text. */
-  --link-color: #44C;
+  --link-color: var(--mulberry);
 }
 
 /* Applied to the whole visible content of the page. */
