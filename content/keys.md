@@ -2,31 +2,11 @@
 title: Keys and Fingerprints
 ---
 
-Here you will find the key material needed to identify me on various services. See also my [keybase](https://keybase.io/lfstindall).
-
-## OMEMO
-
-I use OMEMO for XMPP (Jabber) chats on many devices, as `nora@nora.codes`.
-
-`edoras`, my desktop:
-
-> 321189C6 928E26E5 C20670E0 35A23B70 4EC39AC9 9560850A 650F369F FA10932D
-
-`obsidian`, my laptop:
-
-> 85668C4C D02BCD4A D7BCE362 621DA2E5 D38CAD7B E6696EEB 2A5EF83B AEABB103
-
-`orcrist`, my phone:
-
-> A44E1348 DB980053 5AC96381 AC0DB24A 9D3BFF6F F257BE89 BE0049E7 013A8E7D
-
-## Matrix
-
-Coming soon.
+Here you will find the key material needed to identify me on various services.
 
 ## GPG
 
-I sign and, when possible, encrypt my e-mails with the following key.
+My GPG key is as follows.
 
 ```
 -----BEGIN PGP PUBLIC KEY BLOCK-----
