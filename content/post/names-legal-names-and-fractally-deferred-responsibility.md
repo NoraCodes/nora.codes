@@ -10,9 +10,11 @@ That means software should avoid keeping track of users’ legal names, and soft
 
 ## Names
 
-I suspect few would disagree that a name is a collection of letters, which represents a collection of sounds,[^letters_and_sounds] which people use to refer to an individual in a particular context.
+I suspect few would disagree that a name is a collection of characters[^not_letters] which represents a collection of sounds,[^letters_and_sounds] which people use to refer to an individual in a particular context.
 
 [^letters_and_sounds]: It is possible that, in our modern society, the letters come before the sounds, and the sounds represent the letters. I’ll leave that one to the philosophers and linguists to hash out.
+
+[^not_letters]: As several commenters pointed out, it's not just letters, as Mrs. O'Leary or X Æ A-12 Musk will tell you.
 
 That statement is worded very deliberately. **People** use names to refer to **other people**; yes, organizations have names, but those are almost always much more fixed and less commonly abbreviated. Elizabeth may be Lizzie, Liz, and Ella to different friends and relatives, and of course William can be Will, Willy, Bill, or Billy, but it's a rare company that gets such nicknames, beyond initilisms.
 
@@ -82,7 +84,7 @@ So, returning to names: what should we do?
 
 ## Do Not Record Legal Names (Unless You Have To)
 
-My advice is to save yourself and your organization the trouble. If you’re not paying people or interacting with ICANN, the NHS, or the Selective Service System, **it’s unlikely that you need to record legal names**.
+My advice is to save yourself and your organization the trouble. If you’re not paying people or interacting with ICANN, the NHS,[^nhs] or the Selective Service System, **it’s unlikely that you need to record legal names**.
 
 If people are paying you, you’re almost certainly recording a billing address for each transaction; let them enter a payment name there. That’s likely to be useful for a variety of reasons, from corporate reimbursment to parental charity. In any case, it’s possible that their "legal name" _isn’t_ the name on their credit card or bank account, if, for instance, they recently changed it;[^illegal] if your software can't account for that, it's not just annoying, it's incorrect.
 
@@ -90,11 +92,21 @@ If you create a form with a "name" field, label it somehow with the information 
 
 [^illegal]: Contrary to what many told me, I’ve been assured by the court that changed my name that this is perfectly legal, at least in California. You’re under no obligation to tell anyone in particular about your name change.
 
+[^nhs]: In the UK, there isn't a single concept of a "legal name", and indeed, a lot of software that makes this assumption is guilty not only of being annoying and incorrect but also US-centric. The NHS, however, does require an "official name" which can be verified against birth date, NHS ID, and other information.
+
 ## Names Aren’t Legal Names
 
 If you do find yourself needing to record legal names, **those shouldn’t be the main way your system refers to your users**. Give them a “Name” and “Legal Name (if different)” field on signup forms, or let them uncheck a “This is my legal name” checkbox if you feel like that adds too much clutter. Then let them change their name any time, and only use the “legal name” field when you need to.
 
-I promise you that your users with long names, your transgender users, and your users who are getting ready to get married, or divorced, or to leave abusive living situations and want to leave their old name behind, will thank you. And so will your customer success team, because they won’t have to process stacks of name change papers!
+## Names Are Mutable
+
+Furthermore, the "name" field should be trivial for a user to change.[^jcrawfordor] Becuase a "legal name" field can be used when official documents are involved, there are few ramifications that won't be controlled by existing social structures. This means using something else as a unique key, like a UUID or even a simple serial index. Many operating systems, for instance, are guilty of making it very difficult to change a username. 
+
+[^jcrawfordor]: Hacker News user jcrawfodor rightly suggested that this point be discussed more directly. It's very important.
+
+I promise you that your users with long names, your transgender users, and your users who are getting ready to get married, or divorced, or to leave abusive living situations and want to leave their old name behind[^abuse], will thank you. And so will your customer success team, because they won’t have to process stacks of name change papers!
+
+[^abuse]: Some commentary brought up the possibility of abuse of name-change mechanisms. While I think it's possible that name changes could be abused to, e.g., create offensive-sounding names, this strikes me as rare and easy to detect - and if changing a name isn't a big deal in your system, someone can just change it back.
 
 Most critically, though, **be clear about how information will be used**, especially names, at the time it is collected. If you're asking for my name on this particular form so you can give me a W2, say, "This is the name we'll put on your W2." If you're asking my what my name is so you can strip everything but the first cluster of letters and put it in your newsletter, say so!
 
