@@ -20,11 +20,11 @@ That statement is worded very deliberately. **People** use names to refer to **o
 
 Names are both sound and text; few people have names that are only written, or only spoken. And the purpose of a name is to refer to an individual within a given context. You may be Danny to your buds at the bar and Mister Khan at the office; those are both "your name."
 
-Experiance shows that names are not unique, and are not guaranteed to follow any specific format, to be of any minimum or maximum length, to be the same for one person throughout their life, or even to exist for each person you (or your software) will encounter.[^falsehoods]
+Experience shows that names are not unique, and are not guaranteed to follow any specific format, to be of any minimum or maximum length, to be the same for one person throughout their life, or even to exist for each person you (or your software) will encounter.[^falsehoods]
 
 [^falsehoods]: “Falsehoods Programmers Believe About Names”, https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/
 
-Despite this belabourment, names, to the software engineer, are very simple. A name is a collection of characters that identifies a person. It almost certainly doesn’t identify them uniquely[^usernames], and importantly, it need not bear any relation to their “legal name”. As software engineers, we are descendents of a proud[^too_proud] heritage[^esr] of hackers who often take great pleasure in assigning and using names, called "handles", which are completely unrelated to their given or legal names.[^handle]
+Despite this belabourment, names, to the software engineer, are very simple. A name is a collection of characters that identifies a person. It almost certainly doesn’t identify them uniquely[^usernames], and importantly, it need not bear any relation to their “legal name”. As software engineers, we are descendants of a proud[^too_proud] heritage[^esr] of hackers who often take great pleasure in assigning and using names, called "handles", which are completely unrelated to their given or legal names.[^handle]
 
 [^too_proud]: Perhaps too proud, at times.
 
@@ -66,7 +66,7 @@ As I mentioned, I changed my name last year. I am still finding systems in which
 
 ## Fractal Deferment of Responsiblity
 
-I was prompted to write this article by the experience of a friend of mine who was somewhat embarrased by having his full, legal name called out in front of a room full of people who only knew him by another name. The was the result of a software system suffering from precisely the ailment I described: someone used the “name” field for the name displayed to kitchen workers who were preparing an order. There was no need for his legal name to be used there, but either the integration was made before the “preferred name” field was added, or the developer of the integration simply didn’t think to use it.
+I was prompted to write this article by the experience of a friend of mine who was somewhat embarrassed by having his full, legal name called out in front of a room full of people who only knew him by another name. The was the result of a software system suffering from precisely the ailment I described: someone used the “name” field for the name displayed to kitchen workers who were preparing an order. There was no need for his legal name to be used there, but either the integration was made before the “preferred name” field was added, or the developer of the integration simply didn’t think to use it.
 
 Upon asking about why that name had been used, he was told that “they just used what was in the system.” And, of course, that’s true! It’s not their fault. In fact, there was nothing they could do about it. There’s probably nothing their boss could do about it, either, or his boss, or the CIO of the college, or the President of the college.
 
@@ -86,7 +86,7 @@ So, returning to names: what should we do?
 
 My advice is to save yourself and your organization the trouble. If you’re not paying people or interacting with ICANN, the NHS,[^nhs] or the Selective Service System, **it’s unlikely that you need to record legal names**.
 
-If people are paying you, you’re almost certainly recording a billing address for each transaction; let them enter a payment name there. That’s likely to be useful for a variety of reasons, from corporate reimbursment to parental charity. In any case, it’s possible that their "legal name" _isn’t_ the name on their credit card or bank account, if, for instance, they recently changed it;[^illegal] if your software can't account for that, it's not just annoying, it's incorrect.
+If people are paying you, you’re almost certainly recording a billing address for each transaction; let them enter a payment name there. That’s likely to be useful for a variety of reasons, from corporate reimbursement to parental charity. In any case, it’s possible that their "legal name" _isn’t_ the name on their credit card or bank account, if, for instance, they recently changed it;[^illegal] if your software can't account for that, it's not just annoying, it's incorrect.
 
 If you create a form with a "name" field, label it somehow with the information that it isn't asking for a "legal name". Many websites with forms have hover-based explanatory text. This is a great place to put something like, "Whatever most people call you," "What you'd like us to call you," or, if you're particularly stuffy, "Legal name not required."
 
