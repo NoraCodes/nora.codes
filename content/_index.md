@@ -1,5 +1,6 @@
 ---
 title: Leonora Tindall
+date: 2016-01-22
 ---
 
 {{< div "hero" >}}

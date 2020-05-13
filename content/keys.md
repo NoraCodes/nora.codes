@@ -1,5 +1,6 @@
 ---
 title: Keys and Fingerprints
+date: 2016-01-22
 ---
 
 Here you will find the key material needed to identify me on various services.
