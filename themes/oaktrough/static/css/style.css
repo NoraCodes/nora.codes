@@ -1,28 +1,28 @@
 /* Variable declarations which are available to all styles. */
 :root {
-  --pale-silver: #dbcdc6;
-  --champagne-pink: #ead7d1;
-  --russian-violet: #2c0e37;
-  --matriarch: #690375;
-  --matriarch-lightened: #69037530;
-  --mulberry: #cb429f;
+  --black-coffee: #352d39;
+  --floral-white: #fef9ef;
+  --charcoal: #2c4251;
+  --charcoal-light: #2c425130;
+  --red-violet: #943246;
+  --lavender-blush: #ffedef;
   /* The background of the page backdrop. */
-  --bg-color: var(--pale-silver); 
+  --bg-color: var(--floral-white); 
   /* The color of text on the backdrop. */
-  --fg-color: var(--russian-violet);
+  --fg-color: var(--black-coffee);
 
   /* The color used for borders and highlights. */
-  --offset-border-color: var(--matriarch);
+  --offset-border-color: var(--charcoal);
   /* The background used to encapsulate off-set text areas of the page. */
-  --offset-bg-color: var(--matriarch-lightened);
+  --offset-bg-color: var(--lavender-blush);
 
   /* The color used for cards and callouts. */
-  --callout-bg-color: var(--champagne-pink);
+  --callout-bg-color: var(--lavender-blush);
   --callout-fg-color: var(--fg-color);
-  --callout-dropshadow-color: var(--matriarch-lightened);
+  --callout-dropshadow-color: var(--charcoal-light);
   
   /* The color used to set links apart from non-interactable text. */
-  --link-color: var(--mulberry);
+  --link-color: var(--red-violet);
 }
 
 /* Applied to the whole visible content of the page. */
