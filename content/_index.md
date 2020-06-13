@@ -9,9 +9,10 @@ date: 2016-01-22
 {{< /figure >}}
 
 {{< div "intro" >}}
-Hi, I'm Leonora Tindall. I'm a full time student in computer science at
-[Beloit](https://beloit.edu). I build and break hardware and software, both digital and
-analog.
+Hi, I'm Nora.
+
+I build and break hardware and software, both digital and analog, in communication
+systems, web software, desktop applications, and audio synthesizers.
 
 You can find me on the {{< relme "https://cybre.space/@tindall" >}} Fediverse {{< /relme >}}, on {{< relme "https://github.com/NoraCodes" >}}GitHub{{< /relme >}}, on {{< relme "https://patreon.com/noracodes" >}}Patreon{{< /relme >}}, at nora AT nora DOT codes, and everywhere, with my {{< pgpkey "/leonoratindall.asc" >}}PGP Key{{< /pgpkey >}} and [other keys](/keys).
 {{< /div >}}
@@ -27,8 +28,9 @@ I've worked at several companies, including two professional software engineerin
 positions and two major volunteer positions.
 {{< /summary >}}
 
-**Google Summer of Code** with **Freifunk** during **Summer 2019.**
+**Contract Software Engineer** with **Freifunk** from **May 2019** to **June 2020.**
 
+(This position began through the Google Summer of Code program.)
 - Worked with a global remote team to develop a greenfield telecommunications project.
 - Designed and built a testing framework for eventually consistent systems.
 - Collaborated on the design of the qaul.net base service API.
