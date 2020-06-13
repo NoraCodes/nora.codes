@@ -14,7 +14,7 @@ Hi, I'm Nora.
 I build and break hardware and software, both digital and analog, in communication
 systems, web software, desktop applications, and audio synthesizers.
 
-You can find me on the {{< relme "https://cybre.space/@tindall" >}} Fediverse {{< /relme >}}, on {{< relme "https://github.com/NoraCodes" >}}GitHub{{< /relme >}}, on {{< relme "https://patreon.com/noracodes" >}}Patreon{{< /relme >}}, at nora AT nora DOT codes, and everywhere, with my {{< pgpkey "/leonoratindall.asc" >}}PGP Key{{< /pgpkey >}} and [other keys](/keys).
+You can find me on the {{< relme "https://cybre.space/@tindall" >}}Fediverse{{< /relme >}}, on {{< relme "https://github.com/NoraCodes" >}}GitHub{{< /relme >}}, at nora AT nora DOT codes, and everywhere else with my {{< pgpkey "/leonoratindall.asc" >}}PGP Key{{< /pgpkey >}} and [other keys](/keys).
 {{< /div >}}
 {{< /div >}}
 
