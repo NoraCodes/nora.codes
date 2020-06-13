@@ -13,7 +13,7 @@ Hi, I'm Leonora Tindall. I'm a full time student in computer science at
 [Beloit](https://beloit.edu). I build and break hardware and software, both digital and
 analog.
 
-You can find me on the <a href="https://cybre.space/@tindall" rel="me">Fediverse</a>, on <a href="https://github.com/NoraCodes" rel="me">GitHub</a>, on <a href="https://patreon.com/noracodes" rel="me">Patreon</a>, at nora AT nora DOT codes, and everywhere, with my <a href="/leonoratindall.asc" rel="pgpkey authn">PGP Key</a> and [other keys](/keys).
+You can find me on the {{< relme "https://cybre.space/@tindall" >}} Fediverse {{< /relme >}}, on {{< relme "https://github.com/NoraCodes" >}}GitHub{{< /relme >}}, on {{< relme "https://patreon.com/noracodes" >}}Patreon{{< /relme >}}, at nora AT nora DOT codes, and everywhere, with my {{< pgpkey "/leonoratindall.asc" >}}PGP Key{{< /pgpkey >}} and [other keys](/keys).
 {{< /div >}}
 {{< /div >}}
 
@@ -21,11 +21,11 @@ You can find me on the <a href="https://cybre.space/@tindall" rel="me">Fediverse
 {{< section >}}
 ## 💼 Experience
 
-<details>
-<summary>
+{{< details >}}
+{{< summary >}}
 I've worked at several companies, including two professional software engineering
 positions and two major volunteer positions.
-</summary>
+{{< /summary >}}
 
 **Google Summer of Code** with **Freifunk** during **Summer 2019.**
 
@@ -57,19 +57,19 @@ positions and two major volunteer positions.
 See my [full resume](/resume.pdf) for more, including volunteer positions and college work
 experience.
 
-</details>
+{{< /details >}}
 {{< /section >}}
 
 {{< section >}}
 ## 💻 Code
 
-<details>
-<summary>
+{{< details >}}
+{{< summary >}}
 I write systems code in [**Rust**](/categories/rust) and **Go**,
 scripts and utilities in [**Python**](/categories/python) and **Lua**, and
 websites in HTML5, CSS, JavaScript, and TypeScript. I've started, or contributed
 significantly to, many open source projects.
-</summary>
+{{< /summary >}}
 
 - [Open Energy Dashboard](https://github.com/OpenEnergyDashboard/OED), a multi-platform energy meter data visualization software built with Node.js, React, and Redux.
 - [rloris](https://github.com/NoraCodes/rloris), a Rust implementation of layer 7 HTTP DoS attacks leveraging fearless concurrency
@@ -78,21 +78,21 @@ significantly to, many open source projects.
 - [workctl](https://github.com/NoraCodes/workctl), a Rust library for multithreaded programming, exposing useful mid-level building blocks
 - [libUI-rs](https://github.com/rust-native-ui/libui-rs), Rust bindings to platform APIs to enable Rusty GUI app development
 - [Even more...](/projects)
-</details>
+{{< /details >}}
 {{< /section >}}
 
 {{< section >}}
 ## 📜 Writing
-<details>
-<summary>
+{{< details >}}
+{{< summary >}}
 I write about projects I work on and try to record and synthesize what I learn about tech,
 society, and more.
-</summary>
+{{< /summary >}}
 
 I've written tutorials on [type systems](/tutorial/a-gentle-introduction-to-practical-types/) and what can be done with them (for instance, [session types](/tutorial/session-types/)), [binary reverse engineering](/tutorial/an-intro-to-x86_64-reverse-engineering/), and application security topics like [embedding malware in PDF files](/post/pdf-embedding-attacks/).
 
 I've also written about topics ranging from [hacker superstitions](/post/hacker-superstitions/) and how spending way too much time customizing my desktop is [productive, actually](/post/modding-vim-i3-and-efficiency/) to [repairable hardware](/post/i-repaired-my-headphones/) and [free software](/post/open-source-for-normal-people/) and [why it matters](/post/a-story-about-my-personal-trainer/), for individuals and for [society](/post/deletefacebook-and-fosta/) as a whole.
-</details>
+{{< /details >}}
 {{< /section >}}
 
 {{< section >}}
