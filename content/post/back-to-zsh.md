@@ -1,6 +1,7 @@
 ---
 title: "Back to Zsh"
 date: 2020-07-14T09:36:23-05:00
+description: I stopped using `fish` and switched back to `zsh` - here's how and why.
 ---
 
 I've gone back to using `zsh`[^zsh] rather than `fish`[^fish] as my primary shell,
