@@ -762,14 +762,14 @@ cmp cl, byte [rdi + rax]
 jne 0x73e;[gb]
 </code></pre>
 
-This block sets `rax` to `r8d` (which we know is zero), then loads a single byte from its third argument, indexed by `eax`. Going back to our arg list, this argument is `&local_2h`, so it's loading `(&local_2h)[0]`. 
+This block sets `rax` to `r8d` (which we know is zero), then loads a single byte from its third argument, indexed by `rax`. Going back to our arg list, this argument is `&local_2h`, so it's loading `(&local_2h)[0]`. 
 
-It then adds a byte loaded from the second argument indexed by `eax` (`(&local_9h)[0]`), and compares it to a byte loaded from its first argument indexed by `eax` (`argv[1][0]`). Remember that this is a loop, so eax will change. In other words:
+It then adds a byte loaded from the second argument indexed by `rax` (`(&local_9h)[0]`), and compares it to a byte loaded from its first argument indexed by `rax` (`argv[1][0]`). Remember that this is a loop, so `rax` will change. In other words:
 
 <pre><code class="c">
 while (/* something?? */) {
-    char temp  = arg3[eax] + arg2[eax];
-    if (temp != arg1[eax]) {
+    char temp  = arg3[rax] + arg2[rax];
+    if (temp != arg1[rax]) {
         return 0; // failure
     }
 }
@@ -787,13 +787,13 @@ je 0x744;[gd]
 This increments the loop counter, then checks if the second argument indexed by the loop counter is zero. If so, it jumps to code (at 0x744) that returns success. Otherwise, it continues looping. Our updated C code looks like this:
 
 <pre><code class="c">
-while (arg2[eax] != 0) {
-    char temp  = arg3[eax] + arg2[eax];
-    if (temp != arg1[eax]) {
+while (arg2[rax] != 0) {
+    char temp  = arg3[rax] + arg2[rax];
+    if (temp != arg1[rax]) {
         return 0; // failure
     }
 
-    eax++;
+    rax++;
 }
 
 return 1;
@@ -801,7 +801,7 @@ return 1;
 
 At this point, it's pretty easy to see what `check_pw` is doing: it's comparing two strings, but it's modifying each byte of one of the strings.
 
-Looking at the arguments passed in `main`, we can see that the program is adding `(&local_2h)[eax]` to `(&local_9h)[eax]`. I suggest going back to the main function (exit visual mode; `pdf@main`) to look at what each of those values will be.
+Looking at the arguments passed in `main`, we can see that the program is adding `(&local_2h)[rax]` to `(&local_9h)[rax]`. I suggest going back to the main function (exit visual mode; `pdf@main`) to look at what each of those values will be.
 
 Both of these are just locations on the stack. We also know that `check_pw` will only be run on a string with 6 characters in it, so we only need to look at 6 values. Here are the values after `local_2h` (you can see them being set in `main`): 2, 3, 2, 3, 5. That's only 5 values. What's going on?
 
