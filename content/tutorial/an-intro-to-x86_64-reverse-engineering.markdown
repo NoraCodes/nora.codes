@@ -856,9 +856,9 @@ That jump is either back to the top if `al` (a single byte from the input string
 
 So what are `ecx` and `esi`? It's easy to see that `ecx` is just a counter; at each loop iteration, it gets incremented, and is used to index the input string. So, after the loop is done, it's equal to the number of non-zero bytes in the string.
 
-`esi` is only modified in one line in the loop: it's the sum of the numerical values of the characters in the string. It's later compared to 0x632. So we need a 16-character string with the sum 0x6e2 (1762). 
+`esi` is only modified in one line in the loop: it's the sum of the numerical values of the characters in the string. It's later compared to 0x6e2. So we need a 16-character string with the sum 0x6e2 (1762). 
 
-My method is to simply divide and then add in the remainder. 1913 over 16 is 110 remainder 2, so we just use character 110 ('n') followed by a single 112 ('p'): `nnnnnnnnnnnnnnnp`. 
+My method is to simply divide and then add in the remainder. 1762 over 16 is 110 remainder 2, so we just use character 110 ('n') followed by a single 112 ('p'): `nnnnnnnnnnnnnnnp`. 
 
 # Appendix
 
