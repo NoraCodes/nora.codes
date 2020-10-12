@@ -733,7 +733,7 @@ test eax, eax
 je 0x7a8
 </code></pre>
 
-The binary loads the addresses of some local variables, loads `argv[1]` again (`rbx`, remember?), and then `call`s a function: `sym.check_pw`. Of course, the actual binary just has the offset of the function, but Radare was smart enough to look up that offset in the symbol table and put the name in for us. `check_pw` sounds pretty promising, as cunction names go, and we can verify that by continuing: after the call, the program jumps to failure if the function returned zero, and continues on to success if it did not (recall that `test eax, eax` followed by `je` jumps if `eax` is zero).
+The binary loads the addresses of some local variables, loads `argv[1]` again (`rbx`, remember?), and then `call`s a function: `sym.check_pw`. Of course, the actual binary just has the offset of the function, but Radare was smart enough to look up that offset in the symbol table and put the name in for us. `check_pw` sounds pretty promising, as function names go, and we can verify that by continuing: after the call, the program jumps to failure if the function returned zero, and continues on to success if it did not (recall that `test eax, eax` followed by `je` jumps if `eax` is zero).
 
 So what exactly does this function do? First, recall that the SystemV x86_64 calling convention says that `rdi`, `rsi`, and `rdx` (the three registers loaded prior to the call) are the first three arguments to the function. So in C, the call looks like this:
 
